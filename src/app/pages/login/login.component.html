@@ -1,0 +1,123 @@
+<div class="page-container">
+        <div class="row flex-sm">
+            <div class="col-sm-12 col-md-12 col-lg-6 px-3">
+                <div class="login-container mx-auto mt-150">
+                    <!-- Login View-->
+                    <div *ngIf="view=='login'" class="login-view ">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="fs-28 Tajawal-Bold text-center">تسجيل الدخول</p>
+                                <p class="mt-20 fs-37 Tajawal-Bold text-center">للدخول إلى لوحة التحكم</p>
+                            </div>
+                        </div>
+                        <form #form="ngForm" (ngSubmit)="submit(form)" class="mt-70">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
+                                    <div class="p-inputgroup">
+                                        <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
+                                        <input class="form-control" type="email" pInputText placeholder="البريد الإلكتروني" />
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="col-12">
+                                        <label class="form-label Tajawal-Medium fs-20" for="email">كلمة المرور</label> <br>
+                                        <div class="p-inputgroup">
+                                            <span class="p-inputgroup-addon"><img src="assets/lock.png" alt="emal logo"></span>
+                                            <input class="form-control" type="password" pInputText placeholder="كلمة المرور" />
+                                        </div>
+                                        <div class="mt-11">
+                                            <a class="blue-txt-color Tajawal-Bold fs-20" style="cursor: pointer;" (click)="setView('forgetPass')">نسيت كلمة المرور؟</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-12">
+                                        <button class="fs-28 text-center align-items-center" type="submit">تسجيل الدخول</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- ForgetPass View-->
+                    <div *ngIf="view=='forgetPass'" class="login-view ">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="fs-28 Tajawal-Bold text-center">تغيير كلمة المرور</p>
+                                <p class="mt-20 fs-28 Tajawal-Bold text-center">ادخل بريدك الالكتروني المسجل لتغيير كلمة المرور</p>
+                            </div>
+                        </div>
+                        <form #formForgetPass="ngForm" (ngSubmit)="submitForgetPass(formForgetPass)" class="mt-70">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
+                                    <div class="p-inputgroup">
+                                        <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
+                                        <input class="form-control" type="email" pInputText placeholder="البريد الإلكتروني" />
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="col-12">
+                                        <p class="Tajawal-Bold fs-20 text-center">هل تراجعت؟ <a class="blue-txt-color Tajawal-Bold fs-20" style="cursor: pointer;" (click)="setView('login')">تسجيل الدخول</a></p>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-12">
+                                        <button class="fs-28 text-center align-items-center mt-50" type="submit">التالي</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- OTP View-->
+                    <div *ngIf="view=='forgetPass'" class="login-view ">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="fs-28 Tajawal-Bold text-center">رمز التحقق</p>
+                                <p class="mt-20 fs-28 Tajawal-Bold text-center">الرجاء ادخال رمز التحقق المرسل على البريد الإلكتروني</p>
+                            </div>
+                        </div>
+                        <form #formForgetPass="ngForm" (ngSubmit)="submitForgetPass(formForgetPass)" class="mt-70">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
+                                    <div class="p-inputgroup">
+                                        <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
+                                        <input class="form-control" type="email" pInputText placeholder="البريد الإلكتروني" />
+                                    </div>
+                                </div>
+                                <div class="row mt-20">
+                                    <div class="col-12">
+                                        <p class="Tajawal-Bold fs-20 text-center">هل تراجعت؟ <a class="blue-txt-color Tajawal-Bold fs-20" style="cursor: pointer;" (click)="setView('login')">تسجيل الدخول</a></p>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-12">
+                                        <button class="fs-28 text-center align-items-center mt-50" type="submit">التالي</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 text-center">
+                <div class="logo mt-150">
+                    <img  src="assets/logo.png" alt="logo">
+                </div>
+            </div>
+        </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

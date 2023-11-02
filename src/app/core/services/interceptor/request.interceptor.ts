@@ -10,6 +10,7 @@ import {
 import { Observable, catchError, map, throwError } from 'rxjs';
 import { HandleHttpErrorsService } from '../handleHttpErrors/handle-http-errors.service';
 
+
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
 
@@ -25,11 +26,11 @@ export class RequestInterceptor implements HttpInterceptor {
     const modified = req.clone({
       setHeaders: {
         // Authorization,
-        'token': token ? token : 'no token',
+        // 'token': token ? token : 'no token',
         'Accept': '*',
-        // 'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
         'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Origin': 'http://10.199.8.185:9988/',
+        'Access-Control-Allow-Origin': 'http://34.147.213.123',
       },
       withCredentials: true
     });

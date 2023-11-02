@@ -4,23 +4,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { ConfirmationService , MessageService } from 'primeng/api';
-import { RequestInterceptor } from './core/interceptor/request.interceptor';
 import { SharedModule } from './shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
+import { RequestInterceptor } from './core/services/interceptor/request.interceptor';
+import { HttpHelperService } from './core/services/http-helper/http-helper.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    AppRoutingModule,
   ],
   providers: [
     ConfirmationService,
     MessageService,
+    HttpHelperService,
+    NgxSpinnerService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass:RequestInterceptor,
