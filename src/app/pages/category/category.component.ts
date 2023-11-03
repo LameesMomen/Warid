@@ -11,6 +11,8 @@ import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper
 export default class CategoryComponent implements OnInit {
 
   allCategories:any;
+  allsubCategoryList:any;
+  firstCategoryChecked:any;
 
   constructor(private http : HttpHelperService , private spinner :  NgxSpinnerService , private messageService:MessageService){}
 
@@ -24,6 +26,8 @@ export default class CategoryComponent implements OnInit {
     this.http.get('productmanager/categories/').subscribe(
       (res:any)=>{
         this.allCategories = res;
+        this.firstCategoryChecked=res[0].id
+        this.allsubCategoryList=res[0].subcategories
         this.spinner.hide();
       },
       err =>{
@@ -34,4 +38,23 @@ export default class CategoryComponent implements OnInit {
     )
   }
 
+  handleSubCategoryItems(id:any){
+    this.spinner.show();
+
+    this.http.get('productmanager/categories/').subscribe(
+      (res:any)=>{
+        this.allsubCategoryList=res.find((items : any)=>{
+          return items.id == id
+        })
+        
+        this.allsubCategoryList=this.allsubCategoryList.subcategories
+
+        this.spinner.hide();
+      },
+      err =>{
+        this.spinner.hide();
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
+  }
 }

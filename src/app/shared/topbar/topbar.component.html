@@ -18,7 +18,7 @@
             <div class="dropdown my-auto">
                 <button (click)="show=!show" class="btn btn-transparent bg-transparent d-flex dropdown-toggle" type="button" data-toggle="dropdown">
                   <i class="pi pi-user fs-5 mx-3"></i>
-                  <p>سلطان عبد الله</p>
+                  <p>{{userName}}</p>
                 </button>
                 <ul   [style.display]="show ? 'block' : 'none'" class="dropdown-menu">
                   <li><a class="dropdown-item" (click)="logOut()">تسجيل خروج</a></li>

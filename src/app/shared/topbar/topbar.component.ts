@@ -32,8 +32,15 @@ export class TopbarComponent implements  OnInit {
   }
 
   logOut(){
-      localStorage.clear();
-       this.route.navigateByUrl('/login');
+    this.http.post('/auth/logout/',{refresh:localStorage.getItem('refreshToken')}).subscribe(
+      res =>{
+        localStorage.clear();
+        this.route.navigateByUrl('/login');
+      },
+      err=>{
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'كلمة المرور او البريد الاكتروني غير صحيح'});
+      }
+    )
   }
 
 }

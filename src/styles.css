@@ -72,6 +72,9 @@ Fonts
 .blue-txt-color{
     color: #007AFF !important;
 }
+.red-color{
+    color: #B71212 !important;
+}
 
 code-input span{
     padding: 8px !important;
