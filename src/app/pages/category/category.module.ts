@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CodeInputModule } from 'angular-code-input';
 import CategoryComponent from './category.component';
+import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 
 
 
@@ -17,7 +18,8 @@ const routes : Routes =[
 
 @NgModule({
   declarations: [
-    CategoryComponent
+    CategoryComponent,
+    SubcategoryComponent
   ],
   imports: [
     CommonModule,

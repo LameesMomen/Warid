@@ -1,0 +1,45 @@
+<!-- Sub Category Section -->
+<div class="row mt-50">
+    <div class="col-12 d-flex justify-content-between">
+        <p  class="Tajawal-Medium fs-28">تصنيف فرعي</p>
+
+        <button class="addSubcategory-btn">
+            <i class="pi pi-plus"></i>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="allsubCategoryList?.length" class="row mt-20">
+    <div *ngFor="let item of allsubCategoryList" class="col-12 subCategory-container my-4 d-flex justify-content-between align-items-center">
+        <div class="subCategory-desc d-flex align-items-center">
+            <p class="number Tajawal-Medium fs-20 my-0 ">{{item.commission.split('.')[0]}}</p>
+            <p class="title Tajawal-Medium fs-28 my-0 me-3">{{item.title}}</p>
+        </div>
+        <div class="subCategory-btns d-flex align-items-center">
+            <button class="delete-btn"><i class="pi pi-trash red-color fs-4"></i></button>
+            <button class="edit-btn Tajawal-Medium fs-20 me-3">تعديل</button>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!allsubCategoryList?.length" class="row mt-50">
+    <div class="col-12 text-center">
+        <div>
+            <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-fw pi-sitemap"></i>
+        </div>
+        <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك تصنيف فرعي حالياً</p>
+    </div>
+</div>
+<!-- End SubCategory Section -->
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
