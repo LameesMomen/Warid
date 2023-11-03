@@ -1,0 +1,52 @@
+.labl {
+    display : block;
+    width: 200px;
+}
+.labl > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+.labl > input + div{ /* DIV STYLES */
+    cursor:pointer;
+    border: 1px solid #ACACAC;
+    color: #2A2A2C;
+}
+
+.labl > input + div.radio-container .circle{
+    background-color: #2A2A2C;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    }
+.labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
+    background-color: #2A2A2C;
+    border: 1px solid #2A2A2C;
+    color: #F7F7F7;
+}
+
+.labl .radio-container{
+border-radius: 8px;
+padding: 13px;
+}
+
+.labl > input:checked + div.radio-container .edit-btn i{
+color: #CECECE;
+}
+
+.labl > input:checked + div.radio-container .circle{
+background-color: #F7F7F7;
+width: 10px;
+height: 10px;
+border-radius: 50%;
+}
+
+.addCategory-btn{
+    width: 190px;
+    height: 80px;
+    background: #2A2A2C;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}

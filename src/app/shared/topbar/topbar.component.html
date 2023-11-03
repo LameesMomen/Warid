@@ -1,0 +1,29 @@
+<div class="navbar">
+    <div class="search d-flex align-items-center">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+            <input class="form-control" name="search" id="search" ngModel #search="ngModel" type="search" pInputText placeholder="ابحث برقم الطلب، رقم جوال اعميل/ المورد" />
+        </div>
+        <div class="button mx-3">
+            <button class="search-btn Tajawal-Medium fs-25">ابحث</button>
+        </div>
+    </div>
+
+    <div class="user-notify d-flex align-items-center">
+        <div class="notify-container mx-3">
+            <i class="pi fs-5 pi-bell"></i>
+        </div>
+
+        <div class="user-container">
+            <div class="dropdown my-auto">
+                <button (click)="show=!show" class="btn btn-transparent bg-transparent d-flex dropdown-toggle" type="button" data-toggle="dropdown">
+                  <i class="pi pi-user fs-5 mx-3"></i>
+                  <p>سلطان عبد الله</p>
+                </button>
+                <ul   [style.display]="show ? 'block' : 'none'" class="dropdown-menu">
+                  <li><a class="dropdown-item" (click)="logOut()">تسجيل خروج</a></li>
+                </ul>
+              </div>
+        </div>
+    </div>
+</div>

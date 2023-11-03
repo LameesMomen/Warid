@@ -1,0 +1,9 @@
+.home-container{
+    padding: 45px 30px;
+}
+
+
+.home-container .content .scroll{
+   overflow-y: auto;
+   overflow-x: hidden;
+}

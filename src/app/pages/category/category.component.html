@@ -1,0 +1,32 @@
+<div class="row mt-50">
+    <div class="col-12">
+        <p class="Tajawal-Bold fs-28  m-0">التصنيفات</p>
+        <p class="Tajawal-Medium fs-20">تصنيف رئيسي</p>
+    </div>
+</div>
+
+<div class="row  d-flex justify-content-between">
+    <div class="col-8 d-flex">
+        <label class="labl mx-2" *ngFor="let item of allCategories">
+            <input type="radio" name="radioname" [value]="item.id" [checked]="item.id == 1" />
+            <div class="radio-container">
+                <div class="edit-btn d-flex justify-content-end">
+                    <i class="pi pi-pencil fs-6"></i>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="circle m-0"></p>
+                        <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+                    </div>
+                    <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission.split('.')[0]}}</p>
+                </div>
+            </div>
+        </label>
+    </div>
+    <div class="col-4">
+        <button class="addCategory-btn Tajawal-Medium fs-20 me-auto">
+            <i class="pi pi-plus mx-2"></i>
+            إضافة تصنيف
+        </button>
+    </div>
+</div>

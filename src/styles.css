@@ -2,9 +2,13 @@
 General
 ************************************************/
 
-body{
+body,html{
     height: 100%;
     width: 100%;
+}
+
+a{
+    cursor: pointer;
 }
 
 /************************************************
@@ -45,18 +49,38 @@ Fonts
 .fs-28{
     font-size: 28px;
 }
+.fs-30{
+    font-size: 30px;
+}
 .fs-37{
     font-size: 37px;
 }
 .fs-20{
     font-size: 20px;
 }
-
-.blue-txt-color{
-    color: #007AFF;
+.fs-25{
+    font-size: 25px;
 }
 
+.mt-50{
+    margin-top: 50px;
+}
 
+.lightBlue-txt-color{
+    color: #007AFF !important;
+}
+.blue-txt-color{
+    color: #007AFF !important;
+}
+
+code-input span{
+    padding: 8px !important;
+}
+
+code-input input{
+    border: 1px solid #1B1C1E !important;
+    border-radius: 8px !important;
+}
 
 .p-toast-message-text,.p-toast-message-content button{
     display: flex !important;
@@ -79,14 +103,77 @@ Fonts
     display: none;
 }
 
+.p-menu {
+    padding: 0.25rem 0;
+    background: transparent !important;
+    color: white !important;
+    border: none;
+    border-radius: 3px;
+    width: 12.5rem;
+} 
+
+.p-menu .p-menuitem {
+    margin: 10px;
+}
+
+.p-menu .p-menuitem-link .p-menuitem-icon {
+    color: #6c757d;
+    margin: 0 0.7rem;
+}
+
+.p-menu .p-menuitem-link .p-menuitem-text {
+    font-size: 19px;
+    font-family: 'Tajawal-Medium';
+}
+
+.p-menu .p-menuitem-link .p-menuitem-icon,.p-menu .p-menuitem-link .p-menuitem-text  {
+    color: #F7F7F7;
+}
+
+.p-menu .p-menuitem-link{
+    padding: 1rem;
+}
+
+.p-menu .p-menuitem-link-active,
+.p-menu .p-menuitem-link-active:active,
+.p-menu .p-menuitem-link:hover,
+.p-menu .p-menuitem-link:hover .p-menuitem-text ,
+.p-menu .p-menuitem-link:hover .p-menuitem-icon,
+.p-menu .p-menuitem-link-active .p-menuitem-text ,
+.p-menu .p-menuitem-link-active .p-menuitem-icon{
+    background-color: #F7F7F7 !important;
+    border-radius: 10px;
+    color: #2A2A2C;
+}
+
 @media only screen and (min-width : 320px) and (max-width : 998px) {
     .fs-28{
         font-size: 20px;
+    }
+    .fs-30{
+        font-size: 25px;
     }
     .fs-37{
         font-size: 28px;
     }
     .fs-20{
         font-size: 16px;
+    }
+
+    .mt-50{
+        margin-top: 20px;
+    }
+
+    .p-toast .p-toast-message.p-toast-message-error{
+        width: 100% !important;
+        margin: auto !important;
+    }
+
+    .p-toast-summary,.p-toast-detail{
+        font-size: 16px !important;
+    }
+
+    code-input span{
+        padding: 2px !important;
     }
 }
