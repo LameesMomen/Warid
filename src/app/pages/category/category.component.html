@@ -8,24 +8,27 @@
 <!-- Category Section -->
 <div class="row  d-flex justify-content-between">
     <div class="col-8 d-flex">
-        <label class="labl mx-2" *ngFor="let item of allCategories">
-            <input type="radio" (change)="handleSubCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
-            <div class="radio-container">
-                <div class="edit-btn d-flex justify-content-end">
-                    <i class="pi pi-pencil fs-6"></i>
-                </div>
-                <div class="d-flex align-items-center">
-                    <div class="d-flex align-items-center">
-                        <p class="circle m-0"></p>
-                        <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+        <swiper-container slides-per-view="3">
+            <swiper-slide *ngFor="let item of allCategories"> 
+                <label class="labl mx-2">
+                <input type="radio" (change)="handleSubCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
+                <div class="radio-container">
+                    <div class="edit-btn d-flex justify-content-end">
+                        <i class="pi pi-pencil fs-6"></i>
                     </div>
-                    <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission.split('.')[0]}}</p>
+                    <div class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
+                            <p class="circle m-0"></p>
+                            <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+                        </div>
+                        <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission.split('.')[0]}}</p>
+                    </div>
                 </div>
-            </div>
-        </label>
+            </label></swiper-slide>
+          </swiper-container>
     </div>
     <div class="col-4">
-        <button class="addCategory-btn Tajawal-Medium fs-20 me-auto">
+        <button (click)="changeView('add category')" class="addCategory-btn Tajawal-Medium fs-20 me-auto">
             <i class="pi pi-plus mx-2"></i>
             إضافة تصنيف
         </button>
@@ -35,7 +38,9 @@
 
 
 <div [ngSwitch]="setView"> 
-    <div *ngSwitchCase="'show SubCategory'"><app-subcategory [id]="subCategoryIndex" [res]="allCategories"></app-subcategory></div> 
+    <div *ngSwitchCase="'show SubCategory'"><app-subcategory  (view)="changeView($event)" [id]="subCategoryIndex" [res]="allCategories"></app-subcategory></div> 
+    <div *ngSwitchCase="'add subCategory'"><app-add-subcategory (view)="changeView($event)"  [id]="subCategoryIndex"></app-add-subcategory></div> 
+    <div *ngSwitchCase="'add category'"><app-add-category (view)="changeView($event)"></app-add-category></div> 
 </div>
 
 <ngx-spinner

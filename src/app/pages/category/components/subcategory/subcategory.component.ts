@@ -1,4 +1,4 @@
-import { Component , Input } from '@angular/core';
+import { Component , EventEmitter, Input, Output } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
@@ -12,6 +12,7 @@ export class SubcategoryComponent {
 
   @Input() public id:any
   @Input() public res:any
+  @Output() view = new EventEmitter<string>();
 
   allsubCategoryList:any;
 
@@ -33,5 +34,9 @@ export class SubcategoryComponent {
     })
     
     this.allsubCategoryList=this.allsubCategoryList.subcategories
+  }
+
+  addingSubCategory(){
+    this.view.emit('add subCategory')
   }
 }

@@ -1,0 +1,31 @@
+<div class="row mt-50">
+    <div class="col-12 d-flex justify-content-between">
+        <p  class="Tajawal-Medium fs-28">إضافة تصنيف رئيسي</p>
+    </div>
+</div>
+
+<div class="row mt-20">
+    <form #form="ngForm" (ngSubmit)="submit(form)">
+        <div class="col-12">
+            <div class="form-container">
+                <div class="row my-3">
+                    <div class="col-12 d-flex align-items-center">
+                        <label class="form-label" for="title"><i class="pi pi-circle-fill fs-5 ms-3"></i></label>
+                        <input style="width:70%;" class="form-control me-2" type="text" name="title" id="title" required ngModel #title="ngModel" placeholder="اسم التصنيف">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-12 d-flex align-items-center">
+                        <label class="form-label" for="unit_type"><i style="font-size: 10px;" class="pi pi-circle-fill ms-2"></i> الوحدة</label>
+                        <input style="width:70%;" class="form-control me-2" type="text" name="unit_type" id="unit_type" required ngModel #unit_type="ngModel" placeholder="مثال : كيس">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-12 mt-5 d-flex justify-content-center">
+                        <button type="submit" [disabled]="form.invalid" class="add-btn Tajawal-Medium fs-20 me-3">إضافة تصنيف</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

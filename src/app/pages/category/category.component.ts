@@ -3,6 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
 
+
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -45,5 +46,10 @@ export default class CategoryComponent implements OnInit {
 
   handleSubCategoryItems(id:any){
     this.subCategoryIndex = id
+    this.setView='show SubCategory'
+  }
+
+  changeView(value:any){
+    this.setView=value
   }
 }

@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       },
       err=>{
       this.spinner.hide()
-        this.messageService.add({severity:'error', summary:'خطأ', detail:'كلمة المرور او البريد الاكتروني غير صحيح'});
+        this.messageService.add({severity:'error',  summary:'خطأ', detail:'كلمة المرور او البريد الاكتروني غير صحيح'});
       }
     )
   }

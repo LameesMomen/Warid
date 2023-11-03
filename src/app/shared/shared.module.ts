@@ -16,6 +16,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 
 
 
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -41,6 +42,6 @@ import { TopbarComponent } from './topbar/topbar.component';
     NgxSpinnerModule,
     MenubarModule,
     MenuModule
-  ]
+  ],
 })
 export class SharedModule { }
