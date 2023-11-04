@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
 
-
 @Component({
-  selector: 'app-category',
-  templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  selector: 'app-product',
+  templateUrl: './product.component.html',
+  styleUrls: ['./product.component.css']
 })
-export default class CategoryComponent implements OnInit {
+export class ProductComponent {
 
   allCategories:any;
-  allsubCategoryList:any;
   firstCategoryChecked:any;
-  subCategoryIndex:any
-  categoryId:any
+  productCategoryIndex:any
+
 
   setView:string=''
+  styleView:string='boxesView'
 
   constructor(private http : HttpHelperService , private spinner :  NgxSpinnerService , private messageService:MessageService){}
 
@@ -32,8 +31,8 @@ export default class CategoryComponent implements OnInit {
       (res:any)=>{
         this.allCategories = res;
         this.firstCategoryChecked=res[0].id
-        this.subCategoryIndex=res[0].id
-        this.setView='show SubCategory'
+        this.productCategoryIndex=res[0].id
+        this.setView='show product'
 
         this.spinner.hide();
       },
@@ -45,17 +44,16 @@ export default class CategoryComponent implements OnInit {
     )
   }
 
-  handleSubCategoryItems(id:any){
-    this.subCategoryIndex = id
-    this.setView='show SubCategory'
+  handleProductCategoryItems(id:any){
+    this.productCategoryIndex = id
+    this.setView='show product'
   }
 
   changeView(value:any){
     this.setView=value
   }
 
-  editCategory(id:any){
-    this.categoryId=id;
-    this.setView='edit category'
+  changeStyleView(value:any){
+    this.styleView=value
   }
 }

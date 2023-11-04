@@ -12,6 +12,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuModule} from 'primeng/menu';
 import { TopbarComponent } from './topbar/topbar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -32,7 +33,8 @@ import { TopbarComponent } from './topbar/topbar.component';
     ReactiveFormsModule,
     NgxSpinnerModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    NgxPaginationModule
   ],
   exports:[
     ToastModule,
@@ -41,7 +43,8 @@ import { TopbarComponent } from './topbar/topbar.component';
     ReactiveFormsModule,
     NgxSpinnerModule,
     MenubarModule,
-    MenuModule
+    MenuModule,
+    NgxPaginationModule
   ],
 })
 export class SharedModule { }

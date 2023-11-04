@@ -3,14 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CodeInputModule } from 'angular-code-input';
-import CategoryComponent from './category.component';
-import { SubcategoryComponent } from './components/subcategory/subcategory.component';
-import { AddSubcategoryComponent } from './components/add-subcategory/add-subcategory.component';
-import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { ProductComponent } from './product.component';
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
-import { EditCategoryComponent } from './components/edit-category/edit-category.component';
+import { ViewProductsComponent } from './components/view-products/view-products.component';
 // register Swiper custom elements
 register();
 
@@ -18,17 +15,14 @@ register();
 const routes : Routes =[
   {
     path : '',
-    component : CategoryComponent
+    component : ProductComponent
   }
 ]
 
 @NgModule({
   declarations: [
-    CategoryComponent,
-    SubcategoryComponent,
-    AddSubcategoryComponent,
-    AddCategoryComponent,
-    EditCategoryComponent
+    ProductComponent,
+    ViewProductsComponent
   ],
   imports: [
     CommonModule,
@@ -39,4 +33,4 @@ const routes : Routes =[
   schemas :[CUSTOM_ELEMENTS_SCHEMA]
 
 })
-export class CategoryModule { }
+export class ProductModule { }

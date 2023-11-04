@@ -1,0 +1,65 @@
+<!-- Boxes View -->
+<div *ngIf="styleView == 'boxesView' && allProductList?.length">
+    <div class="row my-5">
+        <div class="col-sm-12 col-md-6 col-lg-2 mx-2" *ngFor="let item of allProductList | paginate:{
+            itemsPerPage : 10,
+            currentPage : page,
+            totalItems : allProductList?.length
+        }; let i = index ">
+            <div class="boxesProduct-container">
+                <img src="assets/dummy.png" alt="product item" width="100%" height="107px">
+                <p class="Tajawal-Bold fs-20 mt-2 mb-0 text-center">{{item.title}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <pagination-controls 
+             nextLabel = ">"
+            previousLabel ="<"
+            (pageChange)="page = $event">
+        </pagination-controls>
+    </div>
+</div>
+<!-- End Boxes View -->
+
+<!-- Rows View -->
+<div *ngIf="styleView == 'rowsView' && allProductList?.length">
+    <div class="row my-5">
+        <div class="col-sm-12 col-md-12 col-lg-6 my-2" *ngFor="let item of allProductList | paginate:{
+            itemsPerPage : 10,
+            currentPage : page,
+            totalItems : allProductList?.length
+        }; let i = index ">
+            <div class="rowsProduct-container d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <img src="assets/dummy.png" alt="product item" width="80px">
+                    <p class="Tajawal-Bold fs-20 mx-3">{{item.title}}</p>
+                </div>
+                <div class="delete-btn-container">
+                    <button class="delete-btn"><i class="pi pi-trash red-color fs-4"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <pagination-controls 
+             nextLabel = ">"
+            previousLabel ="<"
+            (pageChange)="page = $event">
+        </pagination-controls>
+    </div>
+</div>
+<!-- End Rows View -->
+
+
+
+<div *ngIf="!allProductList?.length" class="row mt-50">
+    <div class="col-12 text-center mt-50">
+        <div>
+            <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-fw pi-sitemap"></i>
+        </div>
+        <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك منتجات حالياً</p>
+    </div>
+</div>

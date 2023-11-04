@@ -1,0 +1,32 @@
+.form-container{
+    width: 350px;
+    height: 285px;
+    border: 1px solid #ACACAC;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+.add-btn{
+    background-color: black;
+    width: 120px;
+    height: 57px;
+    border: 1px solid #2A2A2C;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.delete-btn{
+    background-color: #B71212;
+    width: 120px;
+    height: 57px;
+    border: 1px solid #2A2A2C;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

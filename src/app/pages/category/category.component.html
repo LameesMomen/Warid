@@ -13,8 +13,11 @@
                 <label class="labl mx-2">
                 <input type="radio" (change)="handleSubCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
                 <div class="radio-container">
-                    <div class="edit-btn d-flex justify-content-end">
-                        <i class="pi pi-pencil fs-6"></i>
+                    <div class="edit-btn d-flex flex-column justify-content-end align-items-end">
+                        <img  width="20px" src="assets/dots.png" alt="">
+                        <button (click)="editCategory(item.id)" class="editCategory-btn">
+                            <i class="pi pi-pencil fs-6 my-2"></i>
+                        </button>
                     </div>
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center">
@@ -41,6 +44,7 @@
     <div *ngSwitchCase="'show SubCategory'"><app-subcategory  (view)="changeView($event)" [id]="subCategoryIndex" [res]="allCategories"></app-subcategory></div> 
     <div *ngSwitchCase="'add subCategory'"><app-add-subcategory (view)="changeView($event)"  [id]="subCategoryIndex"></app-add-subcategory></div> 
     <div *ngSwitchCase="'add category'"><app-add-category (view)="changeView($event)"></app-add-category></div> 
+    <div *ngSwitchCase="'edit category'"><app-edit-category (view)="changeView($event)" [id]="categoryId"></app-edit-category></div> 
 </div>
 
 <ngx-spinner
