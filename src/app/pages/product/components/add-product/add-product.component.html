@@ -1,0 +1,42 @@
+<div class="row mt-50">
+    <div class="col-12 d-flex justify-content-between">
+        <p  class="Tajawal-Medium fs-28">إضافة منتج املي البيانات التالية ...</p>
+    </div>
+</div>
+
+<div class="row mt-20">
+    <form #form="ngForm" (ngSubmit)="submit(form)">
+        <div class="col-12">
+            <div class="form-container">
+                <div class="row my-3">
+                    <div class="col-12 image-container text-center">
+                        <label style="cursor: pointer;" class="form-label" for="pic">
+                            <img width="100%" [src]="productImage" alt="upload image">
+                        </label>
+                        <input (change)="changeImage($event)" style="width:100%;" class="form-control" type="file" name="pic" id="pic" required ngModel #pic="ngModel" accept="image/*">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-12 d-flex justify-content-center">
+                        <input style="width:205px" class="form-control" type="text" name="title" id="title" required ngModel #title="ngModel" placeholder="اسم المنتج">
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-12 text-center">
+                        <p-dropdown [required]="true" (onChange)="showSubCategory(category.value)" [options]="allCategories" name="category" id="category" ngModel #category="ngModel" optionLabel="title" optionValue="id" placeholder="التصنيف"></p-dropdown>
+                    </div>
+                </div>
+                <div *ngIf="allSubCategories" class="row my-3">
+                    <div class="col-12 text-center">
+                        <p-dropdown [required]="true"  [options]="allSubCategories" name="subcategory" id="subcategory" ngModel #subcategory="ngModel" optionLabel="title" optionValue="id" placeholder=" التصنيف الفرعي"></p-dropdown>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-12 mt-3 d-flex justify-content-center">
+                        <button type="submit" [disabled]="form.invalid" class="add-btn Tajawal-Medium fs-20">إضافة منتج</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

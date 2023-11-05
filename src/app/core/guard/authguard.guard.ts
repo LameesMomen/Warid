@@ -11,7 +11,7 @@ export class AuthdGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      if(!localStorage.getItem('isLogin') ){
+      if(localStorage.getItem('isLogin') != 'logedin'){
         localStorage.clear();
         sessionStorage.clear();
         this.route.navigateByUrl('/login')

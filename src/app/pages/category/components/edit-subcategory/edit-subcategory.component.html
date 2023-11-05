@@ -12,10 +12,10 @@
     <form #form="ngForm" (ngSubmit)="submit(form)">
     <div class="col-12 subCategory-container my-4 d-flex justify-content-between align-items-center">
             <div class="subCategory-desc d-flex align-items-center">
-                <input style="width:80%;" class="form-control" type="text" name="title" id="title" required ngModel #title="ngModel" placeholder="اسم الصنف الفرعي">
+                <input style="width:80%;" class="form-control" type="text" name="title" id="title" required [(ngModel)]="title" placeholder="اسم الصنف الفرعي">
             </div>
             <div class="subCategory-btns">
-                <button type="submit" [disabled]="form.invalid" class="add-btn Tajawal-Medium fs-20 me-3">إضافة</button>
+                <button type="submit" [disabled]="form.invalid" class="add-btn Tajawal-Medium fs-20 me-3">حفظ</button>
             </div>
         </div>
     </form>

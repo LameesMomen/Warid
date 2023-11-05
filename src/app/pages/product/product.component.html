@@ -7,33 +7,35 @@
 
 <!-- Category Section -->
 <div class="row mt-4  d-flex justify-content-between">
-    <div class="col-8 d-flex">
-        <swiper-container slides-per-view="3">
-            <swiper-slide *ngFor="let item of allCategories"> 
-                <label class="labl mx-2">
-                <input type="radio" (change)="handleProductCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
-                <div class="radio-container">
-                    <div class="d-flex align-items-center">
+    <div class="col-sm-12 col-md-12 col-lg-10">
+        <swiper class="col-12" [config]="swiperOption">
+            <ng-container *ngFor="let item of allCategories">
+                <ng-template swiperSlide>
+                    <label class="labl mx-2">
+                    <input type="radio" (change)="handleProductCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
+                    <div class="radio-container">
                         <div class="d-flex align-items-center">
-                            <p class="circle m-0"></p>
-                            <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+                            <div class="d-flex align-items-center">
+                                <p class="circle m-0"></p>
+                                <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+                            </div>
+                            <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission}}</p>
                         </div>
-                        <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission.split('.')[0]}}</p>
                     </div>
-                </div>
-            </label>
-        </swiper-slide>
-          </swiper-container>
+                    </label>
+                </ng-template>
+            </ng-container>
+    </swiper>
     </div>
-    <div class="col-4 d-flex align-items-center justify-content-end">
-        <label class="viewLabl mx-2">
-            <input type="radio" (change)="changeStyleView('boxesView')" name="radioview" value="boxesView" [checked]="styleView == 'boxesView'" />
+    <div class="col-2 d-flex align-items-center justify-content-end">
+        <label  [ngStyle]="{'opacity': (disableStyleViews) ? '0.5' : '1'}" class="viewLabl mx-2">
+            <input [disabled]="disableStyleViews" type="radio" (change)="changeStyleView('boxesView')" name="radioview" value="boxesView" [checked]="styleView == 'boxesView'" />
             <div class="radioView-container">
                 <i class="pi pi-th-large"></i>
             </div>
         </label>
-        <label class="viewLabl mx-2">
-            <input type="radio" (change)="changeStyleView('rowsView')" name="radioview" value="rowsView" [checked]="styleView == 'rowsView'" />
+        <label  [ngStyle]="{'opacity': (disableStyleViews) ? '0.5' : '1'}" class="viewLabl mx-2">
+            <input [disabled]="disableStyleViews" type="radio" (change)="changeStyleView('rowsView')" name="radioview" value="rowsView" [checked]="styleView == 'rowsView'" />
             <div class="radioView-container">
                 <i class="pi pi-list"></i>
             </div>
@@ -44,7 +46,8 @@
 
 
 <div [ngSwitch]="setView"> 
-    <div *ngSwitchCase="'show product'"><app-view-products  (view)="changeView($event)" [id]="productCategoryIndex" [styleView]="styleView"></app-view-products></div> 
+    <div *ngSwitchCase="'show product'"><app-view-products  (emptyView)="disableStyleView($event)" [id]="productCategoryIndex" [styleView]="styleView"></app-view-products></div> 
+    <div *ngSwitchCase="'add product'"><app-add-product  (view)="changeView($event)"  [styleView]="styleView"></app-add-product></div> 
 </div>
 
 <ngx-spinner

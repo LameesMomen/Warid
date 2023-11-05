@@ -19,6 +19,18 @@ const routes:Routes=[
         path:'product',
         loadChildren:()=>import('./pages/product/product.module').then(m=>m.ProductModule),
       },
+      {
+        path:'',
+        loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
+      },
+      {
+        path:'*',
+        loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
+      },
+      {
+        path:'**',
+        loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
+      },
 
     ]
   },

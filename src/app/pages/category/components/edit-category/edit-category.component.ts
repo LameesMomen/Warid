@@ -16,6 +16,7 @@ export class EditCategoryComponent implements OnInit{
 
   title:any;
   unit_type:any
+  commission:any
 
   constructor(private http : HttpHelperService , private spinner: NgxSpinnerService , private messageService : MessageService){}
 
@@ -33,6 +34,7 @@ export class EditCategoryComponent implements OnInit{
       (res:any)=>{
         this.title=res.title;
         this.unit_type=res.unit_type;
+        this.commission=res.commission;
         this.spinner.hide()
       },
       err=>{
@@ -44,15 +46,19 @@ export class EditCategoryComponent implements OnInit{
 
   submit(form:any){
     this.spinner.show();
-    let body :{'title' :  string , 'unit_type' : string}={
-      title: form.value.title,
-      unit_type: form.value.unit_type
+    let body :{'title' :  string , 'unit_type' : string , 'commission' : any , 'parent_category' : any}={
+      title: this.title,
+      unit_type: this.unit_type,
+      commission: this.commission,
+      parent_category: null
     }
 
-    this.http.post('/productmanager/categories/',body).subscribe(
+    this.http.put(`/productmanager/admin/categories/${this.id}/`,body).subscribe(
       res=>{
         this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
-        this.view.emit('show SubCategory')
+        setTimeout(() => {
+          this.view.emit('show SubCategory')
+        }, 500);
         this.spinner.hide();
       },
       err=>{

@@ -13,6 +13,8 @@ export class SubcategoryComponent {
   @Input() public id:any
   @Input() public res:any
   @Output() view = new EventEmitter<string>();
+  @Output() subCategoryId = new EventEmitter<number>();
+  @Output() parentId = new EventEmitter<number>();
 
   allsubCategoryList:any;
 

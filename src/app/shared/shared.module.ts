@@ -13,7 +13,8 @@ import {MenubarModule} from 'primeng/menubar';
 import {MenuModule} from 'primeng/menu';
 import { TopbarComponent } from './topbar/topbar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import {DropdownModule} from 'primeng/dropdown';
+import { SwiperModule } from 'swiper/angular';
 
 
 
@@ -34,7 +35,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxSpinnerModule,
     MenubarModule,
     MenuModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DropdownModule,
+    SwiperModule
   ],
   exports:[
     ToastModule,
@@ -44,7 +47,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxSpinnerModule,
     MenubarModule,
     MenuModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    DropdownModule,
+    SwiperModule
   ],
 })
 export class SharedModule { }

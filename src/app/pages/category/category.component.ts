@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
+import swiperCore, { Navigation, SwiperOptions } from 'swiper';
+
+swiperCore.use([Navigation])
 
 
 @Component({
@@ -16,10 +20,31 @@ export default class CategoryComponent implements OnInit {
   firstCategoryChecked:any;
   subCategoryIndex:any
   categoryId:any
-
   setView:string=''
 
-  constructor(private http : HttpHelperService , private spinner :  NgxSpinnerService , private messageService:MessageService){}
+  // for edit sub category
+
+  subCategoryId:any
+  parentId:any
+
+
+  constructor(private http : HttpHelperService , private spinner :  NgxSpinnerService , private messageService:MessageService , private router : Router){}
+
+  swiperOption : SwiperOptions  ={
+    slidesPerView : 4,
+
+    breakpoints :{
+      320:{
+        slidesPerView : 2
+      },
+      560:{
+        slidesPerView : 3
+      },
+      860:{
+        slidesPerView : 5
+      },
+    }
+  }
 
   ngOnInit(): void {
     this.getAllCategories()
@@ -51,11 +76,26 @@ export default class CategoryComponent implements OnInit {
   }
 
   changeView(value:any){
+    if(value == 'show SubCategory'){
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate(['category']);
+    });
+    }
     this.setView=value
   }
 
   editCategory(id:any){
     this.categoryId=id;
     this.setView='edit category'
+  }
+
+
+  // For Edit SubCategory
+  subCategoryIdForEditSubCategory(value:any){
+    this.subCategoryId = value
+  }
+
+  parentIdForEditSubCategory(value:any){
+    this.parentId = value
   }
 }

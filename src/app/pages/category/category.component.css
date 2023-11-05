@@ -1,6 +1,6 @@
 .labl {
     display : block;
-    width: 200px;
+    width: max-content;
 }
 .labl > input{ /* HIDE RADIO */
     visibility: hidden; /* Makes input not-clickable */
@@ -67,6 +67,10 @@ border-radius: 50%;
 }
 
 
-swiper-container{
-    margin: 0;
+.swiper{
+    margin: 0 !important;
+}
+
+::ng-deep .swiper-slide{
+   width: max-content !important;
 }

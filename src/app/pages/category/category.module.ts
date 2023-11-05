@@ -8,11 +8,10 @@ import { SubcategoryComponent } from './components/subcategory/subcategory.compo
 import { AddSubcategoryComponent } from './components/add-subcategory/add-subcategory.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
 
-// import function to register Swiper custom elements
-import { register } from 'swiper/element/bundle';
+
 import { EditCategoryComponent } from './components/edit-category/edit-category.component';
-// register Swiper custom elements
-register();
+import { EditSubcategoryComponent } from './components/edit-subcategory/edit-subcategory.component';
+
 
 
 const routes : Routes =[
@@ -28,7 +27,8 @@ const routes : Routes =[
     SubcategoryComponent,
     AddSubcategoryComponent,
     AddCategoryComponent,
-    EditCategoryComponent
+    EditCategoryComponent,
+    EditSubcategoryComponent
   ],
   imports: [
     CommonModule,

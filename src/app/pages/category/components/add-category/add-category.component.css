@@ -1,6 +1,6 @@
 .form-container{
-    width: 350px;
-    height: 285px;
+    width: max-content;
+    height: max-content;
     border: 1px solid #ACACAC;
     border-radius: 8px;
     padding: 10px;

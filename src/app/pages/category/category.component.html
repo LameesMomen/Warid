@@ -6,31 +6,34 @@
 </div>
 
 <!-- Category Section -->
-<div class="row  d-flex justify-content-between">
-    <div class="col-8 d-flex">
-        <swiper-container slides-per-view="3">
-            <swiper-slide *ngFor="let item of allCategories"> 
-                <label class="labl mx-2">
-                <input type="radio" (change)="handleSubCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
-                <div class="radio-container">
-                    <div class="edit-btn d-flex flex-column justify-content-end align-items-end">
-                        <img  width="20px" src="assets/dots.png" alt="">
-                        <button (click)="editCategory(item.id)" class="editCategory-btn">
-                            <i class="pi pi-pencil fs-6 my-2"></i>
-                        </button>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center">
-                            <p class="circle m-0"></p>
-                            <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-10">
+        <swiper style="width: 95%;" [config]="swiperOption">
+            <ng-container *ngFor="let item of allCategories">
+                <ng-template swiperSlide>
+                    <label class="labl mx-2">
+                        <input type="radio" (change)="handleSubCategoryItems(item.id)" name="radioname" [value]="item.id" [checked]="item.id == firstCategoryChecked" />
+                        <div class="radio-container">
+                            <div class="edit-btn d-flex flex-column justify-content-end align-items-end">
+                                <img  width="20px" src="assets/dots.png" alt="">
+                                <button (click)="editCategory(item.id)" class="editCategory-btn">
+                                    <i class="pi pi-pencil fs-6 my-2"></i>
+                                </button>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="d-flex align-items-center">
+                                    <p class="circle m-0"></p>
+                                    <p class="m-0 Tajawal-Medium fs-20 mx-3">{{item.title}}</p>
+                                </div>
+                                <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission}}</p>
+                            </div>
                         </div>
-                        <p class="number m-0 Tajawal-Medium fs-20 me-5">{{item.commission.split('.')[0]}}</p>
-                    </div>
-                </div>
-            </label></swiper-slide>
-          </swiper-container>
+                    </label>
+                </ng-template>
+            </ng-container>
+          </swiper>
     </div>
-    <div class="col-4">
+    <div class="col-sm-12 col-md-12 col-lg-2 my-4 my-lg-auto">
         <button (click)="changeView('add category')" class="addCategory-btn Tajawal-Medium fs-20 me-auto">
             <i class="pi pi-plus mx-2"></i>
             إضافة تصنيف
@@ -41,8 +44,9 @@
 
 
 <div [ngSwitch]="setView"> 
-    <div *ngSwitchCase="'show SubCategory'"><app-subcategory  (view)="changeView($event)" [id]="subCategoryIndex" [res]="allCategories"></app-subcategory></div> 
+    <div *ngSwitchCase="'show SubCategory'"><app-subcategory  (view)="changeView($event)" (subCategoryId)="subCategoryIdForEditSubCategory($event)" (parentId)="parentIdForEditSubCategory($event)" [id]="subCategoryIndex" [res]="allCategories"></app-subcategory></div> 
     <div *ngSwitchCase="'add subCategory'"><app-add-subcategory (view)="changeView($event)"  [id]="subCategoryIndex"></app-add-subcategory></div> 
+    <div *ngSwitchCase="'edit subCategory'"><app-edit-subcategory (view)="changeView($event)" [parentId]="parentId" [subCategoryId]="subCategoryId" ></app-edit-subcategory></div> 
     <div *ngSwitchCase="'add category'"><app-add-category (view)="changeView($event)"></app-add-category></div> 
     <div *ngSwitchCase="'edit category'"><app-edit-category (view)="changeView($event)" [id]="categoryId"></app-edit-category></div> 
 </div>

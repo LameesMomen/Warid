@@ -22,10 +22,12 @@ export class AddSubcategoryComponent {
       parent_category: this.id
     }
 
-    this.http.post('/productmanager/categories/',body).subscribe(
+    this.http.post('/productmanager/admin/categories/',body).subscribe(
       res=>{
         this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
-        this.view.emit('show SubCategory')
+        setTimeout(() => {
+          this.view.emit('show SubCategory')
+        }, 500);
         this.spinner.hide();
       },
       err=>{

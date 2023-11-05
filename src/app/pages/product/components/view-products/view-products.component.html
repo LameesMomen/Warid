@@ -1,7 +1,7 @@
 <!-- Boxes View -->
 <div *ngIf="styleView == 'boxesView' && allProductList?.length">
     <div class="row my-5">
-        <div class="col-sm-12 col-md-6 col-lg-2 mx-2" *ngFor="let item of allProductList | paginate:{
+        <div class="col-sm-12 col-md-6 col-lg-2 mx-2 my-2" *ngFor="let item of allProductList | paginate:{
             itemsPerPage : 10,
             currentPage : page,
             totalItems : allProductList?.length

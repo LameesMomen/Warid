@@ -13,7 +13,7 @@ export class ViewProductsComponent {
   @Input() public id:any
   @Input() styleView:any
 
-  @Output() view = new EventEmitter<string>();
+  @Output() emptyView = new EventEmitter<boolean>();
 
   allProductList:any;
   page : number =1
@@ -37,6 +37,7 @@ export class ViewProductsComponent {
     this.http.get(`/productmanager/products/?category_id=${id}`).subscribe(
       (res:any)=>{
         this.allProductList=res;
+        this.allProductList.length ? this.emptyView.emit(false) : this.emptyView.emit(true)
         this.spinner.hide()
       },
       err =>{
@@ -46,5 +47,4 @@ export class ViewProductsComponent {
     )
   }
 
-  onDataChange(event:any){}
 }

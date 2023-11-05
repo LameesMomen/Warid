@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
+import { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-product',
@@ -17,9 +18,27 @@ export class ProductComponent {
 
   setView:string=''
   styleView:string='boxesView'
+  disableStyleViews:boolean=false
 
   constructor(private http : HttpHelperService , private spinner :  NgxSpinnerService , private messageService:MessageService){}
 
+
+  swiperOption : SwiperOptions  ={
+    slidesPerView : 5,
+
+    breakpoints :{
+      320:{
+        slidesPerView : 2
+      },
+      560:{
+        slidesPerView : 3
+      },
+      860:{
+        slidesPerView : 5
+      },
+    }
+  }
+  
   ngOnInit(): void {
     this.getAllCategories()
   }
@@ -51,6 +70,11 @@ export class ProductComponent {
 
   changeView(value:any){
     this.setView=value
+  }
+
+  disableStyleView(value:any){
+    this.disableStyleViews=value
+    console.log(this.disableStyleViews)
   }
 
   changeStyleView(value:any){

@@ -18,6 +18,10 @@ export class HttpHelperService {
     return this.http.post(url , payload)
   }
 
+  put(url:string , payload : any){
+    return this.http.put(url , payload)
+  }
+
   delete(url:string , payload : any){
     return this.http.post(url , payload)
   }

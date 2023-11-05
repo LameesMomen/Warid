@@ -5,11 +5,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CodeInputModule } from 'angular-code-input';
 import { ProductComponent } from './product.component';
 
-// import function to register Swiper custom elements
-import { register } from 'swiper/element/bundle';
 import { ViewProductsComponent } from './components/view-products/view-products.component';
-// register Swiper custom elements
-register();
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 
 const routes : Routes =[
@@ -22,7 +19,8 @@ const routes : Routes =[
 @NgModule({
   declarations: [
     ProductComponent,
-    ViewProductsComponent
+    ViewProductsComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,
