@@ -20,7 +20,8 @@
                   <i class="pi pi-user fs-5 mx-3"></i>
                   <p>{{userName}}</p>
                 </button>
-                <ul   [style.display]="show ? 'block' : 'none'" class="dropdown-menu text-center">
+                <ul   [style.display]="show ? 'block' : 'none'" class="dropdown-menu text-end">
+                  <li><a class="dropdown-item" ><i class="pi pi-user mx-2"></i> الصفحة الشخصية</a></li>
                   <li><a class="dropdown-item" (click)="logOut()"><i class="pi pi-sign-out mx-2"></i> تسجيل خروج</a></li>
                 </ul>
               </div>

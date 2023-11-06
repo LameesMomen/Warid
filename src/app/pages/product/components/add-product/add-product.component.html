@@ -13,7 +13,7 @@
                         <label style="cursor: pointer;" class="form-label" for="pic">
                             <img width="100%" [src]="productImage" alt="upload image">
                         </label>
-                        <input (change)="changeImage($event)" style="width:100%;" class="form-control" type="file" name="pic" id="pic" required ngModel #pic="ngModel" accept="image/*">
+                        <input (change)="changeImage($event)" style="width:100%;" class="form-control" type="file"  name="pic" id="pic" required ngModel #pic="ngModel" accept="image/*">
                     </div>
                 </div>
                 <div class="row my-3">
@@ -26,7 +26,7 @@
                         <p-dropdown [required]="true" (onChange)="showSubCategory(category.value)" [options]="allCategories" name="category" id="category" ngModel #category="ngModel" optionLabel="title" optionValue="id" placeholder="التصنيف"></p-dropdown>
                     </div>
                 </div>
-                <div *ngIf="allSubCategories" class="row my-3">
+                <div *ngIf="allSubCategories?.length" class="row my-3">
                     <div class="col-12 text-center">
                         <p-dropdown [required]="true"  [options]="allSubCategories" name="subcategory" id="subcategory" ngModel #subcategory="ngModel" optionLabel="title" optionValue="id" placeholder=" التصنيف الفرعي"></p-dropdown>
                     </div>

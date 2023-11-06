@@ -7,7 +7,7 @@
             totalItems : allProductList?.length
         }; let i = index ">
             <div class="boxesProduct-container">
-                <img src="assets/dummy.png" alt="product item" width="100%" height="107px">
+                <img style="border-radius: 7px;" [src]="item.pic" alt="product item" width="100%" height="107px">
                 <p class="Tajawal-Bold fs-20 mt-2 mb-0 text-center">{{item.title}}</p>
             </div>
         </div>
@@ -26,18 +26,18 @@
 <!-- Rows View -->
 <div *ngIf="styleView == 'rowsView' && allProductList?.length">
     <div class="row my-5">
-        <div class="col-sm-12 col-md-12 col-lg-6 my-2" *ngFor="let item of allProductList | paginate:{
+        <div class="col-sm-12 col-md-12 col-lg-6 px-2 my-2" *ngFor="let item of allProductList | paginate:{
             itemsPerPage : 10,
             currentPage : page,
             totalItems : allProductList?.length
         }; let i = index ">
             <div class="rowsProduct-container d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center">
-                    <img src="assets/dummy.png" alt="product item" width="80px">
-                    <p class="Tajawal-Bold fs-20 mx-3">{{item.title}}</p>
+                    <img style="border-radius: 7px;" [src]="item.pic" alt="product item" width="80px" height="60px">
+                    <p class="Tajawal-Bold fs-20 my-0 mx-3">{{item.title}}</p>
                 </div>
                 <div class="delete-btn-container">
-                    <button class="delete-btn"><i class="pi pi-trash red-color fs-4"></i></button>
+                    <p-inputSwitch (onChange)="handleShowCard($event,item)" [(ngModel)]="item.is_active"></p-inputSwitch>
                 </div>
             </div>
         </div>

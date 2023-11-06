@@ -16,7 +16,7 @@
             <p class="title Tajawal-Medium fs-28 my-0 me-3">{{item.title}}</p>
         </div>
         <div class="subCategory-btns d-flex align-items-center">
-            <button class="delete-btn"><i class="pi pi-trash red-color fs-4"></i></button>
+            <p-inputSwitch (onChange)="handleShowCard($event,item)" [(ngModel)]="item.is_active"></p-inputSwitch>
             <button (click)="view.emit('edit subCategory'); subCategoryId.emit(item.id);parentId.emit(id)" class="edit-btn Tajawal-Medium fs-20 me-3">تعديل</button>
         </div>
     </div>

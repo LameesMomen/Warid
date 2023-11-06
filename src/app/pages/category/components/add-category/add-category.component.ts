@@ -16,11 +16,10 @@ export class AddCategoryComponent {
 
   submit(form:any){
     this.spinner.show();
-    let body :{'title' :  string , 'unit_type' : string , 'commission' : any , 'parent_category' : any}={
+    let body :{'title' :  string , 'unit_type' : string , 'commission' : any}={
       title: form.value.title,
       unit_type: form.value.unit_type,
       commission: form.value.commission,
-      parent_category: null
     }
 
     this.http.post('/productmanager/admin/categories/',body).subscribe(

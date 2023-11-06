@@ -46,7 +46,7 @@ export class ProductComponent {
   getAllCategories(){
     this.spinner.show();
 
-    this.http.get('productmanager/categories/').subscribe(
+    this.http.get('productmanager/admin/categories/').subscribe(
       (res:any)=>{
         this.allCategories = res;
         this.firstCategoryChecked=res[0].id
@@ -74,7 +74,6 @@ export class ProductComponent {
 
   disableStyleView(value:any){
     this.disableStyleViews=value
-    console.log(this.disableStyleViews)
   }
 
   changeStyleView(value:any){

@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+// import { CommonModule } from '@angular/common';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './shared/home/home.component';
 import { AuthdGuard } from './core/guard/authguard.guard';
 
 
 const routes:Routes=[
+  {
+    path:'login',
+    loadChildren:()=>import('./pages/login/login.module').then(m=>m.LoginModule),
+  },
   {
     path:'',
     component : HomeComponent,
@@ -21,22 +25,20 @@ const routes:Routes=[
       },
       {
         path:'',
-        loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
+        redirectTo : 'product',
+        pathMatch : 'full',
       },
       {
         path:'*',
-        loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
+        redirectTo : 'product',
+        pathMatch : 'full'
       },
       {
         path:'**',
-        loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
+        redirectTo : 'product',
+        pathMatch : 'full'
       },
-
     ]
-  },
-  {
-    path:'login',
-    loadChildren:()=>import('./pages/login/login.module').then(m=>m.LoginModule),
   },
   {
     path : '**',
@@ -58,7 +60,6 @@ const routes:Routes=[
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forRoot(routes,{
       preloadingStrategy : PreloadAllModules,
       useHash : true

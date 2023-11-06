@@ -56,3 +56,9 @@ input:active{
     box-shadow: none !important;
     outline: o !important;
 }
+
+.dropdown-menu{
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 20px #272D3B39;
+    border-radius: 10px;
+}

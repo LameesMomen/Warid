@@ -23,10 +23,25 @@
     background-color: #B71212;
     width: 120px;
     height: 57px;
-    border: 1px solid #2A2A2C;
+    border: 1px solid #B71212;
     border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+}
+.show-btn{
+    background-color: #7dbb47;
+    width: 120px;
+    height: 57px;
+    border: 1px solid #7dbb47;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.show-btn,.delete-btn{
+    cursor: pointer;
 }

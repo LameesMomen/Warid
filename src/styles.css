@@ -106,9 +106,19 @@ code-input input{
     border-bottom: 5px solid #B71212 !important;
 }
 
-.p-toast-summary,.p-toast-detail{
+.p-toast .p-toast-message.p-toast-message-success{
+    width: 500px !important;
+    border-left: none !important;
+    border-bottom: 5px solid #6EA33F !important;
+}
+
+.p-toast-detail{
     font-size: 19px !important;
     margin: auto !important;
+}
+
+.p-toast-summary{
+    display: none;
 }
 
 .p-toast-message-icon svg{
@@ -121,11 +131,11 @@ code-input input{
     color: white !important;
     border: none;
     border-radius: 3px;
-    width: 12.5rem;
+    width: 100%
 } 
 
 .p-menu .p-menuitem {
-    margin: 10px;
+    margin: 10px !important;
 }
 
 .p-menu .p-menuitem-link .p-menuitem-icon {
@@ -218,6 +228,13 @@ code-input input{
     justify-content: center;
     align-items: center;
     font-size: 12px;
+}
+
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider ,
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled) .p-inputswitch-slider 
+{
+    background: black;
+    
 }
 @media only screen and (min-width : 320px) and (max-width : 998px) {
     .fs-28{

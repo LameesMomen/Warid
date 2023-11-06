@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { RequestInterceptor } from './core/services/interceptor/request.interceptor';
 import { HttpHelperService } from './core/services/http-helper/http-helper.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ConfirmationService,
