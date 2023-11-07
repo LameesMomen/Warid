@@ -16,6 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import {DropdownModule} from 'primeng/dropdown';
 import { SwiperModule } from 'swiper/angular';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { CodeInputModule } from 'angular-code-input';
 
 
 
@@ -39,7 +40,13 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     NgxPaginationModule,
     DropdownModule,
     SwiperModule,
-    InputSwitchModule
+    InputSwitchModule,
+    CodeInputModule,
+    CodeInputModule.forRoot({
+      codeLength: 6,
+      isCodeHidden:false,
+      initialFocusField:0
+    }),
   ],
   exports:[
     ToastModule,
@@ -52,7 +59,8 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     NgxPaginationModule,
     DropdownModule,
     SwiperModule,
-    InputSwitchModule
+    InputSwitchModule,
+    CodeInputModule,
   ],
 })
 export class SharedModule { }

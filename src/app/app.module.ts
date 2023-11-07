@@ -22,7 +22,8 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     SharedModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+
   ],
   providers: [
     ConfirmationService,
