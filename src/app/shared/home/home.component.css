@@ -1,6 +1,6 @@
 .home-container{
     padding: 45px 30px;
-    overflow: hidden;
+    overflow-x: hidden;
     width: 100%;
 }
 

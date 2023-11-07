@@ -135,7 +135,7 @@ code-input input{
 } 
 
 .p-menu .p-menuitem {
-    margin: 10px !important;
+    margin: 0 !important;
 }
 
 .p-menu .p-menuitem-link .p-menuitem-icon {
@@ -265,5 +265,39 @@ code-input input{
 
     code-input span{
         padding: 2px !important;
+    }
+}
+
+@media only screen and (min-width : 998px) and (max-width : 1600px) {
+    .fs-28{
+        font-size: 22px;
+    }
+    .fs-30{
+        font-size: 20px;
+    }
+    .fs-37{
+        font-size: 22px;
+    }
+    .fs-20{
+        font-size: 20px;
+    }
+
+    .mt-50{
+        margin-top: 20px;
+    }
+
+    .mt-70{
+        margin-top: 40px !important;
+    }
+
+    .mt-150{
+        margin-top: 50px !important;
+    }
+
+    .mt-20{
+        margin-top: 10px;
+    }
+    .mt-11{
+        margin-top: 8px;
     }
 }
