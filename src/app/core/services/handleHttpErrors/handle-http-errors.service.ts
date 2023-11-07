@@ -19,7 +19,7 @@ export class HandleHttpErrorsService implements ErrorHandler {
           location.reload()
         },
         err =>{
-            this.messageService.add({severity:'error', detail:'حدث خطأ ما'});
+            this.messageService.add({severity:'error', detail:'session expired'});
             setTimeout(() => {
             localStorage.clear();
             this.router.navigateByUrl('/login');

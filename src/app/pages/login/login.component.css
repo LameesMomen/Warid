@@ -49,8 +49,13 @@ a{
 }
 
 
-form{
-    margin-top: 70px;
+form,.form-container,.forgetPass-view,.login-view,.otp-view,.newPass-view{
+    height: -webkit-fill-available;
+}
+
+form .form-container{
+    display: flex;
+    flex-direction: column;
 }
 
 .p-inputgroup{

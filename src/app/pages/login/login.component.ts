@@ -13,6 +13,8 @@ import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper
 export class LoginComponent implements OnInit {
 
   view : string=''
+  email:any
+  code:any
 
   constructor(private http : HttpHelperService,private router :Router,private messageService:MessageService , private spinner : NgxSpinnerService ,  private route : Router){}
 
@@ -52,67 +54,70 @@ export class LoginComponent implements OnInit {
   //? Submit Forget Password Data
 
   submitForgetPass(form:any){
-    // this.spinner.show()
+    this.spinner.show()
+    this.email = form.value.email
     let body :{'email' : string}={
       email: form.value.email,
     }
 
-    // this.http.post('http://34.147.213.123/auth/admin-login/',body).subscribe(
-    //   res=>{
-    //   this.spinner.hide()
-    //     this.router.navigate(['home'],{replaceUrl:true})
-    //   },
-    //   err=>{
-    //   this.spinner.hide()
-    //     this.messageService.add({severity:'error', summary:'خطأ', detail:'كلمة المرور اوالبريد الاكتروني غير صحيح'});
-    //   }
-    // )
-
-    this.view='OTP'
-    this.timer(180);
+    this.http.post('/auth/password/reset/',body).subscribe(
+      res=>{
+      this.spinner.hide()
+          this.view='OTP'
+          this.timer(180);
+      },
+      err=>{
+      this.spinner.hide()
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'البريد الاكتروني الخاص بك غير صحيح'});
+      }
+    )
   }
 
   //? Submit OTP Data
 
+  onCodeCompleted(code : any){
+    this.code = code
+  }
+
   submitOTP(form:any){
     // this.spinner.show()
-    let body :{'email' : string}={
-      email: form.value.email,
+    let body :{'email' : string , 'otp' : any}={
+      email: this.email,
+      otp : this.code
     }
 
-    // this.http.post('http://34.147.213.123/auth/admin-login/',body).subscribe(
-    //   res=>{
-    //   this.spinner.hide()
-    //     this.router.navigate(['home'],{replaceUrl:true})
-    //   },
-    //   err=>{
-    //   this.spinner.hide()
-    //     this.messageService.add({severity:'error', summary:'خطأ', detail:'كلمة المرور اوالبريد الاكتروني غير صحيح'});
-    //   }
-    // )
+    this.http.post('/auth/password/reset/confirm-step-1/',body).subscribe(
+      res=>{
+      this.spinner.hide()
+          this.view='newPass'
+      },
+      err=>{
+      this.spinner.hide()
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'رمز التحقق غير صحيح'});
+      }
+    )
 
-    this.view='newPass'
   }
 
     //? Submit New Password Data
   submitNewPass(form:any){
     // this.spinner.show()
-    let body :{'email' : string}={
-      email: form.value.email,
+    let body :{'email' : string ,'new_password1' : any , 'new_password2' : any}={
+      email: this.email,
+      new_password1: form.value.newPass,
+      new_password2: form.value.confirmPass
     }
 
-    // this.http.post('http://34.147.213.123/auth/admin-login/',body).subscribe(
-    //   res=>{
-    //   this.spinner.hide()
-    //     this.router.navigate(['home'],{replaceUrl:true})
-    //   },
-    //   err=>{
-    //   this.spinner.hide()
-    //     this.messageService.add({severity:'error', summary:'خطأ', detail:'كلمة المرور اوالبريد الاكتروني غير صحيح'});
-    //   }
-    // )
-
-    this.view='login'
+    this.http.post('/auth/password/reset/confirm-step-2/',body).subscribe(
+      res=>{
+      this.spinner.hide()
+          this.view='login'
+      },
+      err=>{
+      this.spinner.hide()
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
   }
 
 

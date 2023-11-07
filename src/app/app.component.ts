@@ -13,7 +13,9 @@ export class AppComponent implements OnInit{
   constructor(private http : HttpHelperService ,private router : Router , private messageService : MessageService){}
 
   ngOnInit(): void {
-    this.refreshToken();
+    if(localStorage.getItem('refreshToken')){
+      this.refreshToken();
+    }
   }
 
 
@@ -24,7 +26,6 @@ export class AppComponent implements OnInit{
           localStorage.setItem('token',res.access);
         },
         err =>{
-            this.messageService.add({severity:'error', detail:'حدث خطأ ما'});
             setTimeout(() => {
             localStorage.clear();
             this.router.navigateByUrl('/login');

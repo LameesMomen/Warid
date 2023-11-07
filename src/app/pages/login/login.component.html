@@ -3,20 +3,22 @@
             <div class="col-sm-12 col-md-12 col-lg-6 px-3">
                 <div class="login-container mx-auto mt-150">
                     <!-- Login View-->
-                    <div *ngIf="view=='login'" class="login-view ">
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="fs-28 Tajawal-Bold text-center">تسجيل الدخول</p>
-                                <p class="mt-20 fs-37 Tajawal-Bold text-center">للدخول إلى لوحة التحكم</p>
-                            </div>
-                        </div>
-                        <form #form="ngForm" (ngSubmit)="submitLogin(form)" class="mt-70">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
-                                    <div class="p-inputgroup">
-                                        <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
-                                        <input class="form-control" name="email" id="email" ngModel #email="ngModel" type="email" pInputText placeholder="البريد الإلكتروني" />
+                    <div *ngIf="view=='login'" class="login-view">
+                        <form #form="ngForm" (ngSubmit)="submitLogin(form)">
+                            <div class="form-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="fs-28 Tajawal-Bold text-center">تسجيل الدخول</p>
+                                        <p class="mt-20 fs-37 Tajawal-Bold text-center">للدخول إلى لوحة التحكم</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-70">
+                                    <div class="col-12">
+                                        <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
+                                        <div class="p-inputgroup">
+                                            <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
+                                            <input class="form-control" name="email" id="email" ngModel #email="ngModel" type="email" pInputText placeholder="البريد الإلكتروني" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-20">
@@ -31,7 +33,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-50">
+                                <div class="row mt-auto">
                                     <div class="col-12">
                                         <button class="fs-28 text-center align-items-center" type="submit">تسجيل الدخول</button>
                                     </div>
@@ -42,19 +44,21 @@
 
                     <!-- ForgetPass View-->
                     <div *ngIf="view=='forgetPass'" class="forgetPass-view ">
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="fs-28 Tajawal-Bold text-center">تغيير كلمة المرور</p>
-                                <p class="mt-20 fs-28 Tajawal-Bold text-center">ادخل بريدك الالكتروني المسجل لتغيير كلمة المرور</p>
-                            </div>
-                        </div>
-                        <form #formForgetPass="ngForm" (ngSubmit)="submitForgetPass(formForgetPass)" class="mt-70">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
-                                    <div class="p-inputgroup">
-                                        <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
-                                        <input class="form-control" type="email" pInputText placeholder="البريد الإلكتروني" />
+                        <form #formForgetPass="ngForm" (ngSubmit)="submitForgetPass(formForgetPass)">
+                            <div class="form-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="fs-28 Tajawal-Bold text-center">تغيير كلمة المرور</p>
+                                        <p class="mt-20 fs-28 Tajawal-Bold text-center">ادخل بريدك الالكتروني المسجل لتغيير كلمة المرور</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-70">
+                                    <div class="col-12">
+                                        <label class="form-label Tajawal-Medium fs-20" for="email">البريد الإلكتروني</label> <br>
+                                        <div class="p-inputgroup">
+                                            <span class="p-inputgroup-addon"><img src="assets/email.png" alt="emal logo"></span>
+                                            <input class="form-control" name="email" id="email" ngModel #email="ngModel" required type="email" pInputText placeholder="البريد الإلكتروني" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-20">
@@ -62,9 +66,9 @@
                                         <p class="Tajawal-Bold fs-20 text-center">هل تراجعت؟ <a class="blue-txt-color Tajawal-Bold fs-20" style="cursor: pointer;" (click)="setView('login')">تسجيل الدخول</a></p>
                                     </div>
                                 </div>
-                                <div class="row mt-50">
+                                <div class="row mt-auto ">
                                     <div class="col-12">
-                                        <button class="fs-28 text-center align-items-center mt-50" type="submit">التالي</button>
+                                        <button class="fs-28 text-center align-items-center"  type="submit">التالي</button>
                                     </div>
                                 </div>
                             </div>
@@ -72,30 +76,34 @@
                     </div>
 
                     <!-- OTP View-->
-                    <div *ngIf="view=='OTP'" class="otp-view ">
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="fs-28 Tajawal-Bold text-center">رمز التحقق</p>
-                                <p class="mt-20 fs-28 Tajawal-Bold text-center">الرجاء ادخال رمز التحقق المرسل على البريد الإلكتروني</p>
-                            </div>
-                        </div>
-                        <form #formOTP="ngForm" (ngSubmit)="submitOTP(formOTP)" class="mt-70">
-                            <div class="row">
-                                <div class="col-12">
-                                    <code-input
-                                    style="direction: ltr;"
-                                    [isCodeHidden]="false"
-                                    [codeLength]="6">
-                                     </code-input>
+                    <div *ngIf="view=='OTP'" class="otp-view">
+                        <form #formOTP="ngForm" (ngSubmit)="submitOTP(formOTP)">
+                            <div class="form-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="fs-28 Tajawal-Bold text-center">رمز التحقق</p>
+                                        <p class="mt-20 fs-28 Tajawal-Bold text-center">الرجاء ادخال رمز التحقق المرسل على البريد الإلكتروني</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-70">
+                                    <div class="col-12">
+                                        <code-input
+                                        (codeCompleted)="onCodeCompleted($event)"
+                                        style="direction: ltr;"
+                                        [initialFocusField]="0"
+                                        [isCodeHidden]="false"
+                                        [codeLength]="6">
+                                         </code-input>
+                                    </div>
                                 </div>
                                 <div class="row mt-50">
                                     <div class="col-12">
                                         <p class="Tajawal-Bold lightBlue-txt-color fs-25 text-center">إعادة الإرسال خلال {{remainigTime}}</p>
                                     </div>
                                 </div>
-                                <div class="row mt-50">
+                                <div class="row mt-auto">
                                     <div class="col-12">
-                                        <button class="fs-28 text-center align-items-center mt-50" type="submit">التالي</button>
+                                        <button class="fs-28 text-center align-items-center" [disabled]="!code" type="submit">التالي</button>
                                     </div>
                                 </div>
                             </div>
@@ -103,20 +111,22 @@
                     </div>
 
                     <!-- newPass View-->
-                    <div *ngIf="view=='newPass'" class="newPass-view ">
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="fs-28 Tajawal-Bold text-center">تعيين كلمة المرور</p>
-                                <p class="mt-20 fs-28 Tajawal-Bold text-center">الرجاء ادخال كلمة مرور جديدة</p>
-                            </div>
-                        </div>
-                        <form #formNewPass="ngForm" (ngSubmit)="submitNewPass(formNewPass)" class="mt-70">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label class="form-label Tajawal-Medium fs-20" for="newPass">كلمة المرور الجديدة</label> <br>
-                                    <div class="p-inputgroup">
-                                        <span class="p-inputgroup-addon"><img src="assets/lock.png" alt="pass logo"></span>
-                                        <input class="form-control" type="password" pInputText placeholder="كلمة المرور" />
+                    <div *ngIf="view=='newPass'" class="newPass-view">
+                        <form #formNewPass="ngForm" (ngSubmit)="submitNewPass(formNewPass)">
+                            <div class="form-container">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <p class="fs-28 Tajawal-Bold text-center">تعيين كلمة المرور</p>
+                                        <p class="mt-20 fs-28 Tajawal-Bold text-center">الرجاء ادخال كلمة مرور جديدة</p>
+                                    </div>
+                                </div>
+                                <div class="row mt-50">
+                                    <div class="col-12">
+                                        <label class="form-label Tajawal-Medium fs-20" for="newPass">كلمة المرور الجديدة</label> <br>
+                                        <div class="p-inputgroup">
+                                            <span class="p-inputgroup-addon"><img src="assets/lock.png" alt="pass logo"></span>
+                                            <input class="form-control" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" id="newPass" name="newPass" ngModel #newPass="ngModel" required type="password" pInputText placeholder="كلمة المرور" />
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-20">
@@ -124,20 +134,27 @@
                                         <label class="form-label Tajawal-Medium fs-20" for="confirmPass">إعادة كلمة المرور</label> <br>
                                         <div class="p-inputgroup">
                                             <span class="p-inputgroup-addon"><img src="assets/lock.png" alt="pass logo"></span>
-                                            <input class="form-control" type="password" pInputText placeholder="كلمة المرور" />
+                                            <input class="form-control" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" id="confirmPass" name="confirmPass" ngModel #confirmPass="ngModel" required type="password" pInputText placeholder="كلمة المرور" />
                                         </div>
-                                        <div class="mt-11">
-                                           <ul class="px-3">
-                                            <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي كلمة المرور على 8 خانات على الأقل</li>
-                                            <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي حرفاً كبيراً على الأقل</li>
-                                            <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي على رقم على الأقل</li>
-                                           </ul>
+                                        <div class="mt-2" *ngIf="(confirmPass.touched && confirmPass.invalid) || (confirmPass.touched && confirmPass.value != newPass.value)">
+                                            <p class="text-danger">تأكيد كلمة المرور غير متطابقة</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row mt-20">
                                     <div class="col-12">
-                                        <button class="fs-28 text-center align-items-center mt-50" type="submit">تسجيل الدخول</button>
+                                        <div *ngIf="newPass.touched && newPass.invalid" class="mt-11">
+                                            <ul *ngIf="newPass.errors?.['pattern']" class="px-3">
+                                             <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي كلمة المرور على 8 خانات على الأقل</li>
+                                             <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي حرفاً كبيراً على الأقل</li>
+                                             <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي على رقم على الأقل</li>
+                                            </ul>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-auto">
+                                    <div class="col-12">
+                                        <button class="fs-28 text-center align-items-center" [disabled]="formNewPass.invalid" type="submit">تسجيل الدخول</button>
                                     </div>
                                 </div>
                             </div>
