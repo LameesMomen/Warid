@@ -16,6 +16,10 @@ a{
     --bs-gutter-x: 0 !important;
 }
 
+::-webkit-scrollbar {
+   display: none;
+  }
+
 /************************************************
 Fonts
 ************************************************/
@@ -125,48 +129,6 @@ code-input input{
     display: none;
 }
 
-.p-menu {
-    padding: 0.25rem 0;
-    background: transparent !important;
-    color: white !important;
-    border: none;
-    border-radius: 3px;
-    width: 100%
-} 
-
-.p-menu .p-menuitem {
-    margin: 0 !important;
-}
-
-.p-menu .p-menuitem-link .p-menuitem-icon {
-    color: #6c757d;
-    margin: 0 0.7rem;
-}
-
-.p-menu .p-menuitem-link .p-menuitem-text {
-    font-size: 19px;
-    font-family: 'Tajawal-Medium';
-}
-
-.p-menu .p-menuitem-link .p-menuitem-icon,.p-menu .p-menuitem-link .p-menuitem-text  {
-    color: #F7F7F7;
-}
-
-.p-menu .p-menuitem-link{
-    padding: 1rem;
-}
-
-.p-menu .p-menuitem-link-active,
-.p-menu .p-menuitem-link-active:active,
-.p-menu .p-menuitem-link:hover,
-.p-menu .p-menuitem-link:hover .p-menuitem-text ,
-.p-menu .p-menuitem-link:hover .p-menuitem-icon,
-.p-menu .p-menuitem-link-active .p-menuitem-text ,
-.p-menu .p-menuitem-link-active .p-menuitem-icon{
-    background-color: #F7F7F7 !important;
-    border-radius: 10px;
-    color: #2A2A2C;
-}
 
 .ngx-pagination{
     position: absolute !important ;
@@ -268,7 +230,7 @@ code-input input{
     }
 }
 
-@media only screen and (min-width : 998px) and (max-width : 1600px) {
+@media only screen and (min-width : 998px) and (max-width : 1650px) {
     .fs-28{
         font-size: 22px;
     }
@@ -291,7 +253,7 @@ code-input input{
     }
 
     .mt-150{
-        margin-top: 50px !important;
+        margin-top: 70px !important;
     }
 
     .mt-20{

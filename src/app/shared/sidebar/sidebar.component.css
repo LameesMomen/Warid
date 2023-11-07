@@ -15,3 +15,51 @@ hr {
     padding: 0;
   }
 
+  ::ng-deep p-menu{
+    height:  -webkit-fill-available;
+    overflow-y: scroll;
+}
+::ng-deep .p-menu {
+padding: 0.25rem 0;
+    background: transparent !important;
+    color: white !important;
+    border: none;
+    border-radius: 3px;
+    width: 100%
+} 
+
+::ng-deep .p-menu .p-menuitem {
+margin: 10px !important;
+}
+
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-icon {
+color: #6c757d;
+    margin: 0 0.7rem;
+}
+
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-text {
+font-size: 19px;
+    font-family: 'Tajawal-Medium';
+}
+
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-icon,
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-text  {
+color: #F7F7F7;
+}
+
+::ng-deep .p-menu .p-menuitem-link{
+padding: 1rem;
+}
+
+::ng-deep .p-menu .p-menuitem-link-active,
+::ng-deep .p-menu .p-menuitem-link-active:active,
+::ng-deep .p-menu .p-menuitem-link:hover,
+::ng-deep .p-menu .p-menuitem-link:hover .p-menuitem-text ,
+::ng-deep .p-menu .p-menuitem-link:hover .p-menuitem-icon,
+::ng-deep .p-menu .p-menuitem-link-active .p-menuitem-text ,
+::ng-deep .p-menu .p-menuitem-link-active .p-menuitem-icon{
+    background-color: #F7F7F7 !important;
+    border-radius: 10px;
+    color: #2A2A2C;
+}
+

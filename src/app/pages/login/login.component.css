@@ -145,7 +145,7 @@ button{
     }
 }
 
-@media only screen and (min-width : 998px) and (max-width : 1600px) {
+@media only screen and (min-width : 998px) and (max-width : 1650px) {
     .login-container {
         width: 500px;
         max-width: 100%;
