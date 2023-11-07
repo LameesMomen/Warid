@@ -22,7 +22,12 @@ const routes : Routes =[
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    CodeInputModule
+    CodeInputModule,
+    CodeInputModule.forRoot({
+      codeLength: 6,
+      isCodeHidden:false,
+      initialFocusField:0
+    }),
   ]
 })
 export class LoginModule { }

@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CodeInputModule } from 'angular-code-input';
 import CategoryComponent from './category.component';
 import { SubcategoryComponent } from './components/subcategory/subcategory.component';
 import { AddSubcategoryComponent } from './components/add-subcategory/add-subcategory.component';
@@ -34,7 +33,6 @@ const routes : Routes =[
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    CodeInputModule
   ],
   schemas :[CUSTOM_ELEMENTS_SCHEMA]
 

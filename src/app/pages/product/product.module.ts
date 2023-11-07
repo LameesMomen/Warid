@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { CodeInputModule } from 'angular-code-input';
 import { ProductComponent } from './product.component';
 
 import { ViewProductsComponent } from './components/view-products/view-products.component';
@@ -26,7 +25,6 @@ const routes : Routes =[
     CommonModule,
     SharedModule,
     RouterModule.forChild(routes),
-    CodeInputModule
   ],
   schemas :[CUSTOM_ELEMENTS_SCHEMA]
 
