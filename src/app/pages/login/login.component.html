@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="row mt-auto">
                                     <div class="col-12">
-                                        <button class="fs-28 text-center align-items-center" [disabled]="formNewPass.invalid" type="submit">تسجيل الدخول</button>
+                                        <button class="fs-28 text-center align-items-center" [disabled]="((formNewPass.invalid) || (confirmPass.value != newPass.value))" type="submit">تسجيل الدخول</button>
                                     </div>
                                 </div>
                             </div>
