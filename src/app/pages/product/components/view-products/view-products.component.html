@@ -1,8 +1,8 @@
 <!-- Boxes View -->
 <div *ngIf="styleView == 'boxesView' && allProductList?.length">
-    <div class="row my-5">
-        <div class="col-sm-12 col-md-6 col-lg-2 mx-2 my-2" *ngFor="let item of allProductList | paginate:{
-            itemsPerPage : 10,
+    <div class="row my-3">
+        <div class="col-sm-12 col-md-6 col-lg-2 px-2 my-2" *ngFor="let item of allProductList | paginate:{
+            itemsPerPage : 18,
             currentPage : page,
             totalItems : allProductList?.length
         }; let i = index ">
@@ -25,9 +25,9 @@
 
 <!-- Rows View -->
 <div *ngIf="styleView == 'rowsView' && allProductList?.length">
-    <div class="row my-5">
+    <div class="row my-3">
         <div class="col-sm-12 col-md-12 col-lg-6 px-2 my-2" *ngFor="let item of allProductList | paginate:{
-            itemsPerPage : 10,
+            itemsPerPage : 12,
             currentPage : page,
             totalItems : allProductList?.length
         }; let i = index ">
@@ -37,7 +37,7 @@
                     <p class="Tajawal-Bold fs-20 my-0 mx-3">{{item.title}}</p>
                 </div>
                 <div class="delete-btn-container">
-                    <p-inputSwitch (onChange)="handleShowCard($event,item)" [(ngModel)]="item.is_active"></p-inputSwitch>
+                    <button class="delete-btn" (click)="handleShowCard($event,item)"><i class="pi pi-trash fs-5"></i></button>
                 </div>
             </div>
         </div>
@@ -45,6 +45,7 @@
 
     <div>
         <pagination-controls 
+            [responsive]="true"
              nextLabel = ">"
             previousLabel ="<"
             (pageChange)="page = $event">

@@ -29,8 +29,8 @@
                 <div class="row my-3">
                     <div class="col-12 mt-3 d-flex justify-content-evenly">
                         <button type="submit" [disabled]="form.invalid" class="add-btn Tajawal-Medium fs-20">حفظ</button>
-                        <div *ngIf="is_active" (click)="handleShowCard()" class="delete-btn Tajawal-Medium fs-20">حذف</div>
-                        <div *ngIf="!is_active" (click)="handleShowCard()" class="show-btn Tajawal-Medium fs-20">تفعيل</div>
+                        <div (click)="handleShowCard()" class="delete-btn Tajawal-Medium fs-20">حذف</div>
+                        <!-- <div *ngIf="!is_active" (click)="handleShowCard()" class="show-btn Tajawal-Medium fs-20">تفعيل</div> -->
                     </div>
                 </div>
             </div>

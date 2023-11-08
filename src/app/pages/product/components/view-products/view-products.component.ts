@@ -49,11 +49,10 @@ export class ViewProductsComponent {
   }
 
   handleShowCard(event: any, item: any) {
-    if (item.is_active == false) {
       this.toasters.confirmationToaster({
         title: 'هل انت متأكد !',
 
-        text: `هل تريد اخفاء ${item.title} ؟`,
+        text: `هل تريد مسح ${item.title} ؟`,
 
         icon: 'question',
 
@@ -66,30 +65,10 @@ export class ViewProductsComponent {
         },
 
         onDismiss: () => {
-          item.is_active = !item.is_active;
+
         },
       });
-    } else {
-      this.toasters.confirmationToaster({
-        title: 'هل انت متأكد !',
 
-        text: `هل تريد اظهار ${item.title} ؟`,
-
-        icon: 'question',
-
-        confirmFunc: () => {
-          let payload: any = { ...item };
-
-          payload.is_active = true;
-
-          this.showBannerAPI(payload);
-        },
-
-        onDismiss: () => {
-          item.is_active = !item.is_active;
-        },
-      });
-    }
   }
 
   showBannerAPI(body: any) {

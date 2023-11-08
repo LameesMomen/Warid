@@ -53,7 +53,7 @@ export default class CategoryComponent implements OnInit {
   getAllCategories(){
     this.spinner.show();
 
-    this.http.get('productmanager/admin/categories/').subscribe(
+    this.http.get('/productmanager/admin/categories/').subscribe(
       (res:any)=>{
         this.allCategories = res;
         this.firstCategoryChecked=res[0].id

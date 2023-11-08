@@ -42,3 +42,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.subCategory-container .subCategory-btns .delete-btn{
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    color: #B71212;
+    }

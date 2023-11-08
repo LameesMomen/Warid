@@ -71,12 +71,11 @@ export class EditCategoryComponent implements OnInit{
   }
 
   handleShowCard(){
-    if(this.is_active == true){
       this.toasters.confirmationToaster({
 
         title: 'هل انت متأكد !',
 
-        text: `هل تريد اخفاء ${this.title} ؟`,
+        text: `هل تريد مسح ${this.title} ؟`,
 
         icon: 'question',
 
@@ -99,36 +98,7 @@ export class EditCategoryComponent implements OnInit{
 
       })
 
-    } else {
 
-      this.toasters.confirmationToaster({
-
-        title: 'هل انت متأكد !',
-
-        text:  `هل تريد اظهار ${this.title} ؟`,
-
-        icon: 'question',
-
-        confirmFunc: () => {
-
-          let payload: any = {
-            title: this.title,
-            unit_type: this.unit_type,
-            commission: this.commission,
-            is_active : true
-          };
-
-          this.showBannerAPI(payload)
-
-        },
-
-        onDismiss: () => {
-
-        
-        }
-
-      })
-  }
 
 }
 
