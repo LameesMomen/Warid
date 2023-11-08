@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -6,7 +6,17 @@ import { MenuItem } from 'primeng/api';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent {
+export class SidebarComponent implements AfterViewInit {
+  menuBarHeight:any
+
+  ngAfterViewInit(): void {
+    let item = document.querySelector('.sidebar-container') as any
+
+    if(item.offsetHeight < 600){
+      this.menuBarHeight = item.offsetHeight - 170;
+    }
+
+  }
 
   item : MenuItem [] =[
     {

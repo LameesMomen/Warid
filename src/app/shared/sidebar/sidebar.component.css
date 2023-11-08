@@ -2,7 +2,7 @@
     background-color: #2A2A2C;
     border-radius: 20px;
     box-shadow: 0px 3px 6px #272D3B33;
-    padding: 10px;
+    padding: 0px;
     width: 90%;
 }
 
@@ -61,5 +61,15 @@ padding: 1rem;
     background-color: #F7F7F7 !important;
     border-radius: 10px;
     color: #2A2A2C;
+}
+
+@media only screen and (min-width : 998px) and (max-width : 1650px) {
+    ::ng-deep .p-menu .p-menuitem-link{
+        padding: 0.5rem;
+        }
+    ::ng-deep .ui-menu{
+        overflow-y: scroll;     
+        height: 100% !important;
+        }
 }
 
