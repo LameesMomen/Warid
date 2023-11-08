@@ -1,7 +1,7 @@
 <div class="page-container">
-        <div class="row flex-sm">
+        <div class="row screen-center flex-sm">
             <div class="col-sm-12 col-md-12 col-lg-6 px-3">
-                <div class="login-container mx-auto mt-150">
+                <div class="login-container mx-auto">
                     <!-- Login View-->
                     <div *ngIf="view=='login'" class="login-view">
                         <form #form="ngForm" (ngSubmit)="submitLogin(form)">
@@ -120,7 +120,7 @@
                                 <div class="row mt-50">
                                     <div class="col-12">
                                         <label class="form-label Tajawal-Medium fs-20" for="newPass">كلمة المرور الجديدة</label> <br>
-                                        <div class="p-inputgroup">
+                                        <div [ngStyle]="{'border-color': (newPass.touched && newPass.invalid) ? '#B71212' : 'black'}" class="p-inputgroup">
                                             <span class="p-inputgroup-addon"><img src="assets/lock.png" alt="pass logo"></span>
                                             <input class="form-control" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" id="newPass" name="newPass" ngModel #newPass="ngModel" required type="password" pInputText placeholder="كلمة المرور" />
                                         </div>
@@ -129,19 +129,19 @@
                                 <div class="row mt-20">
                                     <div class="col-12">
                                         <label class="form-label Tajawal-Medium fs-20" for="confirmPass">إعادة كلمة المرور</label> <br>
-                                        <div class="p-inputgroup">
+                                        <div [ngStyle]="{'border-color': (confirmPass.touched && confirmPass.invalid) || (confirmPass.touched && confirmPass.value != newPass.value) ? '#B71212' : 'black'}" class="p-inputgroup">
                                             <span class="p-inputgroup-addon"><img src="assets/lock.png" alt="pass logo"></span>
-                                            <input class="form-control" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" id="confirmPass" name="confirmPass" ngModel #confirmPass="ngModel" required type="password" pInputText placeholder="كلمة المرور" />
+                                            <input  class="form-control" pattern="^(?=.*[0-9])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$" id="confirmPass" name="confirmPass" ngModel #confirmPass="ngModel" required type="password" pInputText placeholder="كلمة المرور" />
                                         </div>
                                         <div class="mt-2" *ngIf="(confirmPass.touched && confirmPass.invalid) || (confirmPass.touched && confirmPass.value != newPass.value)">
                                             <p class="text-danger">تأكيد كلمة المرور غير متطابقة</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-20">
+                                <div class="row">
                                     <div class="col-12">
-                                        <div *ngIf="newPass.touched && newPass.invalid" class="mt-11">
-                                            <ul *ngIf="newPass.errors?.['pattern']" class="px-3">
+                                        <div *ngIf="newPass.invalid" class="mt-11">
+                                            <ul  class="px-3">
                                              <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي كلمة المرور على 8 خانات على الأقل</li>
                                              <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي حرفاً كبيراً على الأقل</li>
                                              <li class="lightBlue-txt-color Tajawal-Medium">يجب أن تحتوي على رقم على الأقل</li>
@@ -160,7 +160,7 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-6 brand-logo text-center">
-                <div class="logo mt-150">
+                <div class="logo my-auto">
                     <img  src="assets/logo.png" alt="logo">
                 </div>
             </div>

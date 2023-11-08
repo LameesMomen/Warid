@@ -3,12 +3,12 @@
 General
 ************************************************/
 
-body,html{
+body, html {
     height: 100%;
     width: 100%;
 }
 
-a{
+a {
     cursor: pointer;
 }
 
@@ -17,8 +17,17 @@ a{
 }
 
 ::-webkit-scrollbar {
-   display: none;
-  }
+    display: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+.form-control:focus{
+    border-color: initial !important;
+    box-shadow: none !important;
+}
 
 /************************************************
 Fonts
@@ -30,12 +39,14 @@ Fonts
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Tajawal-Medium";
     src: url('assets/fonts/Tajawal/Tajawal-Medium.ttf') format('ttf');
     font-style: normal;
     font-display: swap;
 }
+
 @font-face {
     font-family: "Tajawal-Bold";
     src: url('assets/fonts/Tajawal/Tajawal-ExtraBold.ttf') format('ttf');
@@ -43,106 +54,148 @@ Fonts
     font-display: swap;
 }
 
-.Tajawal-Reqular{
+.Tajawal-Reqular {
     font-family: 'Tajawal-Reqular';
 }
-.Tajawal-Medium{
+
+.Tajawal-Medium {
     font-family: 'Tajawal-Medium';
     font-weight: 500;
 }
-.Tajawal-Bold{
+
+.Tajawal-Bold {
     font-family: 'Tajawal-Bold';
     font-weight: 700;
 }
 
-.fs-28{
+.fs-28 {
     font-size: 28px;
 }
-.fs-30{
+
+.fs-30 {
     font-size: 30px;
 }
-.fs-37{
+
+.fs-37 {
     font-size: 37px;
 }
-.fs-20{
+
+.fs-20 {
     font-size: 20px;
 }
-.fs-25{
+
+.fs-25 {
     font-size: 25px;
 }
 
-.mt-50{
+/************************************************
+End Fonts
+************************************************/
+
+/************************************************
+Margins
+************************************************/
+.mt-50 {
     margin-top: 50px;
 }
 
-.lightBlue-txt-color{
+/************************************************
+End Fonts
+************************************************/
+
+
+/************************************************
+Colors
+************************************************/
+
+.lightBlue-txt-color {
     color: #007AFF !important;
 }
-.blue-txt-color{
+
+.blue-txt-color {
     color: #007AFF !important;
 }
-.red-color{
+
+.red-color {
     color: #B71212 !important;
 }
 
-button:disabled{
-    opacity: 0.5;
-}
+/************************************************
+End Colors
+************************************************/
 
-code-input span{
+/************************************************
+Code Inptu
+************************************************/
+
+code-input span {
     padding: 8px !important;
 }
 
-code-input input{
+code-input input {
     border: 1px solid #1B1C1E !important;
     border-radius: 8px !important;
 }
 
-.p-toast-message-text,.p-toast-message-content button{
+/************************************************
+End Code Input
+************************************************/
+
+/************************************************
+Toasters
+************************************************/
+.p-toast-message-text, .p-toast-message-content button {
     display: flex !important;
     justify-content: space-evenly !important;
     margin: auto !important;
 }
 
-.p-toast .p-toast-message.p-toast-message-error{
+.p-toast .p-toast-message.p-toast-message-error {
     width: 500px !important;
     border-left: none !important;
     border-bottom: 5px solid #B71212 !important;
 }
 
-.p-toast .p-toast-message.p-toast-message-success{
+.p-toast .p-toast-message.p-toast-message-success {
     width: 500px !important;
     border-left: none !important;
     border-bottom: 5px solid #6EA33F !important;
 }
 
-.p-toast-detail{
+.p-toast-detail {
     font-size: 19px !important;
     margin: auto !important;
 }
 
-.p-toast-summary{
+.p-toast-summary {
     display: none;
 }
 
-.p-toast-message-icon svg{
+.p-toast-message-icon svg {
     display: none;
 }
 
+/************************************************
+End Toasters
+************************************************/
 
-.ngx-pagination{
-    position: absolute !important ;
-    left: 0 !important ;
-    bottom: 5px !important ;
-    width: max-content !important ;
+/************************************************
+Paginations
+************************************************/
+.ngx-pagination {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 5px !important;
+    width: max-content !important;
     height: 28px !important;
-    border: 1px solid black !important ;
-    margin: 0 25px !important ;
-    border-radius: 20px !important ;
+    border: 1px solid black !important;
+    margin: 0 25px !important;
+    border-radius: 20px !important;
     padding: 0 10px;
     display: flex;
     align-items: center;
     direction: ltr;
+    background: white;
 }
 
 
@@ -161,7 +214,7 @@ code-input input{
 
 .ngx-pagination .pagination-next a:hover,
 .ngx-pagination .pagination-previous a:hover,
-.ngx-pagination li a:hover{
+.ngx-pagination li a:hover {
     color: black !important;
     border-radius: 50%;
     width: 18px !important;
@@ -179,21 +232,21 @@ code-input input{
 }
 
 .pagination-previous.disabled,
-.pagination-next.disabled{
+.pagination-next.disabled {
     opacity: 0.5;
 }
 
 .ngx-pagination .pagination-previous a,
-.ngx-pagination .pagination-next a{
+.ngx-pagination .pagination-next a {
     color: white !important;
 }
 
-.ngx-pagination a{
+.ngx-pagination a {
     font-size: 10px;
 }
 
 .pagination-previous,
-.pagination-next{
+.pagination-next {
     background: #2A2A2C !important;
     width: 18px !important;
     height: 18px !important;
@@ -205,78 +258,101 @@ code-input input{
     font-size: 7px;
 }
 
-.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider ,
-.p-inputswitch.p-inputswitch-checked:not(.p-disabled) .p-inputswitch-slider 
-{
-    background: black;
-    
-}
+/************************************************
+End Paginations
+************************************************/
 
-.swal2-cancel{
+/************************************************
+Confirmation  Toasters
+************************************************/
+.swal2-modal{
+    border-radius: 20px;
+}
+.swal2-cancel {
     background-color: #B71212 !important;
     width: 100px;
 }
-.swal2-confirm{
+
+.swal2-confirm {
     background-color: black !important;
     width: 100px;
 }
+
+/************************************************
+End Confirmation  Toasters
+************************************************/
+
+
+/************************************************
+Media Queries
+************************************************/
+
 @media only screen and (min-width : 320px) and (max-width : 998px) {
-    .fs-28{
+    .fs-28 {
         font-size: 20px;
     }
-    .fs-30{
+
+    .fs-30 {
         font-size: 25px;
     }
-    .fs-37{
+
+    .fs-37 {
         font-size: 28px;
     }
-    .fs-20{
+
+    .fs-20 {
         font-size: 16px;
     }
 
-    .mt-50{
+    .mt-50 {
         margin-top: 20px;
     }
 
-    .p-toast .p-toast-message.p-toast-message-error{
+    .p-toast .p-toast-message.p-toast-message-error {
         width: 100% !important;
         margin: auto !important;
     }
 
-    .p-toast-summary,.p-toast-detail{
+    .p-toast-summary, .p-toast-detail {
         font-size: 16px !important;
     }
 
-    code-input span{
+    code-input span {
         padding: 2px !important;
     }
 }
 
 @media only screen and (min-width : 998px) and (max-width : 1650px) {
 
-    .fs-37,.fs-28,.fs-30{
-        font-size: 22px;
+    .fs-37, .fs-28, .fs-30 {
+        font-size: 25px;
     }
-    .fs-20,.fs-25{
+
+    .fs-20, .fs-25 {
         font-size: 20px;
     }
 
-    .mt-50{
-        margin-top: 20px;
+    .mt-50 {
+        margin-top: 20px !important;
     }
 
-    .mt-70{
+    .mt-70 {
         margin-top: 40px !important;
     }
 
-    .mt-150{
-        margin-top: 70px !important;
+    .mt-150 {
+        margin-top: 50px !important;
     }
 
-    .mt-20{
-        margin-top: 10px;
+    .mt-20 {
+        margin-top: 10px !important;
     }
-    .mt-11{
-        margin-top: 8px;
+
+    .mt-11 {
+        margin-top: 8px !important;
     }
 }
+
+/************************************************
+End Media Queries
+************************************************/

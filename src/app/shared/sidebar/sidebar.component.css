@@ -1,4 +1,4 @@
-.sidebar-container{
+.sidebar-container {
     background-color: #2A2A2C;
     border-radius: 20px;
     box-shadow: 0px 3px 6px #272D3B33;
@@ -13,63 +13,68 @@ hr {
     border-top: 1px solid #c7c7c7;
     margin: 1em 0;
     padding: 0;
-  }
+}
 
-  ::ng-deep p-menu{
-    height:  -webkit-fill-available;
+::ng-deep p-menu {
+    height: -webkit-fill-available;
     overflow-y: scroll;
 }
+
 ::ng-deep .p-menu {
-padding: 0.25rem 0;
+    padding: 0.25rem 0;
     background: transparent !important;
     color: white !important;
     border: none;
     border-radius: 3px;
     width: 100%
-} 
+}
 
 ::ng-deep .p-menu .p-menuitem {
-margin: 10px !important;
+    margin: 10px !important;
 }
 
 ::ng-deep .p-menu .p-menuitem-link .p-menuitem-icon {
-color: #6c757d;
+    color: #6c757d;
     margin: 0 0.7rem;
 }
 
 ::ng-deep .p-menu .p-menuitem-link .p-menuitem-text {
-font-size: 19px;
+    font-size: 19px;
     font-family: 'Tajawal-Medium';
 }
 
 ::ng-deep .p-menu .p-menuitem-link .p-menuitem-icon,
-::ng-deep .p-menu .p-menuitem-link .p-menuitem-text  {
-color: #F7F7F7;
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-text {
+    color: #F7F7F7;
 }
 
-::ng-deep .p-menu .p-menuitem-link{
-padding: 1rem;
+::ng-deep .p-menu .p-menuitem-link {
+    padding: 1rem;
+}
+
+::ng-deep .p-menu .p-menuitem-link:focus {
+    box-shadow: none !important;
 }
 
 ::ng-deep .p-menu .p-menuitem-link-active,
 ::ng-deep .p-menu .p-menuitem-link-active:active,
 ::ng-deep .p-menu .p-menuitem-link:hover,
-::ng-deep .p-menu .p-menuitem-link:hover .p-menuitem-text ,
+::ng-deep .p-menu .p-menuitem-link:hover .p-menuitem-text,
 ::ng-deep .p-menu .p-menuitem-link:hover .p-menuitem-icon,
-::ng-deep .p-menu .p-menuitem-link-active .p-menuitem-text ,
-::ng-deep .p-menu .p-menuitem-link-active .p-menuitem-icon{
+::ng-deep .p-menu .p-menuitem-link-active .p-menuitem-text,
+::ng-deep .p-menu .p-menuitem-link-active .p-menuitem-icon {
     background-color: #F7F7F7 !important;
     border-radius: 10px;
     color: #2A2A2C;
 }
 
 @media only screen and (min-width : 998px) and (max-width : 1650px) {
-    ::ng-deep .p-menu .p-menuitem-link{
+    ::ng-deep .p-menu .p-menuitem-link {
         padding: 0.5rem;
-        }
-    ::ng-deep .ui-menu{
-        overflow-y: scroll;     
-        height: 100% !important;
-        }
-}
+    }
 
+    ::ng-deep .ui-menu {
+        overflow-y: scroll;
+        height: 100% !important;
+    }
+}
