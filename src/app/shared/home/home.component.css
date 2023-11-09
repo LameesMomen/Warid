@@ -10,12 +10,6 @@
     overflow-y: scroll;
 }
 
-.home-container .content .scroll{
-   overflow-y: auto;
-   overflow-x: hidden;
-   height: 100%;
-}
-
 .col-2.sidebar{
     width: 12.333333% !important;
 }
