@@ -11,7 +11,7 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid #c7c7c7;
-    margin: 1em 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -26,8 +26,9 @@ hr {
     color: white !important;
     border: none;
     border-radius: 3px;
-    width: 100%
+    width: 100%;
 }
+
 
 ::ng-deep .p-menu .p-menuitem {
     margin: 10px !important;
@@ -69,9 +70,9 @@ hr {
 }
 
 @media only screen and (min-width : 998px) and (max-width : 1650px) {
-    ::ng-deep .p-menu .p-menuitem-link {
+    /* ::ng-deep .p-menu .p-menuitem-link {
         padding: 0.5rem;
-    }
+    } */
 
     ::ng-deep .ui-menu {
         overflow-y: scroll;
