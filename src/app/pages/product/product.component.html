@@ -27,7 +27,7 @@
             </ng-container>
     </swiper>
     </div>
-    <div class="col-2 d-flex align-items-center justify-content-end">
+    <div class="col-sm-12 col-md-12 col-lg-2 mt-3 mt-lg-0 d-flex align-items-center justify-content-end">
         <label  [ngStyle]="{'opacity': (disableStyleViews) ? '0.5' : '1'}" class="viewLabl mx-2">
             <input [disabled]="disableStyleViews" type="radio" (change)="changeStyleView('boxesView')" name="radioview" value="boxesView" [checked]="styleView == 'boxesView'" />
             <div class="radioView-container">

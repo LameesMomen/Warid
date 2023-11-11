@@ -27,14 +27,14 @@ export class ProductComponent {
     slidesPerView : 5,
 
     breakpoints :{
-      320:{
+      430:{
         slidesPerView : 2
       },
       560:{
-        slidesPerView : 3
+        slidesPerView : 3.5
       },
       860:{
-        slidesPerView : 5
+        slidesPerView : 3.5
       },
     }
   }

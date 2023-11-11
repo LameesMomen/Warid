@@ -288,6 +288,17 @@ End Confirmation  Toasters
 Media Queries
 ************************************************/
 
+@media only screen and (max-width : 998px) {
+    .sidebar,app-topbar {
+        display: none;
+    }
+
+    .home-container{
+        padding: 5px !important;
+    }
+
+}
+
 @media only screen and (min-width : 320px) and (max-width : 998px) {
     .fs-28 {
         font-size: 20px;
