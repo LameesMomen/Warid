@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  nginx:
+    image: europe-west2-docker.pkg.dev/nifty-saga-402913/frontend/frontend:$COMMIT_SHA
+    container_name: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./build:/usr/share/nginx/html
+volumes:
+  static_volume:
