@@ -6,21 +6,23 @@ FROM node:18-alpine as build-stage
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY package*.json ./
+COPY . .
 
 # Install dependencies
 RUN npm install --legacy-peer-deps
 
 
-# Copy the current directory contents into the container at /app
-COPY . .
 
 # Build the app
 RUN npm run build
 
 FROM nginx:stable-alpine as production-stage
 
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html 
+
+RUN rm -rf ./*
+
+COPY --from=build-stage /app/dist/warid .
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
