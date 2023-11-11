@@ -11,6 +11,7 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --legacy-peer-deps
 
+
 # Copy the current directory contents into the container at /app
 COPY . .
 
