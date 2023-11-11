@@ -111,7 +111,11 @@ export class LoginComponent implements OnInit {
     this.http.post('/auth/password/reset/confirm-step-2/',body).subscribe(
       res=>{
       this.spinner.hide()
-          this.view='login'
+      this.messageService.add({severity:'succes', summary:'تم', detail:'تم تغير كلمة المرور بنجاح'});
+
+      setTimeout(() => {
+        this.view='login'
+      }, 500);
       },
       err=>{
       this.spinner.hide()
