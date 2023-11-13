@@ -13,11 +13,11 @@
 }
 
 .location-container{
-    width: 100%;
+    min-width: 100%;
+    width: max-content;
     background: #F7F7F7;
     box-shadow: 0px 3px 6px #D6D6D6;
     border-radius: 8px;
-    padding: 20px;
 }
 .location-container .location-icon{
     display: flex;
@@ -42,4 +42,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.p-20{
+    padding: 20px;
 }

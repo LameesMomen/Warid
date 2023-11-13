@@ -43,4 +43,7 @@ export class HttpHelperService {
   delete(url:string , payload : any){
     return this.http.post(url , payload)
   }
+  deleteLocation(url:string){
+    return this.http.delete(url)
+  }
 }

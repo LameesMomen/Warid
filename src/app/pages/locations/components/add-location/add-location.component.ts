@@ -39,7 +39,7 @@ export class AddLocationComponent {
         this.spinner.hide();
         this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
         setTimeout(() => {
-
+          this.router.navigateByUrl('/locations')
         }, 500);
       },
       err=>{

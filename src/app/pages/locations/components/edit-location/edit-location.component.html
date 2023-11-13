@@ -1,0 +1,80 @@
+<div class="row mt-50">
+    <div class="col-12 d-flex">
+        <a routerLink="/locations" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
+        <p class="fs-30 Tajawal-Bold my-0">تعديل موقع</p>
+    </div>
+    <div class="col-12">
+        <p class="fs-25 Tajawal-Medium m-0">يمكنك تعديل موقع المشروع وملئ البيانات التالية..</p>
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+        <div class="location-container">
+            <div class="location-icon me-auto">
+                <img src="assets/location.png" alt="location">
+            </div>
+            <form #form="ngForm" (ngSubmit)="submit(form)">
+                <div class="row my-2">
+                    <div class="col-12">
+                        <label class="project-name fs-16 Tajawal-Bold blue-txt-color">اسم المشروع</label> <br>
+                        <input class="form-control" type="text" name="projectName" id="projectName" [(ngModel)]="project_name" required placeholder="اسم المشروع">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-12">
+                        <label class="owner-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال المالك</label> <br>
+                        <input class="form-control" type="text" name="ownerNumber" id="ownerNumber" [(ngModel)]="client_mobile" required placeholder="اكتب رقم الجوال">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-sm-12 col-md-6 col-lg-6 px-2 my-2 my-lg-0 my-md-0">
+                        <label class="location-number fs-16 Tajawal-Bold blue-txt-color">اسم الموقع</label> <br>
+                        <input class="form-control" type="text" name="locationName" id="locationName" [(ngModel)]="location_name" required placeholder="اسم الموقع">
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-6 px-2 my-2 my-lg-0 my-md-0">
+                        <label class="location-place fs-16 Tajawal-Bold blue-txt-color">رابط الموقع من Google Map</label> <br>
+                        <input class="form-control" type="url" [pattern]="patternLink" name="locationPlace" id="locationPlace" [(ngModel)]="google_maps_link" required placeholder="رابط الموقع من Google Map">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-12 licence-container">
+                        <label for="licence" class="owner-number fs-16 Tajawal-Bold blue-txt-color">
+                            <p class="m-0" *ngIf="!building_license">رخصة البناء
+                                <i class="pi pi-image me-2"></i>
+                            </p>
+
+                            <p class="m-0" *ngIf="building_license">تم
+                                <i class="pi pi-check-square me-2"></i>
+                            </p>
+
+                        </label> 
+                        <input (change)="changeImage($event)" class="form-control" type="file" name="licence" id="licence" ngModel #licence="ngModel" required  accept="image/*">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-12">
+                        <label class="guard-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال الوكيل</label> <br>
+                        <input class="form-control" type="text" name="guardNumber" id="guardNumber" [(ngModel)]="guard_mobile"  required placeholder="اكتب رقم الجوال">
+                    </div>
+                </div>
+    
+                <div class="location-btn d-flex justify-content-evenly">
+                    <button type="submit" [disabled]="form.invalid"  class="submitLocation-btn mt-3 fs-16 Tajawal-Medium text-white">حفظ</button>
+                    <button (click)="handleShowCard()"   class="deleteLocation-btn mt-3 fs-16 Tajawal-Medium text-white">حذف</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

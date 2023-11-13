@@ -22,22 +22,24 @@
             <div class="location-icon me-auto">
                 <img src="assets/location.png" alt="location">
             </div>
-            <div class="location-title fs-20 Tajawal-Bold">{{item.project_name}}</div>
-            <div class="location-link">
-                <a class="my-3 fs-20 Tajawal-Medium blue-txt-color" href="#" target="_blank">{{item.google_maps_link}}</a>
-            </div>
-            <div class="location-details my-4 d-flex justify-content-between">
-                <div class="owner">
-                    <p class="owner-header fs-16 Tajawal-Bold blue-txt-color m-0">المالك</p>
-                    <p class="owner-name fs-20  Tajawal-Medium m-0">{{item.client_mobile}}</p>
+            <div class="p-20">
+                <div class="location-title fs-20 Tajawal-Bold">{{item.project_name}}</div>
+                <div class="location-link">
+                    <a class="my-3 fs-20 Tajawal-Medium blue-txt-color" href="#" target="_blank">{{item.google_maps_link}}</a>
                 </div>
-                <div class="guard">
-                    <p class="guard-header fs-16 Tajawal-Bold blue-txt-color  m-0">الوكلاء</p>
-                    <p class="guard-name fs-20  Tajawal-Medium  m-0">{{item.guard_mobile}}</p>
+                <div class="location-details my-4 d-flex justify-content-between">
+                    <div class="owner">
+                        <p class="owner-header fs-16 Tajawal-Bold blue-txt-color m-0">المالك</p>
+                        <p class="owner-name fs-20  Tajawal-Medium m-0">{{item.owner.mobile}}</p>
+                    </div>
+                    <div class="guard">
+                        <p class="guard-header fs-16 Tajawal-Bold blue-txt-color  m-0">الوكلاء</p>
+                        <p class="guard-name fs-20  Tajawal-Medium  m-0">{{item.guard_mobile}}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="location-btn">
-                <a routerLink="" class="btn editLocation-btn mx-auto mt-auto fs-16 Tajawal-Medium text-white">تعديل</a>
+                <div class="location-btn">
+                    <a routerLink="editLocation/{{item.id}}" class="btn editLocation-btn mx-auto mt-auto fs-16 Tajawal-Medium text-white">تعديل</a>
+                </div>
             </div>
         </div>
     </div>
