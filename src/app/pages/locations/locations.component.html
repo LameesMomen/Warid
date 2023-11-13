@@ -1,0 +1,62 @@
+<div class="row mt-50">
+    <div class="col-12">
+        <p class="Tajawal-Bold fs-30  m-0">المواقع</p>
+    </div>
+</div>
+<div class="row my-2">
+    <div class="col-12">
+        <a routerLink="addLocation" class="btn addLocation-btn Tajawal-Medium fs-20 me-auto">
+            إضافة موقع
+            <i class="pi pi-plus me-2"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row my-2">
+    <div class="col-sm-12 col-md-6 col-lg-2 my-2 h-100" *ngFor="let item of allLocation | paginate:{
+        itemsPerPage : 10,
+        currentPage : page,
+        totalItems : allLocation?.length
+    }; let i = index ">
+        <div class="location-container">
+            <div class="location-icon me-auto">
+                <img src="assets/location.png" alt="location">
+            </div>
+            <div class="location-title fs-20 Tajawal-Bold">{{item.project_name}}</div>
+            <div class="location-link">
+                <a class="my-3 fs-20 Tajawal-Medium blue-txt-color" href="#" target="_blank">{{item.google_maps_link}}</a>
+            </div>
+            <div class="location-details my-4 d-flex justify-content-between">
+                <div class="owner">
+                    <p class="owner-header fs-16 Tajawal-Bold blue-txt-color m-0">المالك</p>
+                    <p class="owner-name fs-20  Tajawal-Medium m-0">{{item.client_mobile}}</p>
+                </div>
+                <div class="guard">
+                    <p class="guard-header fs-16 Tajawal-Bold blue-txt-color  m-0">الوكلاء</p>
+                    <p class="guard-name fs-20  Tajawal-Medium  m-0">{{item.guard_mobile}}</p>
+                </div>
+            </div>
+            <div class="location-btn">
+                <a routerLink="" class="btn editLocation-btn mx-auto mt-auto fs-16 Tajawal-Medium text-white">تعديل</a>
+            </div>
+        </div>
+    </div>
+    <pagination-controls 
+    [autoHide]="allLocation.length > 10 ? false : true"
+   [responsive]="true"
+    nextLabel = ">"
+   previousLabel ="<"
+   (pageChange)="page = $event">
+    </pagination-controls>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

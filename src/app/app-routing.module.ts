@@ -24,6 +24,10 @@ const routes:Routes=[
         loadChildren:()=>import('./pages/product/product.module').then(m=>m.ProductModule),
       },
       {
+        path:'locations',
+        loadChildren:()=>import('./pages/locations/locations.module').then(m=>m.LocationsModule),
+      },
+      {
         path:'',
         redirectTo : 'product',
         pathMatch : 'full',

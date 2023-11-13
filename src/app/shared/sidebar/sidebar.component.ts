@@ -87,7 +87,7 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'المواقع',
       icon : 'pi pi-fw pi-map-marker',
-      routerLink: ['map'],
+      routerLink: ['locations'],
       routerLinkActiveOptions:{exact:false}
     },
     {
