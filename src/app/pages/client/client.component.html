@@ -1,0 +1,81 @@
+<div class="row mt-50">
+    <div class="col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+        <p class="fs-30 Tajawal-Bold m-0">العملاء</p>
+        <div class="radio-container d-flex mx-4">
+            <div class="activeFilter">
+                <input type="radio" name="filter" id="activeFilter" value="active">
+                <label class="text-success mx-2 fs-25 Tajawal-Medium" for="activeFilter">مفعل</label>
+            </div>
+            <div class="notActiveFilter mx-4">
+                <input type="radio" name="filter" id="notActiveFilter" value="notActive">
+                <label class="text-danger mx-2 fs-25 Tajawal-Medium" for="notActiveFilter">معلق</label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4 my-4 my-lg-0">
+        <a routerLink="addClient" class="btn addClient-btn Tajawal-Medium fs-20 me-auto">
+            إضافة عميل
+            <i class="pi pi-user-plus me-2 fs-5 my-auto"></i>
+        </a>
+    </div>
+</div>
+
+<div class="row mt-50">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">الاسم</th>
+                <th scope="col">رقم الجوال</th>
+                <th scope="col">المدينة</th>
+                <th scope="col">الحي</th>
+                <th scope="col">عدد وكالاته</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of AllclientsData | paginate:{
+                itemsPerPage : 10,
+                currentPage : page,
+                totalItems : AllclientsData?.length
+            }; let i = index ">
+                <td  class="position-relative">
+                    <div class="circle"></div>
+                    <p class="name fs-22 Tajawal-Medium m-0">{{item.name}}</p>
+                </td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.city}}</td>
+                <td>{{item.neighborhood}}</td>
+                <td>{{item.mailbox}}</td>
+                <td></td>
+                <td>
+                    <a routerLink="viewClient/{{item.mobile}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
+                        الصفحة الشخصية
+                     </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<pagination-controls 
+[autoHide]="AllclientsData.length > 10 ? false : true"
+[responsive]="true"
+ nextLabel = ">"
+previousLabel ="<"
+(pageChange)="page = $event">
+</pagination-controls>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

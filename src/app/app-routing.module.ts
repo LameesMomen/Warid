@@ -28,6 +28,10 @@ const routes:Routes=[
         loadChildren:()=>import('./pages/locations/locations.module').then(m=>m.LocationsModule),
       },
       {
+        path:'client',
+        loadChildren:()=>import('./pages/client/client.module').then(m=>m.ClientModule),
+      },
+      {
         path:'',
         redirectTo : 'product',
         pathMatch : 'full',

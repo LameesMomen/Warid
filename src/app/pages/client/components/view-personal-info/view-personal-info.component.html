@@ -1,0 +1,91 @@
+<div class="row mt-50">
+    <div class="col-12">
+        <a routerLink="/client" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
+    </div>
+    <div class="col-12 my-3 d-flex">
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="personal" [checked]="radioValue == 'personal'" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">البيانات الشخصية</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="transaction" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">سجل العمليات</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="location" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">المواقع</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="supplier" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">الوكالات</p>
+            </div>
+        </label>
+    </div>
+</div>
+
+<div class="row mt-50">
+    <div class="col-12">
+        <div [ngSwitch]="radioValue"> 
+            <div *ngSwitchCase="'personal'">
+                <div *ngIf="!editMode">
+                    <div class="addClient-container h-100">
+                            <div class="row">
+                                <div class="col-12 image-container">
+                                    <label class="position-relative" for="uploadImage">
+                                        <img [src]="clientDetail.avatar ? clientDetail.avatar : 'assets/profilePlaceholder.png'" alt="profile">
+                                        <div class="for_ovelay">
+                                            <img src="assets/Camera.png" alt="camera">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                
+                            <div class="row my-5">
+                                <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="first_name">الاسم الأول</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.first_name}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="last_name">الاسم الأخير</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.last_name}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mobile">رقم الجوال</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.mobile}}</p>
+                                </div>
+                            </div>
+                            <div class="row my-5">
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="city">المدينة</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.city}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="neighborhood">الحي</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.neighborhood}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="street">الشارع</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.street}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="postal_code">الرمز البريدي</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.postal_code}}</p>
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mailbox">صندوق البريد</label> <br>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.mailbox}}</p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
