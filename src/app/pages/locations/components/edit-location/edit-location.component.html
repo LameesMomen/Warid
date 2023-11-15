@@ -48,7 +48,7 @@
                             </p>
 
                         </label> 
-                        <input (change)="changeImage($event)" class="form-control" type="file" name="licence" id="licence" ngModel #licence="ngModel" required  accept="image/*">
+                        <input (change)="changeImage($event)" class="form-control" type="file" name="licence" id="licence" ngModel #licence="ngModel" [required]="!building_license"  accept="image/*">
                     </div>
                 </div>
                 <div class="row my-2">
@@ -60,7 +60,7 @@
     
                 <div class="location-btn d-flex justify-content-evenly">
                     <button type="submit" [disabled]="form.invalid"  class="submitLocation-btn mt-3 fs-16 Tajawal-Medium text-white">حفظ</button>
-                    <button (click)="handleShowCard()"   class="deleteLocation-btn mt-3 fs-16 Tajawal-Medium text-white">حذف</button>
+                    <div (click)="handleShowCard()"  class="deleteLocation-btn mt-3 fs-16 Tajawal-Medium text-white">حذف</div>
                 </div>
             </form>
         </div>

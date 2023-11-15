@@ -31,7 +31,22 @@ export class EditLocationComponent implements OnInit{
   }
 
   getData(){
-
+    this.spinner.show()
+    this.http.get(`/locationmanager/admin/locations/${this.id}`).subscribe(
+      (res:any)=>{
+        this.client_mobile = res.owner.mobile
+        this.location_name = res.location_name
+        this.project_name = res.project_name
+        this.building_license = res.building_license
+        this.google_maps_link = res.google_maps_link
+        this.guard_mobile = res.guard_mobile
+        this.spinner.hide()
+      },
+      err =>{
+        this.spinner.hide()
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
   }
 
   changeImage(event: any) {
