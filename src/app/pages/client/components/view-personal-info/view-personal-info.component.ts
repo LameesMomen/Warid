@@ -16,7 +16,7 @@ export class ViewPersonalInfoComponent implements OnInit{
   radioValue: string ='personal';
   editMode : boolean =false;
   clientDetail : any
-  productImage :any='assets/profilePlaceholder.png'
+  productImage :any
   imageFile :any
 
   constructor(private http : HttpHelperService,private spinner : NgxSpinnerService, private messageService : MessageService , private router : Router,private route : ActivatedRoute){
@@ -32,6 +32,8 @@ export class ViewPersonalInfoComponent implements OnInit{
     this.http.get(`/auth/admin/client/list/${this.id}`).subscribe(
       (res:any)=>{
         this.clientDetail=res;
+        this.productImage = this.clientDetail?.avatar ? this.clientDetail?.avatar :'assets/profilePlaceholder.png'
+
         this.spinner.hide();
       },
       err  =>{
@@ -67,6 +69,7 @@ export class ViewPersonalInfoComponent implements OnInit{
         this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
         setTimeout(() => {
           this.editMode = ! this.editMode
+          this.ngOnInit();
         }, 500);
       },
       err=>{
