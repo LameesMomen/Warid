@@ -3,11 +3,11 @@
         <p class="fs-30 Tajawal-Bold m-0">العملاء</p>
         <div class="radio-container d-flex mx-4">
             <div class="activeFilter">
-                <input type="radio" name="filter" id="activeFilter" value="active">
+                <input type="radio"  (change)="RadioFilter('active')" name="filter" id="activeFilter" value="active">
                 <label class="text-success mx-2 fs-25 Tajawal-Medium" for="activeFilter">مفعل</label>
             </div>
             <div class="notActiveFilter mx-4">
-                <input type="radio" name="filter" id="notActiveFilter" value="notActive">
+                <input type="radio"  (change)="RadioFilter('notActive')" name="filter" id="notActiveFilter" value="notActive">
                 <label class="text-danger mx-2 fs-25 Tajawal-Medium" for="notActiveFilter">معلق</label>
             </div>
         </div>
@@ -35,22 +35,24 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of AllclientsData | paginate:{
+              <tr *ngFor="let item of filterClients ? filterClients : AllclientsData | paginate:{
                 itemsPerPage : 10,
                 currentPage : page,
-                totalItems : AllclientsData?.length
+                totalItems : filterClients ? filterClients : AllclientsData?.length
             }; let i = index ">
                 <td  class="position-relative">
-                    <div class="circle"></div>
-                    <p class="name fs-22 Tajawal-Medium m-0">{{item.name}}</p>
+                    <div [ngStyle]="{'background-color': (item.is_approved) ? '#B71212' : '#6B9D3F'}" class="circle"></div>
+                    <p class="name fs-22 Tajawal-Medium m-0">{{item.first_name + ' ' + item.last_name}}</p>
                 </td>
                 <td>{{item.mobile}}</td>
                 <td>{{item.city}}</td>
                 <td>{{item.neighborhood}}</td>
-                <td>{{item.mailbox}}</td>
-                <td></td>
+                <td>{{item.assoc_num}}</td>
                 <td>
-                    <a routerLink="viewClient/{{item.mobile}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
+                  <button (click)="change_is_approved(item)" *ngIf="active && item.is_approved" [ngStyle]="{'background-color': (item.is_approved)?'#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved?'تعليق':'تفعيل'}}</button>
+                </td>
+                <td>
+                    <a routerLink="viewClient/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
                         الصفحة الشخصية
                      </a>
                 </td>
@@ -61,7 +63,7 @@
 </div>
 
 <pagination-controls 
-[autoHide]="AllclientsData.length > 10 ? false : true"
+[autoHide]="filterClients ? filterClients : AllclientsData?.length > 10 ? false : true"
 [responsive]="true"
  nextLabel = ">"
 previousLabel ="<"

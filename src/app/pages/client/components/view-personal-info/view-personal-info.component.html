@@ -35,14 +35,19 @@
         <div [ngSwitch]="radioValue"> 
             <div *ngSwitchCase="'personal'">
                 <div *ngIf="!editMode">
-                    <div class="addClient-container h-100">
+                    <div class="addClient-container position-relative h-100">
                             <div class="row">
+                                <div class="col-12">
+                                    <button (click)="editMode=!editMode" class="editClient-btn fs-20 Tajawal-Medium me-auto">تعديل
+                                        <i class="pi pi-pencil me-2"></i>
+                                    </button>
+                                </div>
                                 <div class="col-12 image-container">
                                     <label class="position-relative" for="uploadImage">
-                                        <img [src]="clientDetail.avatar ? clientDetail.avatar : 'assets/profilePlaceholder.png'" alt="profile">
-                                        <div class="for_ovelay">
+                                        <img [src]="clientDetail?.avatar ? clientDetail?.avatar : 'assets/profilePlaceholder.png'" alt="profile">
+                                        <!-- <div class="for_ovelay">
                                             <img src="assets/Camera.png" alt="camera">
-                                        </div>
+                                        </div> -->
                                     </label>
                                 </div>
                             </div>
@@ -50,39 +55,97 @@
                             <div class="row my-5">
                                 <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="first_name">الاسم الأول</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.first_name}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.first_name}}</p>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="last_name">الاسم الأخير</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.last_name}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.last_name}}</p>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mobile">رقم الجوال</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.mobile}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.mobile}}</p>
                                 </div>
                             </div>
                             <div class="row my-5">
                                 <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="city">المدينة</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.city}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.city}}</p>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="neighborhood">الحي</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.neighborhood}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.neighborhood}}</p>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="street">الشارع</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.street}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.street}}</p>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="postal_code">الرمز البريدي</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.postal_code}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.postal_code}}</p>
                                 </div>
                                 <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mailbox">صندوق البريد</label> <br>
-                                    <p class="fs-25 Tajawal-Bold">{{clientDetail.mailbox}}</p>
+                                    <p class="fs-25 Tajawal-Bold">{{clientDetail?.mailbox}}</p>
                                 </div>
                             </div>
+                    </div>
+                </div>
+                <div *ngIf="editMode">
+                    <div class="addClient-container h-100">
+                        <form #form="ngForm" (ngSubmit)="submit(clientDetail)">
+                            <div class="row">
+                                <div class="col-12 image-container">
+                                    <label class="position-relative" for="uploadImage">
+                                        <img [src]="clientDetail?.avatar ? clientDetail?.avatar : productImage" alt="profile">
+                                        <div class="for_ovelay">
+                                            <img src="assets/Camera.png" alt="camera">
+                                        </div>
+                                    </label>
+                                    <input type="file" name="avatar" id="uploadImage" required (change)="changeImage($event)" style="width:100%;" class="form-control"   accept="image/*">
+                                </div>
+                            </div>
+                
+                            <div class="row my-5">
+                                <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="first_name">الاسم الأول</label> <br>
+                                    <input class="form-control" type="text" name="first_name" id="first_name" [(ngModel)]="clientDetail.first_name" required placeholder="الاسم الأول">
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="last_name">الاسم الأخير</label> <br>
+                                    <input class="form-control" type="text" name="last_name" id="last_name" [(ngModel)]="clientDetail.last_name" required placeholder="الاسم الأخير">
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mobile">رقم الجوال</label> <br>
+                                    <input class="form-control" type="text" name="mobile" id="mobile" [(ngModel)]="clientDetail.mobile" required placeholder="رقم الجوال">
+                                </div>
+                            </div>
+                            <div class="row my-5">
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="city">المدينة</label> <br>
+                                    <input class="form-control" type="text" name="city" id="city" [(ngModel)]="clientDetail.city" required placeholder="المدينة">
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="neighborhood">الحي</label> <br>
+                                    <input class="form-control" type="text" name="neighborhood" id="neighborhood" [(ngModel)]="clientDetail.neighborhood" required placeholder="الحي">
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="street">الشارع</label> <br>
+                                    <input class="form-control" type="text" name="street" id="street" [(ngModel)]="clientDetail.street"required placeholder="الشارع">
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="postal_code">الرمز البريدي</label> <br>
+                                    <input class="form-control" type="text" name="postal_code" id="postal_code" [(ngModel)]="clientDetail.postal_code" required placeholder="الرمز البريدي">
+                                </div>
+                                <div class="col-sm-12 col-md-4 col-lg-2 my-2 my-lg-0 px-0 px-lg-3">
+                                    <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mailbox">صندوق البريد</label> <br>
+                                    <input class="form-control" type="text" name="mailbox" id="mailbox" [(ngModel)]="clientDetail.mailbox" required placeholder="صندوق البريد">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="addClient-btn mx-auto fs-30 Tajawal-Medium" [disabled]="form.invalid">حفظ</button>
+                                </div>
+                            </div></form>
                     </div>
                 </div>
             </div> 

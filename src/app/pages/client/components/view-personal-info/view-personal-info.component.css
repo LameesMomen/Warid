@@ -83,3 +83,39 @@
     width: 30px;
     height: 30px;
 }
+
+.image-container > input  {
+    display: none;
+}
+
+input{
+    background-color: transparent !important;
+    border: 1px solid #707070 !important;
+    border-radius: 10px;
+}
+
+.addClient-btn{
+    width: 80%;
+    height: 67px;
+    background: #1B1C1E 0% 0% no-repeat padding-box;
+    color:#F7F7F7;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editClient-btn{
+    width: 110px;
+    height: 50px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    border-radius: 10px;
+    color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
