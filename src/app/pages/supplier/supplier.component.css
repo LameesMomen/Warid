@@ -1,0 +1,90 @@
+.addsupplier-btn{
+    width: 164px;
+    height: 53px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    color: #F7F7F7;
+    box-shadow: 0px 3px 6px #272D3B33;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.viewProfile-btn{
+    width: 155px;
+    height: 39px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    border-radius: 5px;
+    color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table{      
+    border-collapse: separate !important; 
+    border-spacing: 0 18px !important ;/* horizontal and vertical values */
+}
+
+.table thead th{
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Tajawal-Medium';
+    letter-spacing: 0px;
+    color: #888888;
+}
+
+.table tbody td p.name{
+    font-size: 22px;
+    font-family: 'Tajawal-Medium';
+    letter-spacing: 0px;
+    color: #2A2A2C;
+}
+
+.table tbody td div.circle{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #B71212 0% 0% no-repeat padding-box;
+}
+
+.table tbody td:not(p.name){
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Tajawal-Medium';
+    letter-spacing: 0px;
+    color: #646464;
+}
+tbody, tfoot, th, thead, tr {
+    border: none !important;
+}
+
+.table tbody td{
+    border-top:1px solid #707070 !important;
+    border-bottom:1px solid #707070 !important;
+    padding:5px;
+}
+.table tbody td:first-child{
+    border-right:1px solid #707070 !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.table tbody td:last-child{
+    border-left:1px solid #707070 !important;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+/* .table thead{
+    border: none !important;
+}
+tbody,.table tbody tr{
+    border: 1px solid #707070 !important;
+    border-radius: 15px !important;
+    border-bottom: 15px solid transparent;
+} */

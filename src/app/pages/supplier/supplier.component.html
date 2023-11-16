@@ -13,8 +13,8 @@
         </div>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-4 my-4 my-lg-0">
-        <a routerLink="addClient" class="btn addClient-btn Tajawal-Medium fs-20 me-auto">
-            إضافة عميل
+        <a routerLink="addSupplier" class="btn addsupplier-btn Tajawal-Medium fs-20 me-auto">
+            إضافة مورد
             <i class="pi pi-user-plus me-2 fs-5 my-auto"></i>
         </a>
     </div>
@@ -35,10 +35,10 @@
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of filterClients ? filterClients : AllclientsData | paginate:{
+              <tr *ngFor="let item of filtersuppliers ? filtersuppliers : AllsuppliersData | paginate:{
                 itemsPerPage : 10,
                 currentPage : page,
-                totalItems : filterClients ? filterClients : AllclientsData?.length
+                totalItems : filtersuppliers ? filtersuppliers : AllsuppliersData?.length
             }; let i = index ">
                 <td  class="position-relative">
                     <div [ngStyle]="{'background-color': (item.is_approved) ? '#B71212' : '#6B9D3F'}" class="circle"></div>
@@ -49,10 +49,10 @@
                 <td>{{item.neighborhood}}</td>
                 <td>{{item.assoc_num}}</td>
                 <td>
-                  <button (click)="change_is_approved(item)" *ngIf="active" [ngStyle]="{'background-color': (item.is_approved) ? '#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved ? 'تعليق' : 'تفعيل'}}</button>
+                  <button (click)="change_is_approved(item)" *ngIf="active && item.is_approved" [ngStyle]="{'background-color': (item.is_approved)?'#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved?'تعليق':'تفعيل'}}</button>
                 </td>
                 <td>
-                    <a routerLink="viewClient/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
+                    <a routerLink="viewsupplier/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
                         الصفحة الشخصية
                      </a>
                 </td>
@@ -63,7 +63,7 @@
 </div>
 
 <pagination-controls 
-[autoHide]="filterClients ? filterClients : AllclientsData?.length > 10 ? false : true"
+[autoHide]="filtersuppliers ? filtersuppliers : AllsuppliersData?.length > 10 ? false : true"
 [responsive]="true"
  nextLabel = ">"
 previousLabel ="<"

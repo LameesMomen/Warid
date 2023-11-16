@@ -6,37 +6,37 @@ import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper
 import { ToastersService } from 'src/app/core/services/toaster/toasters.service';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-supplier',
+  templateUrl: './supplier.component.html',
+  styleUrls: ['./supplier.component.css']
 })
-export class ClientComponent implements OnInit {
+export class SupplierComponent implements OnInit{
 
-  AllclientsData:any
-  filterClients:any
+  AllsuppliersData:any
+  filtersuppliers:any
   active:boolean = false
   page:number = 1
 
   constructor(private http : HttpHelperService , private spinner : NgxSpinnerService , private messageService : MessageService,private toasters : ToastersService,private  router : Router){}
   ngOnInit(): void {
-   this.getClientsData()
+   this.getsuppliersData()
   }
 
   RadioFilter(value:any){
     this.active = true
     if(value == 'active'){
-      this.filterClients = this.AllclientsData.filter((item:any) => item.is_approved);
+      this.filtersuppliers = this.AllsuppliersData.filter((item:any) => item.is_approved);
     }
     else{
-      this.filterClients = this.AllclientsData.filter((item:any) => !item.is_approved);
+      this.filtersuppliers = this.AllsuppliersData.filter((item:any) => !item.is_approved);
     }
   }
 
-  getClientsData(){
+  getsuppliersData(){
     this.spinner.show();
-    this.http.get('/auth/admin/client/list/').subscribe(
+    this.http.get('/auth/admin/supplier/list/').subscribe(
       (res:any)=>{
-        this.AllclientsData=res;
+        this.AllsuppliersData=res;
         this.spinner.hide();
       },
       err  =>{
@@ -95,7 +95,7 @@ export class ClientComponent implements OnInit {
 
 showBannerAPI(body: any) {
   this.http
-    .put(`/auth/admin/client/edit/${body.id}`, {
+    .put(`/auth/admin/supplier/edit/${body.id}`, {
       is_approved: body.is_approved,
     })
     .subscribe(
@@ -107,7 +107,7 @@ showBannerAPI(body: any) {
         });
         setTimeout(() => {
           this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-            this.router.navigate(['client']);
+            this.router.navigate(['supplier']);
         });
         }, 500);
         this.spinner.hide();
@@ -122,5 +122,4 @@ showBannerAPI(body: any) {
       }
     );
 }
-
 }
