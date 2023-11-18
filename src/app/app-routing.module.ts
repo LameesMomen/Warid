@@ -36,6 +36,10 @@ const routes:Routes=[
         loadChildren:()=>import('./pages/supplier/supplier.module').then(m=>m.SupplierModule),
       },
       {
+        path:'orders',
+        loadChildren:()=>import('./pages/order/order.module').then(m=>m.OrderModule),
+      },
+      {
         path:'',
         redirectTo : 'product',
         pathMatch : 'full',
