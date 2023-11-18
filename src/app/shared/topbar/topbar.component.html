@@ -1,13 +1,24 @@
 <div class="navbar">
+    <form #form="ngForm" (ngSubmit)="submit(form)">
     <div class="search d-flex align-items-center">
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
-            <input class="form-control" name="search" id="search" ngModel #search="ngModel" type="search" pInputText placeholder="ابحث برقم الطلب، رقم جوال اعميل/ المورد" />
+            <p-autoComplete (onFocus)="inputFocus()" name="search" id="search" ngModel #search="ngModel" class="w-100 d-block" [forceSelection]="true" placeholder="ابحث برقم الطلب، رقم جوال اعميل/ المورد"  [suggestions]="filtered" 
+            (completeMethod)="filterCountry($event)" [dropdown]="false">
+                <ng-template class="clientMobile-filter" let-item pTemplate="item">
+                    <div class="d-flex align-items-center gap-2">
+                        <img style="border-radius: 50%;" src="assets/profilePlaceholder.png" width="30px" height="30px"/>
+                        <div>{{ item}}</div>
+                    </div>
+                </ng-template>
+             </p-autoComplete>
+            <!-- <input class="form-control" name="search" id="search" ngModel #search="ngModel" type="search" pInputText placeholder="ابحث برقم الطلب، رقم جوال اعميل/ المورد" /> -->
         </div>
         <div class="button mx-3">
-            <button class="search-btn Tajawal-Medium fs-25">ابحث</button>
+            <button [disabled]="!(route.url.includes('client') || route.url.includes('supplier'))" class="search-btn Tajawal-Medium fs-25">ابحث</button>
         </div>
     </div>
+</form>
 
     <div class="user-notify d-flex align-items-center">
         <div class="notify-container mx-3">

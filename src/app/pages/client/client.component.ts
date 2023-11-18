@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
@@ -8,7 +8,7 @@ import { ToastersService } from 'src/app/core/services/toaster/toasters.service'
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  styleUrls: ['./client.component.css'],
 })
 export class ClientComponent implements OnInit {
 
@@ -17,9 +17,19 @@ export class ClientComponent implements OnInit {
   active:boolean = false
   page:number = 1
 
-  constructor(private http : HttpHelperService , private spinner : NgxSpinnerService , private messageService : MessageService,private toasters : ToastersService,private  router : Router){}
+  searchValue:any
+
+  constructor(private http : HttpHelperService , private spinner : NgxSpinnerService , private messageService : MessageService,private toasters : ToastersService,private  router : Router,private route : ActivatedRoute){
+    this.searchValue=this.route.snapshot.paramMap.get('mobile')
+  }
+
   ngOnInit(): void {
-   this.getClientsData()
+    if(this.searchValue){
+      this.getClientsDataByMobile()
+    }
+    else{
+      this.getClientsData()
+    }
   }
 
   RadioFilter(value:any){
@@ -35,6 +45,20 @@ export class ClientComponent implements OnInit {
   getClientsData(){
     this.spinner.show();
     this.http.get('/auth/admin/client/list/').subscribe(
+      (res:any)=>{
+        this.AllclientsData=res;
+        this.spinner.hide();
+      },
+      err  =>{
+        this.spinner.hide();
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
+  }
+
+  getClientsDataByMobile(){
+    this.spinner.show();
+    this.http.get(`/auth/admin/client/list/?mobile=${this.searchValue}`).subscribe(
       (res:any)=>{
         this.AllclientsData=res;
         this.spinner.hide();

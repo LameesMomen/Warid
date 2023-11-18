@@ -14,6 +14,10 @@ const routes : Routes =[
     component : SupplierComponent
   },
   {
+    path : 'search/:mobile',
+    component : SupplierComponent
+  },
+  {
     path : 'addSupplier',
     component : AddSupplierComponent
   },

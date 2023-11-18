@@ -23,7 +23,15 @@
                 <div class="row my-2">
                     <div class="col-12">
                         <label class="owner-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال المالك</label> <br>
-                        <input class="form-control" type="text" name="ownerNumber" id="ownerNumber" [(ngModel)]="client_mobile" required placeholder="اكتب رقم الجوال">
+                        <p-autoComplete name="ownerNumber" id="client_mobile" [(ngModel)]="client_mobile" class="w-100 d-block" [required]="true" [forceSelection]="true" placeholder="اكتب رقم الجوال"  [suggestions]="filteredClientMobiles" 
+                        (completeMethod)="filterCountry($event)" [dropdown]="false">
+                            <ng-template class="clientMobile-filter" let-client pTemplate="item">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img style="border-radius: 50%;" src="assets/profilePlaceholder.png" width="30px" height="30px"/>
+                                    <div>{{ client}}</div>
+                                </div>
+                            </ng-template>
+                    </p-autoComplete>
                     </div>
                 </div>
                 <div class="row my-2">

@@ -9,9 +9,11 @@
     z-index: 100;
 }
 
-
-.navbar .search{
+form{
     width: 70%;
+}
+.navbar .search{
+    width: 100%;
 }
 
 .search-btn{
@@ -67,4 +69,29 @@ input:active{
     border-radius: 10px;
     position: absolute;
     left: 0;
+}
+
+::ng-deep .p-autocomplete-input,
+::ng-deep .p-autocomplete{
+    width: 100% !important;
+    height: 100% !important;
+    background-color: transparent !important;
+    border: 0;
+    outline: 0;
+}
+
+
+::ng-deep .p-autocomplete-panel{
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    padding: 10px;
+}
+
+::ng-deep .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover{
+    background: #E0E0E0 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+}
+
+button:disabled{
+    opacity: 1 !important;
 }

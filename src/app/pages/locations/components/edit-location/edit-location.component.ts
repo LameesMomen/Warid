@@ -5,12 +5,21 @@ import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
 import { ToastersService } from 'src/app/core/services/toaster/toasters.service';
 
+interface AutoCompleteCompleteEvent {
+  originalEvent: Event;
+  query: string;
+}
+
 @Component({
   selector: 'app-edit-location',
   templateUrl: './edit-location.component.html',
   styleUrls: ['./edit-location.component.css']
 })
 export class EditLocationComponent implements OnInit{
+
+  clientMobiles: any;
+
+  filteredClientMobiles: any; 
 
   patternLink : string ='(https?:\/\/.*\.)';
   imageFile:any;
@@ -30,6 +39,7 @@ export class EditLocationComponent implements OnInit{
 
   ngOnInit(): void {
     this.getData()
+    this.getAllClients()
   }
 
   getData(){
@@ -48,6 +58,20 @@ export class EditLocationComponent implements OnInit{
       },
       err =>{
         this.spinner.hide()
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
+  }
+
+  getAllClients(){
+    this.spinner.show();
+    this.http.get('/auth/admin/client/list/').subscribe(
+      (res:any)=>{
+        this.clientMobiles=res;
+        this.spinner.hide();
+      },
+      err  =>{
+        this.spinner.hide();
         this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
       }
     )
@@ -88,6 +112,21 @@ export class EditLocationComponent implements OnInit{
       }
     )
   }
+
+  
+  filterCountry(event: AutoCompleteCompleteEvent) {
+    let filtered: any[] = [];
+    let query = event.query;
+
+    for (let i = 0; i < (this.clientMobiles as any[]).length; i++) {
+        let client = (this.clientMobiles as any[])[i];
+        if (client.mobile.toLowerCase().includes(query.toLowerCase())) {
+            filtered.push(client.mobile);
+        }
+    }
+
+    this.filteredClientMobiles = filtered;
+}
 
   handleShowCard(){
     this.toasters.confirmationToaster({
