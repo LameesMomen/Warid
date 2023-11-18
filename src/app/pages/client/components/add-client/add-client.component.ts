@@ -17,7 +17,7 @@ export class AddClientComponent {
 
   changeImage(event: any) {
     this.imageFile = event.target.files[0];
-    this.productImage = this.imageFile ? URL.createObjectURL(this.imageFile) : '';
+    this.productImage = this.imageFile ? URL.createObjectURL(this.imageFile) : 'assets/profilePlaceholder.png';
   }
 
   submit(form:any){

@@ -18,7 +18,7 @@ export class AddSupplierComponent {
 
   changeImage(event: any) {
     this.imageFile = event.target.files[0];
-    this.productImage = this.imageFile ? URL.createObjectURL(this.imageFile) : '';
+    this.productImage = this.imageFile ? URL.createObjectURL(this.imageFile) : 'assets/profilePlaceholder.png';
   }
 
   submit(form:any){
@@ -33,8 +33,8 @@ export class AddSupplierComponent {
     body.append('city', form.value.city);
     body.append('neighborhood', form.value.neighborhood);
     body.append('street', form.value.street);
-    body.append('postal_code', form.value.postal_code);
-    body.append('mailbox', form.value.mailbox);
+    body.append('comm_reg_number', form.value.comm_reg_number);
+    body.append('vat_number', form.value.vat_number);
 
     this.http.post('/auth/register-supplier/',body).subscribe(
       res=>{

@@ -1,6 +1,6 @@
 <div class="row mt-50">
     <div class="col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
-        <p class="fs-30 Tajawal-Bold m-0">العملاء</p>
+        <p class="fs-30 Tajawal-Bold m-0">الموردين</p>
         <div class="radio-container d-flex mx-4">
             <div class="activeFilter">
                 <input type="radio"  (change)="RadioFilter('active')" name="filter" id="activeFilter" value="active">
@@ -29,7 +29,6 @@
                 <th scope="col">رقم الجوال</th>
                 <th scope="col">المدينة</th>
                 <th scope="col">الحي</th>
-                <th scope="col">عدد وكالاته</th>
                 <th scope="col"></th>
                 <th scope="col"></th>
               </tr>
@@ -47,12 +46,11 @@
                 <td>{{item.mobile}}</td>
                 <td>{{item.city}}</td>
                 <td>{{item.neighborhood}}</td>
-                <td>{{item.assoc_num}}</td>
                 <td>
-                  <button (click)="change_is_approved(item)" *ngIf="active && item.is_approved" [ngStyle]="{'background-color': (item.is_approved)?'#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved?'تعليق':'تفعيل'}}</button>
+                  <button (click)="change_is_approved(item)" *ngIf="active" [ngStyle]="{'background-color': (item.is_approved)?'#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved?'تعليق':'تفعيل'}}</button>
                 </td>
                 <td>
-                    <a routerLink="viewsupplier/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
+                    <a routerLink="viewSupplier/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
                         الصفحة الشخصية
                      </a>
                 </td>

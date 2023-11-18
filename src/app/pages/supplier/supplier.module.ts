@@ -4,6 +4,7 @@ import { SupplierComponent } from './supplier.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddSupplierComponent } from './components/add-supplier/add-supplier.component';
+import { ViewSupplierInfoComponent } from './components/view-supplier-info/view-supplier-info.component';
 
 
 
@@ -16,17 +17,18 @@ const routes : Routes =[
     path : 'addSupplier',
     component : AddSupplierComponent
   },
-  // {
-  //   path : 'viewClient/:id',
-  //   component : ViewPersonalInfoComponent
-  // },
+  {
+    path : 'viewSupplier/:id',
+    component : ViewSupplierInfoComponent
+  },
 ]
 
 
 @NgModule({
   declarations: [
     SupplierComponent,
-    AddSupplierComponent
+    AddSupplierComponent,
+    ViewSupplierInfoComponent
   ],
   imports: [
     CommonModule,

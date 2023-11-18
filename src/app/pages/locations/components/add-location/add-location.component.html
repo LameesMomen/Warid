@@ -23,7 +23,7 @@
                 <div class="row my-2">
                     <div class="col-12">
                         <label class="owner-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال المالك</label> <br>
-                        <p-autoComplete class="w-100 d-block" [required]="true" placeholder="اكتب رقم الجوال" [(ngModel)]="selectedMobile" [suggestions]="filteredClientMobiles" 
+                        <p-autoComplete name="ownerNumber" id="ownerNumber" ngModel #ownerNumber="ngModel" class="w-100 d-block" [required]="true" [forceSelection]="true" placeholder="اكتب رقم الجوال"  [suggestions]="filteredClientMobiles" 
                             (completeMethod)="filterCountry($event)" field="mobile" [dropdown]="false">
                                 <ng-template class="clientMobile-filter" let-client pTemplate="item">
                                     <div class="d-flex align-items-center gap-2">
@@ -36,11 +36,11 @@
                     </div>
                 </div>
                 <div class="row my-2">
-                    <div class="col-sm-12 col-md-6 col-lg-6 px-2 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6  my-2 my-lg-0 my-md-0">
                         <label class="location-number fs-16 Tajawal-Bold blue-txt-color">اسم الموقع</label> <br>
                         <input class="form-control" type="text" name="locationName" id="locationName" ngModel #locationName="ngModel" required placeholder="اسم الموقع">
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 px-2 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 pe-lg-2 pe-md-2 pe-sm-0 my-2 my-lg-0 my-md-0">
                         <label class="location-place fs-16 Tajawal-Bold blue-txt-color">رابط الموقع من Google Map</label> <br>
                         <input class="form-control" type="url" [pattern]="patternLink" name="locationPlace" id="locationPlace" ngModel #locationPlace="ngModel" required placeholder="رابط الموقع من Google Map">
                         <div class="mt-2" *ngIf="(locationPlace.touched && locationPlace.invalid)">
@@ -49,13 +49,11 @@
                     </div>
                 </div>
                 <div class="row my-2">
-                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 my-2 my-lg-0 my-md-0">
                         <label class="location-number fs-16 Tajawal-Bold blue-txt-color">المدينة</label> <br>
                         <input class="form-control" type="text" name="city" id="city" ngModel #city="ngModel" required placeholder="المدينة">
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 pe-lg-2 pe-md-2 pe-sm-0 my-2 my-lg-0 my-md-0">
                         <label class="location-number fs-16 Tajawal-Bold blue-txt-color">الحي</label> <br>
                         <input class="form-control" type="text" name="neighborhood" id="neighborhood" ngModel #neighborhood="ngModel" required placeholder="الحي">
                     </div>

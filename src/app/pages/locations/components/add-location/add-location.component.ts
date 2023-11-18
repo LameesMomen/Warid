@@ -18,8 +18,6 @@ export class AddLocationComponent implements OnInit{
 
   clientMobiles: any;
 
-  selectedMobile: any='';
-
   filteredClientMobiles: any; 
 
   patternLink : string ='(https?:\/\/.*\.)';
@@ -84,7 +82,7 @@ export class AddLocationComponent implements OnInit{
 
     for (let i = 0; i < (this.clientMobiles as any[]).length; i++) {
         let client = (this.clientMobiles as any[])[i];
-        if (client.mobile.toLowerCase().indexOf(query.toLowerCase()) == 0) {
+        if (client.mobile.toLowerCase().includes(query.toLowerCase())) {
             filtered.push(client);
         }
     }

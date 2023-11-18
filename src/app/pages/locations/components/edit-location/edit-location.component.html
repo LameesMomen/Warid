@@ -27,23 +27,21 @@
                     </div>
                 </div>
                 <div class="row my-2">
-                    <div class="col-sm-12 col-md-6 col-lg-6 px-2 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 my-2 my-lg-0 my-md-0">
                         <label class="location-number fs-16 Tajawal-Bold blue-txt-color">اسم الموقع</label> <br>
                         <input class="form-control" type="text" name="locationName" id="locationName" [(ngModel)]="location_name" required placeholder="اسم الموقع">
                     </div>
-                    <div class="col-sm-12 col-md-6 col-lg-6 px-2 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 pe-lg-2 pe-md-2 pe-sm-0 my-2 my-lg-0 my-md-0">
                         <label class="location-place fs-16 Tajawal-Bold blue-txt-color">رابط الموقع من Google Map</label> <br>
                         <input class="form-control" type="url" [pattern]="patternLink" name="locationPlace" id="locationPlace" [(ngModel)]="google_maps_link" required placeholder="رابط الموقع من Google Map">
                     </div>
                 </div>
                 <div class="row my-2">
-                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 my-2 my-lg-0 my-md-0">
                         <label class="location-number fs-16 Tajawal-Bold blue-txt-color">المدينة</label> <br>
                         <input class="form-control" type="text" name="city" id="city" [(ngModel)]="city" required placeholder="المدينة">
                     </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                    <div class="col-sm-12 col-md-6 col-lg-6 pe-lg-2 pe-md-2 pe-sm-0 my-2 my-lg-0 my-md-0">
                         <label class="location-number fs-16 Tajawal-Bold blue-txt-color">الحي</label> <br>
                         <input class="form-control" type="text" name="neighborhood" id="neighborhood" [(ngModel)]="neighborhood" required placeholder="الحي">
                     </div>
