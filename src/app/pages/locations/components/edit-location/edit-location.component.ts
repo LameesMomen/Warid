@@ -20,6 +20,8 @@ export class EditLocationComponent implements OnInit{
   building_license : any
   google_maps_link : any
   guard_mobile : any
+  neighborhood : any
+  city : any
 
   id:any
   constructor(private toasters : ToastersService,private http : HttpHelperService,private spinner : NgxSpinnerService, private messageService : MessageService , private router : Router,private route : ActivatedRoute){
@@ -40,6 +42,8 @@ export class EditLocationComponent implements OnInit{
         this.building_license = res.building_license
         this.google_maps_link = res.google_maps_link
         this.guard_mobile = res.guard_mobile
+        this.neighborhood = res.neighborhood
+        this.city = res.city
         this.spinner.hide()
       },
       err =>{
@@ -67,6 +71,8 @@ export class EditLocationComponent implements OnInit{
     body.append('building_license', file ? file : this.building_license);
     body.append('google_maps_link', this.google_maps_link);
     body.append('guard_mobile', this.guard_mobile);
+    body.append('neighborhood', this.neighborhood);
+    body.append('city', this.city);
 
     this.http.put(`/locationmanager/admin/locations/${this.id}`,body).subscribe(
       res=>{

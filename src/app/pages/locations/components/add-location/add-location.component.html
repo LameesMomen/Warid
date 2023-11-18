@@ -23,7 +23,16 @@
                 <div class="row my-2">
                     <div class="col-12">
                         <label class="owner-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال المالك</label> <br>
-                        <input class="form-control" type="text" name="ownerNumber" id="ownerNumber" ngModel #ownerNumber="ngModel" required placeholder="اكتب رقم الجوال">
+                        <p-autoComplete class="w-100 d-block" [required]="true" placeholder="اكتب رقم الجوال" [(ngModel)]="selectedMobile" [suggestions]="filteredClientMobiles" 
+                            (completeMethod)="filterCountry($event)" field="mobile" [dropdown]="false">
+                                <ng-template class="clientMobile-filter" let-client pTemplate="item">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img style="border-radius: 50%;" src="assets/profilePlaceholder.png" width="30px" height="30px"/>
+                                        <div>{{ client.mobile }}</div>
+                                    </div>
+                                </ng-template>
+                        </p-autoComplete>
+                        <!-- <input class="form-control" type="text" name="ownerNumber" id="ownerNumber" ngModel #ownerNumber="ngModel" required placeholder="اكتب رقم الجوال"> -->
                     </div>
                 </div>
                 <div class="row my-2">
@@ -37,6 +46,18 @@
                         <div class="mt-2" *ngIf="(locationPlace.touched && locationPlace.invalid)">
                             <p class="text-danger" *ngIf="locationPlace.errors?.['pattern']">رابط الموقع غير صحيح</p>
                         </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                        <label class="location-number fs-16 Tajawal-Bold blue-txt-color">المدينة</label> <br>
+                        <input class="form-control" type="text" name="city" id="city" ngModel #city="ngModel" required placeholder="المدينة">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                        <label class="location-number fs-16 Tajawal-Bold blue-txt-color">الحي</label> <br>
+                        <input class="form-control" type="text" name="neighborhood" id="neighborhood" ngModel #neighborhood="ngModel" required placeholder="الحي">
                     </div>
                 </div>
                 <div class="row my-2">
@@ -56,8 +77,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-12">
-                        <label class="guard-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال الوكيل</label> <br>
-                        <input class="form-control" type="text" name="guardNumber" id="guardNumber" ngModel #guardNumber="ngModel" required placeholder="اكتب رقم الجوال">
+                        <label class="guard-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال الحارس</label> <br>
+                        <input class="form-control" type="text" name="guardNumber" id="guardNumber" ngModel #guardNumber="ngModel" required placeholder="اكتب رقم الحارس">
                     </div>
                 </div>
     

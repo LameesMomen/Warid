@@ -9,8 +9,9 @@
     z-index: 100;
 }
 
+
 .navbar .search{
-    width: 50%;
+    width: 70%;
 }
 
 .search-btn{
@@ -64,5 +65,6 @@ input:active{
     background: #F7F7F7 0% 0% no-repeat padding-box;
     box-shadow: 0px 10px 20px #272D3B39;
     border-radius: 10px;
+    position: absolute;
     left: 0;
 }

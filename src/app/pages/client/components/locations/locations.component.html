@@ -1,0 +1,123 @@
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">اسم الموقع</th>
+                <th scope="col">الحي</th>
+                <th scope="col">رابط الموقع</th>
+                <th scope="col">جوال الحارس</th>
+                <th scope="col">البيانات المالية للموقع</th>
+                <th scope="col">رخصة البناء</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of allLocation  | paginate:{
+                itemsPerPage : 10,
+                currentPage : page,
+                totalItems : allLocation?.length
+            }; let i = index ">
+                <td>
+                    {{item.project_name}}
+                </td>
+                <td>{{item.neighborhood}}</td>
+                <td> <a class="link fs-25 Tajawal-Medium" href="{{item.google_maps_link}}" target="_blank">www.googlemap.com</a></td>
+                <td>{{item.guard_mobile}}</td>
+                <td><button (click)="showDialog(item.id)" class="dialog-btn">عرض</button></td>
+                <td><a class="download-link" href="{{item.building_license}}" download><i class="pi pi-download fs-6"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <div class="row">
+    <div class="col-12">
+      <p class="text-center fs-22 Tajawal-Bold">{{dialogContent?.financial_type == 'individual' ? 'فرد' : 'شركة'}}</p>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-between p-3">
+    <div class="col-5">
+      <div class="client-details d-flex flex-column justify-content-between">
+        <div class="row my-2">
+          <div class="col-6">
+            <p class="fs-16 Tajawal-Bold m-0">الفاتورة بإسم</p>
+          </div>
+          <div class="col-6">
+            <p class="blue-txt-color fs-16 Tajawal-Medium m-0">{{dialogContent?.receipt_name}}</p>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-6">
+            <p class="fs-16 Tajawal-Bold m-0">ضريبة القيمة المضافة</p>
+          </div>
+          <div class="col-6">
+            <p class="blue-txt-color fs-16 Tajawal-Medium m-0">{{dialogContent?.vat_number }}</p>
+          </div>
+        </div>
+        <div class="row my-2">
+          <div class="col-6">
+            <p class="fs-16 Tajawal-Bold m-0">رقم السجل التجاري</p>
+          </div>
+          <div class="col-6">
+            <p class="blue-txt-color fs-16 Tajawal-Medium m-0">{{dialogContent?.comm_reg_number}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <div class="client-details d-flex flex-column justify-content-between">
+        <p class="fs-16 Tajawal-Bold">العنوان</p>
+        <div class="my-2 d-flex justify-content-between">
+          <div>
+            <p class="fs-16 Tajawal-Medium greytxt-color m-0">المدينة</p>
+            <p class="fs-18 Tajawal-Medium blue-txt-color">{{dialogContent?.city}}</p>
+          </div>
+          <div>
+            <p class="fs-16 Tajawal-Medium greytxt-color m-0">الحي</p>
+            <p class="fs-18 Tajawal-Medium blue-txt-color">{{dialogContent?.neighborhood}}</p>
+          </div>
+          <div>
+            <p class="fs-16 Tajawal-Medium greytxt-color m-0">الرمز البريدي</p>
+            <p class="fs-18 Tajawal-Medium blue-txt-color">{{dialogContent?.owner.postal_code}}</p>
+          </div>
+        </div>
+        <div class="my-2 d-flex justify-content-between">
+          <div>
+            <p class="fs-16 Tajawal-Medium greytxt-color m-0">الصندوق البريدي</p>
+            <p class="fs-18 Tajawal-Medium blue-txt-color">{{dialogContent?.owner.mailbox}}</p>
+          </div>
+          <div>
+            <p class="fs-16 Tajawal-Medium greytxt-color m-0">الشارع</p>
+            <p class="fs-18 Tajawal-Medium blue-txt-color">{{dialogContent?.owner.street}}</p>
+          </div>
+          <!-- <div>
+            <p class="fs-16 Tajawal-Medium greytxt-color m-0">رقم المبنى</p>
+            <p class="fs-18 Tajawal-Medium blue-txt-color">{{dialogContent.postal_code}}</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</p-dialog>
+
+<pagination-controls 
+[autoHide]="allLocation?.length > 10 ? false : true"
+[responsive]="true"
+ nextLabel = ">"
+previousLabel ="<"
+(pageChange)="page = $event">
+</pagination-controls>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

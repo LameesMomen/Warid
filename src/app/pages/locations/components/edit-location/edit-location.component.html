@@ -37,6 +37,18 @@
                     </div>
                 </div>
                 <div class="row my-2">
+                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                        <label class="location-number fs-16 Tajawal-Bold blue-txt-color">المدينة</label> <br>
+                        <input class="form-control" type="text" name="city" id="city" [(ngModel)]="city" required placeholder="المدينة">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-12 my-2 my-lg-0 my-md-0">
+                        <label class="location-number fs-16 Tajawal-Bold blue-txt-color">الحي</label> <br>
+                        <input class="form-control" type="text" name="neighborhood" id="neighborhood" [(ngModel)]="neighborhood" required placeholder="الحي">
+                    </div>
+                </div>
+                <div class="row my-2">
                     <div class="col-12 licence-container">
                         <label for="licence" class="owner-number fs-16 Tajawal-Bold blue-txt-color">
                             <p class="m-0" *ngIf="!building_license">رخصة البناء
@@ -53,8 +65,8 @@
                 </div>
                 <div class="row my-2">
                     <div class="col-12">
-                        <label class="guard-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال الوكيل</label> <br>
-                        <input class="form-control" type="text" name="guardNumber" id="guardNumber" [(ngModel)]="guard_mobile"  required placeholder="اكتب رقم الجوال">
+                        <label class="guard-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال الحارس</label> <br>
+                        <input class="form-control" type="text" name="guardNumber" id="guardNumber" [(ngModel)]="guard_mobile"  required placeholder="اكتب رقم الحارس">
                     </div>
                 </div>
     

@@ -55,7 +55,7 @@ export class ViewPersonalInfoComponent implements OnInit{
 
     body.append('first_name', form.first_name);
     body.append('last_name', form.last_name);
-    body.append('avatar', form.avatr ? form.avatar : this.imageFile);
+    body.append('avatar', this.imageFile ? this.imageFile : this.clientDetail?.avatar);
     body.append('city', form.city);
     body.append('neighborhood', form.neighborhood);
     body.append('street', form.street);

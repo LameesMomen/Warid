@@ -30,10 +30,10 @@
                 <div class="location-details my-4 d-flex justify-content-between">
                     <div class="owner">
                         <p class="owner-header fs-16 Tajawal-Bold blue-txt-color m-0">المالك</p>
-                        <p class="owner-name fs-20  Tajawal-Medium m-0">{{item.owner.mobile}}</p>
+                        <p class="owner-name fs-20  Tajawal-Medium m-0">{{item.owner.first_name + ' ' + item.owner.last_name}}</p>
                     </div>
                     <div class="guard">
-                        <p class="guard-header fs-16 Tajawal-Bold blue-txt-color  m-0">الوكلاء</p>
+                        <p class="guard-header fs-16 Tajawal-Bold blue-txt-color  m-0">الحارس</p>
                         <p class="guard-name fs-20  Tajawal-Medium  m-0">{{item.guard_mobile}}</p>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <pagination-controls 
-    [autoHide]="allLocation.length > 8 ? false : true"
+    [autoHide]="allLocation?.length > 8 ? false : true"
    [responsive]="true"
     nextLabel = ">"
    previousLabel ="<"

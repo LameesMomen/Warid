@@ -17,6 +17,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { SwiperModule } from 'swiper/angular';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { CodeInputModule } from 'angular-code-input';
+import { DialogModule } from 'primeng/dialog';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 
 
@@ -42,6 +44,8 @@ import { CodeInputModule } from 'angular-code-input';
     SwiperModule,
     InputSwitchModule,
     CodeInputModule,
+    DialogModule,
+    AutoCompleteModule,
     CodeInputModule.forRoot({
       codeLength: 6,
       isCodeHidden:false,
@@ -61,6 +65,8 @@ import { CodeInputModule } from 'angular-code-input';
     SwiperModule,
     InputSwitchModule,
     CodeInputModule,
+    DialogModule,
+    AutoCompleteModule,
   ],
 })
 export class SharedModule { }

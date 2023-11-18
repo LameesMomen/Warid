@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ClientComponent } from './client.component';
 import { AddClientComponent } from './components/add-client/add-client.component';
 import { ViewPersonalInfoComponent } from './components/view-personal-info/view-personal-info.component';
+import { LocationsComponent } from './components/locations/locations.component';
 
 
 
@@ -27,7 +28,8 @@ const routes : Routes =[
   declarations: [
     ClientComponent,
     AddClientComponent,
-    ViewPersonalInfoComponent
+    ViewPersonalInfoComponent,
+    LocationsComponent
   ],
   imports: [
     CommonModule,
