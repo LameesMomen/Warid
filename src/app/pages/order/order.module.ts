@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { OrderComponent } from './order.component';
+import { LocationOrdersComponent } from './components/location-orders/location-orders.component';
+import { LocationOrderDetailComponent } from './components/location-order-detail/location-order-detail.component';
 
 
 
@@ -19,16 +21,18 @@ const routes : Routes =[
 //     path : 'addSupplier',
 //     component : AddSupplierComponent
 //   },
-//   {
-//     path : 'viewSupplier/:id',
-//     component : ViewSupplierInfoComponent
-//   },
+  {
+    path : 'viewOrder/:id',
+    component : LocationOrderDetailComponent
+  },
 ]
 
 
 @NgModule({
   declarations: [
-OrderComponent
+OrderComponent,
+LocationOrdersComponent,
+LocationOrderDetailComponent
   ],
   imports: [
     CommonModule,

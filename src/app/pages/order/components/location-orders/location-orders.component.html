@@ -1,0 +1,66 @@
+<div *ngIf="allLocationOrders?.length" class="row mt-2">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">رقم الطلب</th>
+                <th scope="col">صاحب الطلب</th>
+                <th scope="col">نص الطلب</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of allLocationOrders | paginate:{
+                itemsPerPage : 6,
+                currentPage : page,
+                totalItems : allLocationOrders?.length
+            }; let i = index ">
+                <td  class="position-relative">
+                    #{{item?.id}}
+                </td>
+                <td>{{item?.owner_name}}</td>
+                <td>طلب إضافة موقع</td>
+                <td style="color: #ACACAC;">{{item?.created_at}}</td>
+                <td class="d-flex justify-content-evenly align-items-center">
+                  <button (click)="delete(item)" class="delete-btn"><i class="pi pi-trash fs-5"></i></button>
+                  <a routerLink="viewOrder/{{item.id}}" class="btn vieworder-btn Tajawal-Medium fs-20">
+                    الإطلاع
+                  </a>
+                  <button (click)="apprroved(item)" class="submitAction-btn fs-20 Tajawal-Medium">تنفيذ</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<div *ngIf="!allLocationOrders?.length" class="row mt-50">
+  <div class="col-12 text-center">
+      <div>
+          <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-info-circle my-4"></i>
+      </div>
+      <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك طلبات حالياً</p>
+  </div>
+</div>
+
+<pagination-controls 
+[autoHide]="allLocationOrders?.length > 6 ? false : true"
+[responsive]="true"
+ nextLabel = ">"
+previousLabel ="<"
+(pageChange)="page = $event">
+</pagination-controls>
+
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

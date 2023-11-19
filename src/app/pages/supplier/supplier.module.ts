@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AddSupplierComponent } from './components/add-supplier/add-supplier.component';
 import { ViewSupplierInfoComponent } from './components/view-supplier-info/view-supplier-info.component';
+import { SupplierMoneyInfoComponent } from './components/supplier-money-info/supplier-money-info.component';
 
 
 
@@ -32,7 +33,8 @@ const routes : Routes =[
   declarations: [
     SupplierComponent,
     AddSupplierComponent,
-    ViewSupplierInfoComponent
+    ViewSupplierInfoComponent,
+    SupplierMoneyInfoComponent,
   ],
   imports: [
     CommonModule,

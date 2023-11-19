@@ -15,7 +15,7 @@
                 <p class="fs-25 Tajawal-Bold">البيانات المالية</p>
             </div>
         </label>
-        <label class="labl mx-4">
+        <!-- <label class="labl mx-4">
             <input type="radio" name="radioname" [(ngModel)]="radioValue" value="transactions" />
             <div class="radio-container">
                 <p class="fs-25 Tajawal-Bold">سجل العمليات</p>
@@ -38,7 +38,7 @@
             <div class="radio-container">
                 <p class="fs-25 Tajawal-Bold">التقييمات</p>
             </div>
-        </label>
+        </label> -->
     </div>
 </div>
 
@@ -168,6 +168,7 @@
                     </div>
                 </div>
             </div> 
+            <div *ngSwitchCase="'money'"><app-supplier-money-info></app-supplier-money-info></div>
         </div>
     </div>
 </div>

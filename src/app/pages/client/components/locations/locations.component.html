@@ -1,5 +1,5 @@
 
-<div class="row">
+<div *ngIf="allLocation?.length" class="row">
     <div class="col-12">
         <table class="table">
             <thead>
@@ -30,6 +30,15 @@
             </tbody>
           </table>
     </div>
+</div>
+
+<div *ngIf="!allLocation?.length" class="row mt-50">
+  <div class="col-12 text-center">
+      <div>
+          <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-info-circle my-4"></i>
+      </div>
+      <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك مواقع حالياً</p>
+  </div>
 </div>
 
 <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">

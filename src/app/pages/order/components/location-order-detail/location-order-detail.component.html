@@ -1,0 +1,57 @@
+<div class="row mt-50">
+    <div class="col-12 d-flex">
+        <a routerLink="/orders" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
+        <p class="fs-30 Tajawal-Bold my-0">الإطلاع على الطلب</p>
+    </div>
+    <div class="col-12">
+        <p class="fs-25 Tajawal-Medium my-2 greytxt-color">طلب موقع رقم #{{data?.id}}</p>
+    </div>
+</div>
+
+<div class="row mt-50">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+        <div class="oder_location_container">
+            <div class="image_location">
+                <img src="assets/location.png" alt="location">
+            </div>
+            <p class="fs-20 Tajawal-Medium blue-txt-color text-center">{{data?.owner_name}} يطلب إضافة موقع</p>
+            <hr>
+            <p class="fs-14 Tajawal-Bold mt-2">معلومات الموقع</p>
+            <div class="row">
+                <div class="col-6">
+                    <div class="owner_name">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">اسم المالك</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.owner_name}}</p>
+                    </div>
+                    <div class="location_name mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">اسم الموقع</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.location_name}}</p>
+                    </div>
+                    <div class="neighborhood mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">الحي</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.neighborhood}}</p>
+                    </div>
+                </div>
+                <div class="col-6 pe-5 border-right  position-relative">
+                    <div class="google_maps_link">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">رابط الموقع</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.google_maps_link}}</p>
+                    </div>
+                    <div class="guard_mobile mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">جوال الحارس</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.guard_mobile}}</p>
+                    </div>
+                    <div class="building_license mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">تحميل رخصة البناء</p>
+                        <a class="download_link me-4 mt-1" [href]="data?.building_license" download><i class="pi pi-download fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12 text-center">
+                    <button (click)="apprroved(data)" class="approve-btn fs-16 Tajawal-Medium">تنفيذ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

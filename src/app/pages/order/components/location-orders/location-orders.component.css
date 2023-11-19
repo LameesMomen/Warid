@@ -1,0 +1,94 @@
+table{      
+    border-collapse: separate !important; 
+    border-spacing: 0 18px !important ;/* horizontal and vertical values */
+}
+
+.table thead th{
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Tajawal-Medium';
+    letter-spacing: 0px;
+    color: #888888;
+}
+
+.table tbody td p.name{
+    font-size: 22px;
+    font-family: 'Tajawal-Medium';
+    letter-spacing: 0px;
+    color: #2A2A2C;
+}
+
+.table tbody td div.circle{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #B71212 0% 0% no-repeat padding-box;
+}
+
+.table tbody td:not(p.name){
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Tajawal-Medium';
+    letter-spacing: 0px;
+    color: #646464;
+}
+tbody, tfoot, th, thead, tr {
+    border: none !important;
+}
+
+.table tbody td{
+    border-top:1px solid #707070 !important;
+    border-bottom:1px solid #707070 !important;
+    padding:5px;
+}
+.table tbody td:first-child{
+    border-right:1px solid #707070 !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.table tbody td:last-child{
+    border-left:1px solid #707070 !important;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.delete-btn{
+    width: 49px;
+    height: 40px;
+    color: #B71212;
+    background: #EBEBEB 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    border: 0;
+}
+
+.vieworder-btn{
+    width: 101px;
+    height: 38px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 0;
+    margin: 0;
+}
+
+.submitAction-btn{
+    width: 101px;
+    height: 38px;
+    background: #007AFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    border-radius: 5px;
+    color: white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+}

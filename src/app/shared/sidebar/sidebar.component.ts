@@ -33,12 +33,14 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'لوحة التحكم',
       icon : 'pi pi-fw pi-compass',
+      disabled:true,
       routerLink: ['dashboard'],
       routerLinkActiveOptions:{exact:false}
     },
     {
       label : 'الاعلانات',
       icon : 'pi pi-fw pi-video',
+      disabled:true,
       routerLink: ['adds'],
       routerLinkActiveOptions:{exact:false}
     },
@@ -69,12 +71,14 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'الإداريون',
       icon : 'pi pi-fw pi-briefcase',
+      disabled:true,
       routerLink: ['admins'],
       routerLinkActiveOptions:{exact:false}
     },
     {
       label : 'المعاملات',
       icon : 'pi pi-fw pi-money-bill',
+      disabled:true,
       routerLink: ['transaction'],
       routerLinkActiveOptions:{exact:false}
     },
@@ -93,12 +97,14 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'الإعدادات',
       icon : 'pi pi-fw pi-cog',
+      disabled:true,
       routerLink: ['setting'],
       routerLinkActiveOptions:{exact:false}
     },
     {
       label : 'النسخ الإحتياطي',
       icon : 'pi pi-fw pi-cloud-upload',
+      disabled:true,
       routerLink: ['cloud'],
       routerLinkActiveOptions:{exact:false}
     },
