@@ -13,9 +13,9 @@ input:valid{
     border-color: #94D859;
 }
 
-input:invalid{
+/* input:invalid{
     border-color: #B71212;
-}
+} */
 
 input:focus{
     border-color: #007AFF !important;
@@ -33,4 +33,20 @@ input:focus{
     background: #1B1C1E 0% 0% no-repeat padding-box;
     border-radius: 8px;
     color: white;
+}
+
+.credit_card{
+    width: 496px;
+    height: 227px;
+    padding: 25px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    border-radius: 26px;
+}
+
+::ng-deep .swiper {
+    width: 95%;
+}
+
+::ng-deep .swiper-slide {
+    width: max-content !important;
 }

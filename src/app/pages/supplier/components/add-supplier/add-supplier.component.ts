@@ -45,7 +45,7 @@ export class AddSupplierComponent {
         }, 500);
       },
       err=>{
-        this.messageService.add({severity:'error',summary:'خطأ', detail:'حدث خطأ ما'});
+        this.messageService.add({severity:'error',summary:'خطأ', detail:err.error.detail});
         this.spinner.hide();
       }
     )

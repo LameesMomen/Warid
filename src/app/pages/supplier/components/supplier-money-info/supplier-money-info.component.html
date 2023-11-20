@@ -1,41 +1,79 @@
 <div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-7"></div>
+    <div class="col-sm-12 col-md-12 col-lg-7">
+        <p class="fs-22 Tajawal-Medium">البطائق البنكية للمورد</p>
+        <swiper [config]="swiperOption" [spaceBetween]="10">
+            <ng-container *ngFor="let item of res.bank_accounts">
+                <ng-template class="my-5" swiperSlide>
+                    <div class="credit_card">
+                        <div class="card_bank_name d-flex justify-content-between align-items-center">
+                            <p class="text-white fs-22 Tajawal-Bold">بنك {{item?.bank}}</p>
+                            <p class="text-white fs-16 Tajawal-Medium">{{item?.account_owner_name}}</p>
+                        </div>
+                        <div class="card_bank_number">
+                            <p class="text-white text-center fs-28 Tajawal-Medium">{{item?.account_number}}</p>
+                        </div>
+                        <div class="card_bank_iban d-flex justify-content-between align-items-center">
+                            <p class="text-white my-auto fs-20 Tajawal-Bold">الايبان : {{item?.iban}}</p>
+                            <img src="assets/logo.png" width="65px" alt="logo">
+                        </div>
+                      </div>
+                </ng-template>
+            </ng-container>
+          </swiper>
+    </div>
     <div class="col-sm-12 col-md-12 col-lg-4">
-        <form>
+        <form #form="ngForm" (ngSubmit)="addCard(form)">
             <div class="add_card_info_container">
                 <div class="card_name">
                     <div class="d-flex align-items-center position-relative">
                         <i class="pi pi-user fs-3"></i>
                         <span class="required_sympol text-danger">*</span>
-                        <input class="form-control" type="text" name="card_name" id="card_name" placeholder="اسم صاحب الحساب">
+                        <input class="form-control" required type="text" ngModel #account_owner_name="ngModel" name="account_owner_name" id="account_owner_name" placeholder="اسم صاحب الحساب">
                     </div>
                 </div>
                 <div class="card_number my-5">
                     <div class="d-flex align-items-center position-relative">
                         <i class="pi pi-credit-card fs-3"></i>
                         <span class="required_sympol text-danger">*</span>
-                        <input class="form-control" type="text" name="card_number my-3" id="card_number my-3" placeholder="رقم الحساب">
+                        <input class="form-control" required type="text" pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" #account_number="ngModel" ngModel  name="account_number" id="account_number" placeholder="رقم الحساب">
+                    </div>
+                    <div class="me-5 mt-2" *ngIf="account_number.touched && account_number.invalid">
+                        <p class="text-danger" *ngIf="account_number.errors?.['pattern']">تأكد من صحة الرقم</p>
                     </div>
                 </div>
                 <div class="bank_name my-5">
                     <div class="d-flex align-items-center position-relative">
                         <i class="pi pi-home fs-3"></i>
                         <span class="required_sympol text-danger">*</span>
-                        <input class="form-control" type="text" name="bank_name my-3" id="bank_name my-3" placeholder="اسم البنك">
+                        <input class="form-control" required type="text" ngModel #bank="ngModel" name="bank" id="bank" placeholder="اسم البنك">
                     </div>
                 </div>
                 <div class="iban my-5">
                     <div class="d-flex align-items-center position-relative">
                         <i class="pi pi-credit-card fs-3"></i>
                         <span class="required_sympol text-danger">*</span>
-                        <input class="form-control" type="text" name="iban my-3" id="iban my-3" placeholder="الايبان">
-                        <p class="blue-txt-color fs-28 Tajawal-Bold me-3">SA</p>
+                        <input class="form-control" required type="text" pattern="\bSA[0-9]{4}[A-Z0-9]{18}\b" ngModel #iban="ngModel" name="iban" id="iban" placeholder="الايبان">
+                        <p class="blue-txt-color fs-28 Tajawal-Bold my-auto me-3">SA</p>
+                    </div>
+                    <div class="me-5 mt-2" *ngIf="iban.touched && iban.invalid">
+                        <p class="text-danger" *ngIf="iban.errors?.['pattern']">تأكد من صحة الرقم</p>
                     </div>
                 </div>
                 <div class="action-btn">
-                    <button class="submit-btn fs-30 Tajawal-Medium">إضافة</button>
+                    <button [disabled]="form.invalid" class="submit-btn fs-30 Tajawal-Medium">إضافة</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

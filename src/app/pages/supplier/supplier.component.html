@@ -29,8 +29,8 @@
                 <th scope="col">رقم الجوال</th>
                 <th scope="col">المدينة</th>
                 <th scope="col">الحي</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">العمولة</th>
+                <th scope="col">حالة المتجر</th>
               </tr>
             </thead>
             <tbody>
@@ -46,6 +46,8 @@
                 <td>{{item.mobile}}</td>
                 <td>{{item.city}}</td>
                 <td>{{item.neighborhood}}</td>
+                <td  class="Tajawal-Bold" [ngStyle]="{'color': (item.is_active) ? '#6B9D3F' : '#B71212'}">ر.س {{item.comm_reg_number?item.comm_reg_number:0}}</td>
+                <td class="Tajawal-Bold" [ngStyle]="{'color': (item.is_active) ? '#6B9D3F' : '#B71212'}">{{item.is_active ? 'ON':'OFF'}}</td>
                 <td>
                   <button (click)="change_is_approved(item)" *ngIf="active" [ngStyle]="{'background-color': (item.is_approved)?'#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved?'تعليق':'تفعيل'}}</button>
                 </td>
