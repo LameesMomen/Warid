@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
-import { SwiperOptions } from 'swiper';
 
 @Component({
   selector: 'app-supplier-money-info',
@@ -11,10 +10,15 @@ import { SwiperOptions } from 'swiper';
 })
 export class SupplierMoneyInfoComponent {
   @Input() public res: any;
-
-  swiperOption : SwiperOptions  ={
-    slidesPerView:1.5,
-  }
+  greyColors=[
+    '#1a1a1a',
+    '#2A2A2C',
+    '#616161',
+    '#717171',
+    '#858585',
+    '#a5a5a5',
+    '#c7c7c7'
+  ]
 
   constructor(
     private http: HttpHelperService,
@@ -27,6 +31,17 @@ export class SupplierMoneyInfoComponent {
         item.account_number = item.account_number.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
     }
     
+  }
+
+  next(){
+    let lists =document.querySelectorAll('.credit_card');
+    let parent = document.getElementById('carousel') as any;
+    parent.appendChild(lists[0])
+  }
+  prev(){
+    let lists =document.querySelectorAll('.credit_card');
+    let parent = document.getElementById('carousel') as any;
+    parent.prepend(lists[lists.length - 1])
   }
 
   // format(){

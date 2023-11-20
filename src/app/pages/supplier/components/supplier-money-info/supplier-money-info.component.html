@@ -1,25 +1,27 @@
 <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-7">
         <p class="fs-22 Tajawal-Medium">البطائق البنكية للمورد</p>
-        <swiper [config]="swiperOption" [spaceBetween]="10">
-            <ng-container *ngFor="let item of res.bank_accounts">
-                <ng-template class="my-5" swiperSlide>
-                    <div class="credit_card">
-                        <div class="card_bank_name d-flex justify-content-between align-items-center">
-                            <p class="text-white fs-22 Tajawal-Bold">بنك {{item?.bank}}</p>
-                            <p class="text-white fs-16 Tajawal-Medium">{{item?.account_owner_name}}</p>
-                        </div>
-                        <div class="card_bank_number">
-                            <p class="text-white text-center fs-28 Tajawal-Medium">{{item?.account_number}}</p>
-                        </div>
-                        <div class="card_bank_iban d-flex justify-content-between align-items-center">
-                            <p class="text-white my-auto fs-20 Tajawal-Bold">الايبان : {{item?.iban}}</p>
-                            <img src="assets/logo.png" width="65px" alt="logo">
-                        </div>
-                      </div>
-                </ng-template>
-            </ng-container>
-          </swiper>
+        <div class="card_container position-relative my-5 h-100">
+            <div id="carousel" class="carousel">
+                <div [ngStyle]="{'background-color':(greyColors[i])?greyColors[i]:'#2A2A2C'}" class="credit_card" *ngFor="let item of res.bank_accounts let i=index;">
+                    <div class="card_bank_name d-flex justify-content-between align-items-center">
+                        <p class="text-white fs-22 Tajawal-Bold">بنك {{item?.bank}}</p>
+                        <p class="text-white fs-16 Tajawal-Medium">{{item?.account_owner_name}}</p>
+                    </div>
+                    <div class="card_bank_number">
+                        <p class="text-white text-center fs-28 Tajawal-Medium">{{item?.account_number}}</p>
+                    </div>
+                    <div class="card_bank_iban d-flex justify-content-between align-items-center">
+                        <p class="text-white my-auto fs-20 Tajawal-Bold">الايبان : {{item?.iban}}</p>
+                        <img src="assets/logo.png" width="65px" alt="logo">
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-btn d-flex">
+                <button (click)="next()" class="next mx-3"><i class="pi pi-angle-right"></i></button>
+                <button (click)="prev()"  class="prev mx-3"><i class="pi pi-angle-left"></i></button>
+            </div>
+        </div>
     </div>
     <div class="col-sm-12 col-md-12 col-lg-4">
         <form #form="ngForm" (ngSubmit)="addCard(form)">
