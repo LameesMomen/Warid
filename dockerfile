@@ -43,7 +43,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Copy the Angular app files to the working directory
 COPY . .
