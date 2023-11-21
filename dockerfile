@@ -22,7 +22,7 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=build-stage /app/dist/warid/ ./
+COPY --from=build-stage /app/dist/warid/. .
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
