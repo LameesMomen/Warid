@@ -7,6 +7,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./build:/usr/share/nginx/html
+      - ./dist:/usr/share/nginx/html
 volumes:
   static_volume:
