@@ -49,7 +49,7 @@ RUN npm install --legacy-peer-deps
 COPY . .
 
 # Build the Angular app
-RUN npm run build --prod
+RUN npm run build
 
 # Use Nginx as a web server
 FROM nginx:alpine
