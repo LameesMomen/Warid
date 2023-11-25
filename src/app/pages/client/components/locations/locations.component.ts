@@ -46,7 +46,6 @@ export class LocationsComponent implements OnInit{
       return items.owner.id == this.id;
     });
     this.spinner.hide()
-    console.log(this.allLocation)
   }
 
 
