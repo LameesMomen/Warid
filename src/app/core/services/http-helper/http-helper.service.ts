@@ -33,17 +33,17 @@ export class HttpHelperService {
     formData.append('category', payload.category);
     formData.append('title', payload.title);
 
-    return this.http.post(url , formData ,{responseType:'text'})
+    return this.http.post('http://34.147.213.123' + url , formData ,{responseType:'text'})
   }
 
   put(url:string , payload : any){
-    return this.http.put(url , payload)
+    return this.http.put('http://34.147.213.123' + url , payload)
   }
 
   delete(url:string , payload : any){
-    return this.http.post(url , payload)
+    return this.http.post('http://34.147.213.123' + url , payload)
   }
   deleteLocation(url:string){
-    return this.http.delete(url)
+    return this.http.delete('http://34.147.213.123' + url)
   }
 }
