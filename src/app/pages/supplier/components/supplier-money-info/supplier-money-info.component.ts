@@ -64,7 +64,7 @@ export class SupplierMoneyInfoComponent {
       iban: form.value.iban
     }
 
-    this.http.post('financemanager/admin/bank-accounts/',body).subscribe(
+    this.http.post('/financemanager/admin/bank-accounts/',body).subscribe(
       res=>{
         this.spinner.hide();
         this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});

@@ -32,7 +32,7 @@ export class EditCategoryComponent implements OnInit{
 
   getCategoryById(){
     this.spinner.show()
-    this.http.get(`/productmanager/admin/categories/${this.id}`).subscribe(
+    this.http.get(`/productmanager/admin/categories/${this.id}/`).subscribe(
       (res:any)=>{
         this.title=res.title;
         this.unit_type=res.unit_type;

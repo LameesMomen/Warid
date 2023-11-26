@@ -8,7 +8,7 @@
 <!-- Category Section -->
 <div class="row mt-4  d-flex justify-content-between">
     <div class="col-sm-12 col-md-12 col-lg-10">
-        <swiper class="col-12" [config]="swiperOption">
+        <swiper class="col-12" [config]="swiperOption" [mousewheel]="true">
             <ng-container *ngFor="let item of allCategories">
                 <ng-template swiperSlide>
                     <label class="labl mx-2">

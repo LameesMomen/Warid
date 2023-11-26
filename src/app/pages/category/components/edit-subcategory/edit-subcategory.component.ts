@@ -26,7 +26,7 @@ export class EditSubcategoryComponent implements OnInit{
 
   getData(){
     this.spinner.show();
-    this.http.get('productmanager/admin/categories/').subscribe(
+    this.http.get('/productmanager/admin/categories/').subscribe(
       (res:any)=>{
         this.allsubCategoryList=res.find((items : any)=>{
           return items.id == this.parentId

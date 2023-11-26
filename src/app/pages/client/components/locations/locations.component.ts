@@ -54,7 +54,5 @@ export class LocationsComponent implements OnInit{
       this.dialogContent = this.allLocation.find((items: any) => {
         return items.id == id;
       });
-
-      console.log(this.dialogContent)
   }
 }

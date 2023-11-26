@@ -25,12 +25,11 @@ export class RequestInterceptor implements HttpInterceptor {
 
     const modified = req.clone({
       setHeaders: {
-        'Authorization': token ? 'Bearer ' + token : 'no token',
+        'Authorization': token ? 'Bearer ' + token : '',
         'Accept': '*/*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Origin': 'http://34.147.213.123',
+        // 'Access-Control-Allow-Origin': 'http://34.147.213.123',
       },
-      withCredentials: true
+      // withCredentials: true
     });
 
     return next.handle(modified).pipe(

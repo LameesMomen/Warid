@@ -18,11 +18,11 @@ export class HttpHelperService {
   constructor(private http:HttpClient) { }
 
   get(url:string){
-    return this.http.get(url)
+    return this.http.get('http://34.147.213.123' + url)
   }
 
   post(url:string , payload : any){
-    return this.http.post(url , payload)
+    return this.http.post('http://34.147.213.123' + url , payload)
   }
 
   postImage(url:string , payload : any):Observable<any>{

@@ -71,11 +71,11 @@ input:active{
     left: 0;
 }
 
-::ng-deep .p-autocomplete-input,
-::ng-deep .p-autocomplete{
+::ng-deep .p-inputgroup .p-autocomplete-input,
+::ng-deep .p-inputgroup .p-autocomplete{
     width: 100% !important;
     height: 100% !important;
-    background-color: transparent !important;
+    background-color: #F7F7F7 !important;
     border: 0;
     outline: 0;
 }
