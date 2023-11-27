@@ -12,13 +12,13 @@
     </div>
 </div>
 
-<div *ngIf="allLocation?.length" class="row my-2">
-    <div class="col-sm-12 col-md-6 col-lg-3 px-3 my-2 h-100" *ngFor="let item of allLocation | paginate:{
+<div style="height: max-content;" *ngIf="allLocation?.length" class="row my-2">
+    <div class="col-sm-12 col-md-6 col-lg-3 px-3 my-2" *ngFor="let item of allLocation | paginate:{
         itemsPerPage : 8,
         currentPage : page,
         totalItems : allLocation?.length
     }; let i = index ">
-        <div class="location-container">
+        <div class="location-container h-100">
             <div class="location-icon me-auto">
                 <img src="assets/location.png" alt="location">
             </div>
@@ -30,16 +30,16 @@
                 <div class="location-details my-4 d-flex justify-content-between">
                     <div class="owner">
                         <p class="owner-header fs-16 Tajawal-Bold blue-txt-color m-0">المالك</p>
-                        <p class="owner-name fs-20  Tajawal-Medium m-0">{{item.owner.first_name + ' ' + item.owner.last_name}}</p>
+                        <p  style="font-size: 18px;" class="owner-name Tajawal-Medium m-0">{{item.owner.first_name + ' ' + item.owner.last_name}}</p>
                     </div>
                     <div class="guard">
                         <p class="guard-header fs-16 Tajawal-Bold blue-txt-color  m-0">الحارس</p>
-                        <p class="guard-name fs-20  Tajawal-Medium  m-0">{{item.guard_mobile}}</p>
+                        <p  style="font-size: 18px;" class="guard-name Tajawal-Medium  m-0">{{item.guard_mobile}}</p>
                     </div>
                 </div>
-                <div class="location-btn">
-                    <a routerLink="editLocation/{{item.id}}" class="btn editLocation-btn mx-auto mt-auto fs-16 Tajawal-Medium text-white">تعديل</a>
-                </div>
+            </div>
+            <div class="location-btn mt-auto mb-3">
+                <a routerLink="editLocation/{{item.id}}" class="btn editLocation-btn mx-auto mt-auto fs-16 Tajawal-Medium text-white">تعديل</a>
             </div>
         </div>
     </div>

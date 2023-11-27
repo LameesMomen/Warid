@@ -78,21 +78,21 @@ export class EditLocationComponent implements OnInit{
   }
 
   changeImage(event: any) {
-    console.log(event)
     this.imageFile = event.target.files[0];
   }
 
   submit(form:any){
     this.spinner.show();
 
-    var file: Blob = this.imageFile == undefined ? new Blob :this.imageFile;
-
     const body = new FormData();
+    
+    if(this.imageFile){
+    body.append('building_license', this.imageFile);
+    }
 
     body.append('client_mobile', this.client_mobile);
     body.append('location_name', this.location_name);
     body.append('project_name', this.project_name);
-    body.append('building_license', file ? file : this.building_license);
     body.append('google_maps_link', this.google_maps_link);
     body.append('guard_mobile', this.guard_mobile);
     body.append('neighborhood', this.neighborhood);

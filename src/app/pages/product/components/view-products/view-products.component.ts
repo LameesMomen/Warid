@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
@@ -15,7 +16,7 @@ export class ViewProductsComponent {
   @Input() styleView:any
 
   @Output() emptyView = new EventEmitter<boolean>();
-
+  
   allProductList:any;
   page : number =1
 
@@ -30,6 +31,7 @@ export class ViewProductsComponent {
   ngOnChanges(changes:any) {
     if(changes.id){
       this.handleProductItems(this.id)
+      this.page=1
     }
   }
 
@@ -84,6 +86,7 @@ export class ViewProductsComponent {
             detail: ' تنفيذ العملية بنجاح',
           });
           setTimeout(() => {
+            this.handleProductItems(this.id)
           }, 500);
           this.spinner.hide();
         },

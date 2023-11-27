@@ -14,7 +14,7 @@
             <div class="image_location">
                 <img src="assets/location.png" alt="location">
             </div>
-            <p class="fs-20 Tajawal-Medium blue-txt-color text-center">{{data?.owner_name}} يطلب إضافة موقع</p>
+            <p class="fs-20 Tajawal-Medium blue-txt-color text-center my-2">{{data?.owner_name}} يطلب إضافة موقع</p>
             <hr>
             <p class="fs-14 Tajawal-Bold mt-2">معلومات الموقع</p>
             <div class="row">
@@ -35,7 +35,7 @@
                 <div class="col-6 pe-5 border-right  position-relative">
                     <div class="google_maps_link">
                         <p class="fs-16 Tajawal-Medium blue-txt-color m-0">رابط الموقع</p>
-                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.google_maps_link}}</p>
+                        <a class="fs-16 Tajawal-Medium greytxt-color m-0"  href="{{data?.google_maps_link}}" target="_blank">Google Map Link</a>
                     </div>
                     <div class="guard_mobile mt-2">
                         <p class="fs-16 Tajawal-Medium blue-txt-color m-0">جوال الحارس</p>

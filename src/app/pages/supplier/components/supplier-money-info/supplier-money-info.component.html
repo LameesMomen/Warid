@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-btn d-flex">
+            <div *ngIf="res.bank_accounts?.length" class="carousel-btn d-flex">
                 <button (click)="next()" class="next mx-3"><i class="pi pi-angle-right"></i></button>
                 <button (click)="prev()"  class="prev mx-3"><i class="pi pi-angle-left"></i></button>
             </div>
