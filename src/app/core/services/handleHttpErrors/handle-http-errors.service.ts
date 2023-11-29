@@ -16,7 +16,7 @@ export class HandleHttpErrorsService implements ErrorHandler {
       this.http.post('/auth/token/refresh/',{refresh : localStorage.getItem('refreshToken')}).subscribe(
         (res:any)=>{
           localStorage.setItem('token',res.access);
-          location.reload()
+          window.location.reload()
         },
         err =>{
             this.messageService.add({severity:'error', detail:'session expired'});

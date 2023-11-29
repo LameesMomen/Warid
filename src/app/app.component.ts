@@ -13,26 +13,26 @@ export class AppComponent implements OnInit{
   constructor(private http : HttpHelperService ,private router : Router , private messageService : MessageService){}
 
   ngOnInit(): void {
-    if(localStorage.getItem('refreshToken')){
-      this.refreshToken();
-    }
+    // if(localStorage.getItem('refreshToken')){
+    //   this.refreshToken();
+    // }
   }
 
 
-  refreshToken(){
-    setInterval(() => {
-      this.http.post('/auth/token/refresh/',{refresh : localStorage.getItem('refreshToken')}).subscribe(
-        (res:any)=>{
-          localStorage.setItem('token',res.access);
-        },
-        err =>{
-            setTimeout(() => {
-            localStorage.clear();
-            this.router.navigateByUrl('/login');
-            }, 1000);
-        }
-      )
-    }, 60000);
-  }
+  // refreshToken(){
+  //   setInterval(() => {
+  //     this.http.post('/auth/token/refresh/',{refresh : localStorage.getItem('refreshToken')}).subscribe(
+  //       (res:any)=>{
+  //         localStorage.setItem('token',res.access);
+  //       },
+  //       err =>{
+  //           setTimeout(() => {
+  //           localStorage.clear();
+  //           this.router.navigateByUrl('/login');
+  //           }, 1000);
+  //       }
+  //     )
+  //   }, 60000);
+  // }
 
 }
