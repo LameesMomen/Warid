@@ -1,0 +1,388 @@
+@import 'swiper/swiper-bundle.min.css';
+/***********************************************
+General
+************************************************/
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: #EEEEEE;
+}
+
+a {
+    cursor: pointer;
+}
+
+.row {
+    --bs-gutter-x: 0 !important;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+.form-control:focus{
+    border-color: initial !important;
+    box-shadow: none !important;
+}
+
+/************************************************
+Fonts
+************************************************/
+
+@font-face {
+    font-family: "Tajawal-Reqular";
+    src: url('assets/fonts/Tajawal/Tajawal-Regular.ttf') format('ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Tajawal-Medium";
+    src: url('assets/fonts/Tajawal/Tajawal-Medium.ttf') format('ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Tajawal-Bold";
+    src: url('assets/fonts/Tajawal/Tajawal-ExtraBold.ttf') format('ttf');
+    font-style: normal;
+    font-display: swap;
+}
+
+.Tajawal-Reqular {
+    font-family: 'Tajawal-Reqular';
+}
+
+.Tajawal-Medium {
+    font-family: 'Tajawal-Medium';
+    font-weight: 500;
+}
+
+.Tajawal-Bold {
+    font-family: 'Tajawal-Bold';
+    font-weight: 700;
+}
+
+.fs-28 {
+    font-size: 28px;
+}
+
+.fs-30 {
+    font-size: 30px;
+}
+
+.fs-37 {
+    font-size: 37px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+.fs-16 {
+    font-size: 16px;
+}
+
+/************************************************
+End Fonts
+************************************************/
+
+/************************************************
+Margins
+************************************************/
+.mt-50 {
+    margin-top: 50px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+.mt-130 {
+    margin-top: 130px;
+}
+
+/************************************************
+End Fonts
+************************************************/
+
+
+/************************************************
+Colors
+************************************************/
+
+.lightBlue-txt-color {
+    color: #007AFF !important;
+}
+
+.blue-txt-color {
+    color: #007AFF !important;
+}
+
+.red-color {
+    color: #B71212 !important;
+}
+
+.greytxt-color {
+    color: #626262 !important;
+}
+
+/************************************************
+End Colors
+************************************************/
+
+/************************************************
+Code Inptu
+************************************************/
+
+code-input span {
+    padding: 8px !important;
+}
+
+code-input input {
+    border: 1px solid #1B1C1E !important;
+    border-radius: 8px !important;
+}
+
+/************************************************
+End Code Input
+************************************************/
+
+/************************************************
+Toasters
+************************************************/
+.p-toast-message-text, .p-toast-message-content button {
+    display: flex !important;
+    justify-content: space-evenly !important;
+    margin: auto !important;
+}
+
+.p-toast .p-toast-message.p-toast-message-error {
+    width: 500px !important;
+    border-left: none !important;
+    border-bottom: 5px solid #B71212 !important;
+}
+
+.p-toast .p-toast-message.p-toast-message-success {
+    width: 500px !important;
+    border-left: none !important;
+    border-bottom: 5px solid #6EA33F !important;
+}
+
+.p-toast-detail {
+    font-size: 19px !important;
+    margin: auto !important;
+}
+
+.p-toast-summary {
+    display: none;
+}
+
+.p-toast-message-icon svg {
+    display: none;
+}
+
+/************************************************
+End Toasters
+************************************************/
+
+/************************************************
+Paginations
+************************************************/
+.ngx-pagination {
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 7px !important;
+    width: max-content !important;
+    height: 28px !important;
+    border: 1px solid black !important;
+    margin: 0 30px !important;
+    border-radius: 20px !important;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    direction: ltr;
+    background: white;
+}
+
+
+.ngx-pagination .current {
+    padding: 0.1875rem 0.625rem;
+    background: #2A2A2C !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    margin: 0 10px !important;
+    font-size: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ngx-pagination .pagination-next a:hover,
+.ngx-pagination .pagination-previous a:hover,
+.ngx-pagination li a:hover {
+    color: black !important;
+    border-radius: 50%;
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ngx-pagination .pagination-previous:before, .ngx-pagination .pagination-next:after,
+.ngx-pagination .pagination-next a:after,
+.ngx-pagination .pagination-previous a:before {
+    display: none !important;
+}
+
+.pagination-previous.disabled,
+.pagination-next.disabled {
+    opacity: 0.5;
+}
+
+.ngx-pagination .pagination-previous a,
+.ngx-pagination .pagination-next a {
+    color: white !important;
+}
+
+.ngx-pagination a {
+    font-size: 10px;
+}
+
+.pagination-previous,
+.pagination-next {
+    background: #2A2A2C !important;
+    width: 18px !important;
+    height: 18px !important;
+    border-radius: 50% !important;
+    margin: 0 10px !important;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 7px;
+}
+
+/************************************************
+End Paginations
+************************************************/
+
+/************************************************
+Confirmation  Toasters
+************************************************/
+.swal2-modal{
+    border-radius: 20px;
+}
+.swal2-cancel {
+    background-color: #B71212 !important;
+    width: 100px;
+}
+
+.swal2-confirm {
+    background-color: black !important;
+    width: 100px;
+}
+
+/************************************************
+End Confirmation  Toasters
+************************************************/
+
+
+/************************************************
+Media Queries
+************************************************/
+
+@media only screen and (max-width : 998px) {
+    .sidebar,app-topbar {
+        display: none;
+    }
+
+    .home-container{
+        padding: 5px !important;
+    }
+
+}
+
+@media only screen and (min-width : 320px) and (max-width : 998px) {
+    .fs-28 {
+        font-size: 20px;
+    }
+
+    .fs-30 {
+        font-size: 25px;
+    }
+
+    .fs-37 {
+        font-size: 28px;
+    }
+
+    .fs-20 {
+        font-size: 16px;
+    }
+
+    .mt-50 {
+        margin-top: 20px;
+    }
+
+    .p-toast .p-toast-message.p-toast-message-error {
+        width: 100% !important;
+        margin: auto !important;
+    }
+
+    .p-toast-summary, .p-toast-detail {
+        font-size: 16px !important;
+    }
+
+    code-input span {
+        padding: 2px !important;
+    }
+}
+
+@media only screen and (min-width : 998px) and (max-width : 1650px) {
+
+    .fs-37, .fs-28, .fs-30 {
+        font-size: 25px;
+    }
+
+    .fs-20, .fs-25 {
+        font-size: 20px;
+    }
+
+    .mt-50 {
+        margin-top: 20px !important;
+    }
+
+    .mt-70 {
+        margin-top: 40px !important;
+    }
+
+    .mt-150 {
+        margin-top: 50px !important;
+    }
+
+    .mt-20 {
+        margin-top: 10px !important;
+    }
+
+    .mt-11 {
+        margin-top: 8px !important;
+    }
+}
+
+/************************************************
+End Media Queries
+************************************************/

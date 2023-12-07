@@ -1,0 +1,15 @@
+.home-container{
+    padding: 30px;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.home-container .content {
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+
+.col-2.sidebar{
+    width: 12.333333% !important;
+}

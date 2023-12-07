@@ -1,0 +1,164 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.mt-150{
+    margin-top: 150px;
+}
+.mt-50{
+    margin-top: 50px;
+}
+.mt-30{
+    margin-top: 30px;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.mt-11{
+    margin-top: 11px;
+}
+.mt-70{
+    margin-top: 70px;
+}
+
+.page-container{
+    width: 100%;
+    /* max-height: 100vh; */
+    height:100% ;
+    background-color: #2A2A2C;
+    background-image: url(/assets/building.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
+}
+
+.page-container .screen-center{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: max-content;
+}
+
+
+.login-container{
+    width: 680px;
+    max-width: 100%;
+    height: 760px;
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    padding: 80px;
+}
+
+.login-container p{
+    color: #1B1C1E;
+}
+
+
+form,.form-container,.forgetPass-view,.login-view,.otp-view,.newPass-view{
+    height: -webkit-fill-available;
+}
+
+form .form-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+input{
+    height: 62px;
+    background-color: transparent;
+    border: 1px solid #1B1C1E;
+    border-radius: 8px;
+    padding: 22px;
+}
+
+input:focus,
+input:active{
+    box-shadow: none !important;
+    outline: o !important;
+}
+
+button{
+    background-color: #1B1C1E;
+    border-radius: 8px;
+    color: #F7F7F7;
+    width: 100%;
+    height: 75px;
+}
+
+
+
+@media only screen and (min-width : 320px) and (max-width : 998px) {
+    .mt-70{
+        margin-top: 40px;
+    }
+    .mt-150{
+        margin-top: 50px;
+    }
+
+    .mt-50{
+        margin-top: 20px;
+    }
+    .mt-20{
+        margin-top: 10px;
+    }
+    .mt-11{
+        margin-top: 8px;
+    }
+
+    .page-container{
+        height: 100%;
+        background-size: 100%;
+    }
+
+    .brand-logo{
+        display: none;
+    }
+
+    .login-container{
+        min-height: 514px;
+        max-height: 550px;
+        padding: 20px;
+       position: absolute;
+       top: 0;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       margin: auto;
+    }
+
+    .flex-sm{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .p-inputgroup img{
+        width: 20px;
+    }
+}
+
+@media only screen and (min-width : 998px) and (max-width : 1650px) {
+    .login-container {
+        width: 500px;
+        max-width: 100%;
+        height: 515px;
+        padding: 20px 40px;
+    }
+
+    .p-inputgroup{
+        height: 50px;
+        margin-top: 15px;
+    }
+
+    .mt-70{
+        margin-top: 10px !important;
+    }
+}
