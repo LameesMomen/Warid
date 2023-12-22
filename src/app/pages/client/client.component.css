@@ -1,0 +1,122 @@
+table {
+    border-color:#9F9F9F !important
+}
+
+table a.detail-btn{
+    width: 156px;
+    height: 46px;
+    border: 1px solid #2A2A2C;
+    border-radius: 20px !important;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table a.detail-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+/* table thead th:last-child{
+    border-top-left-radius: 20px !important;
+    border-left: none !important;
+}
+table thead th:first-child{
+    border-top-right-radius: 20px !important;
+    border-right: none !important;
+}
+    
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+} */
+
+table thead{
+    vertical-align: middle !important;
+    text-align: center;
+    height: 93px;
+}
+
+table thead tr th{
+    background-color: #2A2A2C !important;
+    color: #F7F7F7;
+}
+
+th, td {
+    vertical-align: middle;
+    text-align: center;
+    font-family: "Tajawal-Bold";
+    font-size: 20px;
+  }
+
+  td{
+    height: 93px;
+    background-color: transparent;
+  }
+
+
+
+.p-inputgroup{
+    width: 1045px;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    border: 1px solid #E0E0E0;
+    height: 57px;
+    border-radius: 10px;
+}
+
+.p-inputgroup-addon{
+    background-color: transparent !important;
+    border: 0 !important;
+    outline: 0 !important;
+    margin: 0 0 0 10px ;
+    /* border-left: 1px solid #F7F7F7 ; */
+}
+
+
+input{
+    background-color: transparent !important;
+    outline: 0 !important;
+    border: 0 !important;
+}
+
+::ng-deep input::placeholder{
+    color: #BCBCBC !important;
+}
+
+input:focus,
+input:active,
+::ng-deep .p-inputtext:enabled:focus
+{
+    box-shadow: none !important;
+    outline: 0 !important;
+    border-color: 0 !important;
+}
+
+
+::ng-deep .p-inputgroup .p-autocomplete-input,
+::ng-deep .p-inputgroup .p-autocomplete{
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #F7F7F7 !important;
+    border: 0;
+    outline: 0;
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+}
+
+
+::ng-deep .p-autocomplete-panel{
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    padding: 10px;
+}
+
+::ng-deep .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item:hover{
+    background: #E0E0E0 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+}
+
+hr{
+    width: 1301px;
+    height: 0px;
+    border: 1px solid #CECECE;
+}

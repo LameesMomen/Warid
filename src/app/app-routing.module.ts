@@ -13,11 +13,15 @@ const routes:Routes=[
   {
     path:'home',
     component : HomeComponent,
-    // canActivate :[AuthdGuard],
+    canActivate :[AuthdGuard],
     children  : [
       {
         path:'client',
         loadChildren:()=>import('./pages/client/client.module').then(m=>m.ClientModule),
+      },
+      {
+        path:'supplier',
+        loadChildren:()=>import('./pages/supplier/supplier.module').then(m=>m.SupplierModule),
       },
     ]
   },

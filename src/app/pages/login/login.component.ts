@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.http.get(`/auth/user-otp-request/?mobile=${this.mobile}`).subscribe(
       (res:any)=>{
       this.spinner.hide()
-      localStorage.setItem('user_type',res.user_type);
+      sessionStorage.setItem('user_type',res.user_type);
       this.view='OTP'
       this.timer(180);
       },
@@ -64,10 +64,15 @@ export class LoginComponent implements OnInit {
     this.http.post('/auth/user-login/',body).subscribe(
       (res:any)=>{
       this.spinner.hide()
-      localStorage.setItem('token',res.access);
-      localStorage.setItem('refreshToken',res.refresh);
-      localStorage.setItem('isLogin','logedin');
-      // this.route.navigateByUrl('/category')
+      sessionStorage.setItem('token',res.access);
+      sessionStorage.setItem('refreshToken',res.refresh);
+      sessionStorage.setItem('user',JSON.stringify(res.user_details));
+      sessionStorage.setItem('isLogin','logedin');
+      if (res.user_details.user_type == "CLIENT"){
+        this.route.navigateByUrl('/home/client')
+      }else{
+        this.route.navigateByUrl('/home/supplier')
+      }
       },
       err=>{
       this.spinner.hide()

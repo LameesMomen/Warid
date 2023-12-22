@@ -31,7 +31,7 @@
     <div class="main-data">
         <div  *ngIf="AllclientsData?.length" class="row mt-50">
             <div class="col-12">
-                <table class="table table-bordered">
+                <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">رقم الطلب</th>
@@ -51,17 +51,7 @@
                         currentPage : page,
                         totalItems : AllclientsData?.length
                     }; let i = index ">
-                            <td>{{item.id}}</td>
-                            <td>{{item.created_at.split('T')[0]}}</td>
-                            <td>{{item.location.project_name}}</td>
-                            <td>{{item.supplier_product}}</td>
-                            <td>{{item.amount}}</td>
-                            <td>{{item.client}}</td>
-                            <td>{{item.supplier}}</td>
-                            <td>{{item.status}}</td>
-                            <td class="d-flex justify-content-center align-items-center">
-                                <a routerLink="order/{{item.id}}" class="btn Tajawal-Bold fs-16 detail-btn">عرض التفاصيل</a>
-                            </td>
+                            
                       </tr>
                     </tbody>
                   </table>

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
 
@@ -7,21 +7,41 @@ interface AutoCompleteCompleteEvent {
   originalEvent: Event;
   query: string;
 }
-@Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
-})
-export class SearchComponent {
 
+@Component({
+  selector: 'app-supplier',
+  templateUrl: './supplier.component.html',
+  styleUrls: ['./supplier.component.css']
+})
+export class SupplierComponent implements OnInit {
+
+  page:number = 1
+  AllclientsData:any
   filtered: any; 
   filteredArray: any; 
   currentView:string=''
+  constructor(private http:HttpHelperService,private messageService : MessageService , private  spinner:NgxSpinnerService){}
+  ngOnInit(): void {
+    this.getClientsData()
+  }
+
+  getClientsData(){
+    console.log('supplier')
+    this.spinner.show();
+    this.http.get('/ordermanager/supplier/orders/').subscribe(
+      (res:any)=>{
+        this.AllclientsData=res;
+        this.spinner.hide();
+      },
+      err  =>{
+        this.spinner.hide();
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
+  }
 
 
-  constructor(private http : HttpHelperService , private messageService : MessageService   , public route : Router){}
-
-
+  
   inputFocus(){
     // if(this.route.url.includes('client')){
     //   this.filteredArray=this.clientMobiles

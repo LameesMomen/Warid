@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
@@ -8,16 +8,23 @@ import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   show:boolean = false
+  userName:string=''
 
   constructor(private http : HttpHelperService , private messageService : MessageService   , public route : Router){}
 
+  ngOnInit(): void {
+    let user:any = sessionStorage.getItem('user')
+    user = JSON.parse(user)
+    this.userName=user.first_name +' '+ user.last_name
+  }
+
   logOut(){
-    this.http.post('/auth/logout/',{refresh:localStorage.getItem('refreshToken')}).subscribe(
+    this.http.post('/auth/logout/',{refresh:sessionStorage.getItem('refreshToken')}).subscribe(
       res =>{
-        localStorage.clear();
+        sessionStorage.clear();
         this.route.navigateByUrl('/login');
       },
       err=>{

@@ -19,7 +19,7 @@ import { DialogModule } from 'primeng/dialog';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 
@@ -29,12 +29,23 @@ import { SearchComponent } from './search/search.component';
     HomeComponent,
     NavbarComponent,
     FooterComponent,
-    SearchComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     ToastModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      subtitle : "ثانية ، دقيقة ، ساعة",
+      showSubtitle : true,
+      animation:false,
+      "animateTitle": false,
+      "animationDuration": 1000,
+      "showUnits": false,
+      "showBackground": false,
+      "clockwise": false,
+      "lazy": true
+    }),
     InputTextModule,
     FormsModule,
     ReactiveFormsModule,
@@ -57,6 +68,7 @@ import { SearchComponent } from './search/search.component';
   exports:[
     ToastModule,
     InputTextModule,
+    NgCircleProgressModule,
     FormsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,

@@ -21,7 +21,7 @@ export class RequestInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     
-    const token: any = localStorage.getItem('token');
+    const token: any = sessionStorage.getItem('token');
 
     const modified = req.clone({
       setHeaders: {

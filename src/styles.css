@@ -6,7 +6,8 @@ General
 body, html {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     background-color: #EEEEEE;
 }
 
@@ -129,6 +130,10 @@ Colors
 
 .blue-txt-color {
     color: #007AFF !important;
+}
+
+.green-txt-color {
+    color: #6B9D3F !important;
 }
 
 .red-color {
@@ -381,7 +386,15 @@ Media Queries
     .mt-11 {
         margin-top: 8px !important;
     }
+
 }
+
+@media (min-width: 1400px) {
+    .container{
+        max-width: 90% !important;
+    }
+}
+
 
 /************************************************
 End Media Queries

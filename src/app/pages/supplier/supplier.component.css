@@ -1,9 +1,42 @@
-.search{
-    width: 1045px;
+table {
+    border-radius: 20px !important;
 }
+
+table thead th:last-child{
+    border-top-left-radius: 20px !important;
+    border-left: none !important;
+}
+table thead th:first-child{
+    border-top-right-radius: 20px !important;
+    border-right: none !important;
+}
+    
+table tr:last-child td:last-child {
+    border: 2px solid green;
+    border-bottom-right-radius: 10px;
+}
+
+table thead{
+    vertical-align: middle !important;
+    text-align: center;
+    height: 93px;
+}
+
+table thead tr th{
+    background-color: #2A2A2C !important;
+    color: #F7F7F7;
+}
+
+th, td {
+    border-left: 2px solid #9F9F9F;
+    border-right: 2px solid #9F9F9F;
+    border-collapse: collapse;
+  }
+
 
 
 .p-inputgroup{
+    width: 1045px;
     background: #F7F7F7 0% 0% no-repeat padding-box;
     border: 1px solid #E0E0E0;
     height: 57px;
