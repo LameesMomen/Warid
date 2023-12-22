@@ -28,8 +28,6 @@ export class TopbarComponent implements  OnInit {
 
   ngOnInit(): void {
     this.getUser()
-    this.getClient()
-    this.getSupplier()
   }
 
   getUser(){
@@ -79,10 +77,12 @@ export class TopbarComponent implements  OnInit {
 
   inputFocus(){
     if(this.route.url.includes('client')){
+      this.getClient()
       this.filteredArray=this.clientMobiles
       this.currentView = 'client'
     }
     else{
+      this.getSupplier()
       this.filteredArray=this.supplierMobiles
       this.currentView = 'supplier'
     }

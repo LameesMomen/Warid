@@ -50,7 +50,9 @@ export class AddLocationComponent implements OnInit{
 
     const body = new FormData();
 
-    body.append('client_mobile', form.value.ownerNumber);
+    console.log(form.value.ownerNumber.mobile)
+
+    body.append('client_mobile', form.value.ownerNumber.mobile);
     body.append('location_name', form.value.locationName);
     body.append('neighborhood', form.value.neighborhood);
     body.append('city', form.value.city);

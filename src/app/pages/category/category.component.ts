@@ -41,7 +41,7 @@ export default class CategoryComponent implements OnInit {
         slidesPerView : 3
       },
       860:{
-        slidesPerView : 5
+        slidesPerView : 3
       },
     }
   }
