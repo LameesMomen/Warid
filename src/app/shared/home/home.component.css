@@ -1,15 +1,18 @@
 .home-container{
-    padding: 30px;
-    overflow: hidden;
-    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-
-.home-container .content {
-    margin: 0 auto;
-    overflow-y: scroll;
+.navbar-container {
+    flex: 1 0 none;
 }
 
-.col-2.sidebar{
-    width: 12.333333% !important;
+.home-body{
+    flex: 1 1 auto;
 }
+
+.footer-container {
+    flex: 0 1 80px;
+  }

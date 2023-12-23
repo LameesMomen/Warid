@@ -26,7 +26,6 @@ export class SupplierComponent implements OnInit {
   }
 
   getClientsData(){
-    console.log('supplier')
     this.spinner.show();
     this.http.get('/ordermanager/supplier/orders/').subscribe(
       (res:any)=>{

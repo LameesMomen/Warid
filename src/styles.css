@@ -207,19 +207,19 @@ End Toasters
 Paginations
 ************************************************/
 .ngx-pagination {
-    position: absolute !important;
+    position: relative !important;
     left: 0 !important;
-    bottom: 7px !important;
     width: max-content !important;
     height: 28px !important;
     border: 1px solid black !important;
-    margin: 0 30px !important;
+    margin-right: auto !important;
+    margin-top: 30px !important;
     border-radius: 20px !important;
     padding: 0 10px;
     display: flex;
     align-items: center;
     direction: ltr;
-    background: white;
+    background: transparent;
 }
 
 

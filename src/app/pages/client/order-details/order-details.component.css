@@ -1,3 +1,13 @@
+.back-btn a{
+  text-decoration: none;
+  background-color: black;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 table {
     width: 100%;
     height: 192px;
@@ -35,6 +45,7 @@ table tbody,table thead{
     height: 93px;
     font-size: 20px;
     font-family: "Tajawal-Bold";
+    font-weight: 700;
 }
 
 th, td {
@@ -167,14 +178,15 @@ th, td {
 
 .col-container {
     width: 100%;
-    height: 200px;
+    height: max-content;
+    min-height: 200px;
     border: 2px solid #9F9F9F;
     border-radius: 20px;
-    padding: 25px 65px;
+    padding: 25px 3%;
 }
 
-.col-container .btn-action .cancel-btn{
-    width: 339px;
+.col-container .btn-action .cancel-btn , .col-container .btn-action .delievery-btn , .col-container .btn-action .send-rating-btn{
+    width: 90%;
     height: 64px;
     background: #1B1C1E 0% 0% no-repeat padding-box;
     border-radius: 8px;
@@ -182,4 +194,65 @@ th, td {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.col-container .btn-action .download-reciet-btn{
+    width: 90%;
+    height: 68px;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+    color: #B71212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col-container .img-detail .image-container img{
+  width: 200px;
+  height: 142px;
+  box-shadow: 0px 3px 6px #00000029;
+  border-radius: 8px;
+}
+
+.col-container .img-detail .image-container .img-overlay{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 36px;
+  background: #00000048 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.col-container .upload-img-detail .upload-image-container label{
+  width: 128px;
+  height: 44px;
+  background: #2A2A2C 0% 0% no-repeat padding-box;
+  box-shadow: 0px 7px 12px #2A2A2C4E;
+  border-radius: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F7F7F7;
+  cursor: pointer;
+}
+
+.col-container .upload-img-detail .upload-image-container input{
+  display: none;
+}
+
+::ng-deep .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover ,::ng-deep .p-rating .p-rating-icon.p-rating-icon-active  {
+  color: #F7CA36 ;
+}
+
+::ng-deep .p-rating .p-rating-icon{
+  color: black ;
+}
+
+::ng-deep .p-rating .p-rating-icon.p-icon {
+  width: 25px;
+  height: 25px;
 }

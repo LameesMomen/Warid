@@ -1,3 +1,7 @@
+.main-data{
+    margin-bottom: 200px;
+}
+
 table {
     border-color:#9F9F9F !important
 }
@@ -46,6 +50,7 @@ th, td {
     text-align: center;
     font-family: "Tajawal-Bold";
     font-size: 20px;
+    font-weight: 700;
   }
 
   td{

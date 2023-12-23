@@ -1,0 +1,186 @@
+<div class="container">
+
+    <div class="back-btn mt-50 d-flex align-items-center">
+        <a routerLink="/home/supplier">
+            <i class="pi pi-angle-right text-white"></i>
+        </a>
+
+        <p class="my-0 mx-3 Tajawal-Bold fs-25"> رجوع</p>
+    </div>
+
+    <!-- Table Row -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="table-detail">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>رقم الطلب</th>
+                            <th>تاريخه</th>
+                            <th>اسم المشروع</th>
+                            <th>المنتج</th>
+                            <th>الكمية</th>
+                            <th>مقدم الطلب</th>
+                            <th>المورد</th>
+                            <th>حالة الطلب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{orderData.id}}#</td>
+                            <td>{{orderData.created_at.split('T')[0]}}</td>
+                            <td>{{orderData.location.project_name}}</td>
+                            <td>{{orderData.supplier_product}}</td>
+                            <td>{{orderData.amount}}</td>
+                            <td>{{orderData.client}}</td>
+                            <td>{{orderData.supplier}}</td>
+                            <td>{{orderData.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- detail row -->
+
+    <div class="row mt-50">
+        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex align-items-center">
+                <div><p class="Tajawal-Bold fs-20 my-0">تفاصيل الطلب:</p></div>
+                <div class="d-flex justify-content-between align-items-center" style="margin-right: 20px;">
+                    <p class="Tajawal-Bold fs-20 blue-txt-color my-0"> تكلفة المنتجات:</p>
+                    <p class="Tajawal-Bold fs-20 me-2 my-0">{{orderData.price_before_vat}}</p>
+                </div>
+        </div>
+        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="Tajawal-Bold fs-20 blue-txt-color my-0"> ضريبة القيمة المضافة 15% :</p>
+                <p class="Tajawal-Bold fs-20 me-2 my-0">{{orderData.vat}}</p>
+            </div>
+        </div>
+        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="Tajawal-Bold fs-20 blue-txt-color my-0">السعر شامل الضريبة:</p>
+                <p class="Tajawal-Bold fs-20 me-2 my-0">{{orderData.total}}</p>
+            </div>
+        </div>
+        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-between align-items-center">
+                <p class="Tajawal-Bold fs-20 green-txt-color my-0">التوصيل الى:</p>
+                <p class="Tajawal-Bold fs-20 me-2 my-0">{{orderData.location.project_name}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-30">
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+            <p class="Tajawal-Bold fs-20 green-txt-color my-0">وقت التوصيل المحدد</p>
+            <p class="Tajawal-Bold fs-20 me-2">٩ ساعات</p>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+            <p class="Tajawal-Bold fs-20 green-txt-color my-0">وقت الدفع المحدد</p>
+            <p class="Tajawal-Bold fs-20 me-2">01/08/2023</p>
+        </div>
+    </div>
+
+    <!-- Process -->
+
+    <div class="row mt-50" style="margin-bottom: 190px;">
+        <div class="col-2">
+            <div class="wizard">
+                <div class="process">
+                  <ul>
+                    <li class="step current">
+                      <div class="name">
+                        <span class="pic-icon">
+                            <i class="pi pi-car"></i>
+                        </span>
+                        <span class="me-3 Tajawal-Bold fs-16">التوصيل</span>
+                        </div>
+                    </li>
+                    <li class="step">
+                      <div class="name">
+                        <span class="pic-icon">
+                            <i class="pi pi-credit-card"></i>
+                        </span>
+                        <span class="me-3 Tajawal-Bold fs-16">الدفع</span>
+                      </div>
+                    </li>
+                    <li class="step">
+                      <div class="name">
+                        <span class="pic-icon">
+                            <i class="pi pi-check"></i>
+                        </span>
+                        <span class="me-3 Tajawal-Bold fs-16">بانتظار تأكيد الدفع</span>
+                      </div>
+                    </li>
+                    <li class="step"> 
+                      <div class="name">
+                        <span class="pic-icon">
+                            <i class="pi pi-circle"></i>
+                        </span>
+                        <span class="me-3 Tajawal-Bold fs-16">مكتمل</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+
+
+        <div class="col-10">
+             <!-- Row For Cancel Order -->
+
+             <div class="row">
+                <div class="col-12">
+                    <div class="col-container d-flex justify-content-between align-items-center">
+                        <div class="countdown-container d-flex align-items-center">
+                            <div class="arrived-countdown position-relative text-center px-5 left-border">
+                                <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
+                                <circle-progress
+                                [radius]="60"
+                                [percent]="85"
+                                [maxPercent]="100"
+                                [innerStrokeColor]="'#dedede'"
+                                [outerStrokeColor]="'#2A2A2C'"
+                                [outerStrokeWidth]="10"
+                                [innerStrokeWidth]="10"
+                                [space]="-10"
+                                ></circle-progress>
+                            </div>
+
+                            <div class="cancelled-countdown text-center px-5">
+                                <p class="text-danger Tajawal-Bold fs-20 mb-1">تنتهي خاصية إلغاء الطلب بعد:</p>
+                                <circle-progress
+                                [radius]="60"
+                                [percent]="50"
+                                [maxPercent]="100"
+                                [innerStrokeColor]="'#dedede'"
+                                [outerStrokeColor]="'#2A2A2C'"
+                                [outerStrokeWidth]="10"
+                                [innerStrokeWidth]="10"
+                                [space]="-10"
+                                ></circle-progress>
+                            </div>
+                        </div>
+                        <div class="btn-action">
+                            <button class="cancel-btn Tajawal-Medium fs-25">إلغاء الطلب</button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

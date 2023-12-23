@@ -1,0 +1,196 @@
+.back-btn a{
+    text-decoration: none;
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  table {
+      width: 100%;
+      height: 192px;
+      margin: auto;
+      border-radius: 20px;
+      border-collapse: collapse;
+  }
+  
+  table thead{
+      background-color: #2A2A2C;
+      color: #F7F7F7;
+  }
+  
+  table thead tr th:last-child{
+      border-top-left-radius: 20px;
+      border-left-style: hidden;
+      border-top-style: hidden;
+  }
+  table thead tr th:first-child{
+      border-top-right-radius: 20px;
+      border-right-style: hidden;
+      border-top-style: hidden;
+  }
+  
+  table tbody tr td:last-child{
+      border-bottom-left-radius: 20px;
+  }
+  table tbody tr td:first-child{
+      border-bottom-right-radius: 20px;
+  }
+  
+  table tbody,table thead{
+      vertical-align: middle !important;
+      text-align: center;
+      height: 93px;
+      font-size: 20px;
+      font-family: "Tajawal-Bold";
+      font-weight: 700;
+  }
+  
+  th, td {
+      width: 100px;
+      border: 1px solid #9F9F9F;
+    }
+  
+    .border-left{
+      border-left: 2px solid #D6D6D6;
+    }
+  
+    .countdown-container .left-border::after{
+      content: "" !important;
+      width: 2px;
+      height: 78px;
+      background-color: #D6D6D6;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  
+  
+  .wizard {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .process {
+    align-self: center;
+  }
+  .process ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .process ul li.step .name {
+    display: flex;
+    align-items: center;
+    color: #838383;
+  }
+  /* .process ul li.step .name:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 8px;
+    background: #ddd;
+  } */
+  .process ul li.step.completed .name , .process ul li.step.current .name  {
+    color: #2A2A2C !important;
+  }
+  .process ul li.step.current .name .pic-icon , .process ul li.step.completed .name .pic-icon{
+      background: black !important;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      color: #F7F7F7 !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .process ul li.step .name .pic-icon {
+      background: #FFFFFF;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      color: #9F9F9F;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  /* .process ul li.step.completed .name:before {
+    content: "✓";
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    background: #005c9f;
+  } */
+  
+  /* .process ul li.step.current .name:before {
+    background: #e74700;
+    box-shadow: 0 0 18px #ff9362;
+    animation: 1750ms linear infinite pulse;
+  } */
+  .process ul li.step:not(:last-child):after {
+      height: 281px;
+      width: 6px;
+      content: "";
+      display: block;
+      background-color: #FFFFFF;
+      margin-right: 15px;
+  }
+  .process ul li.step.completed:not(:last-child):after {
+    background-color: #2A2A2C;
+  }
+  .process.done ul li.step .name {
+    color: #33673b;
+  }
+  .process.done ul li.step .name:before {
+    background: #33673b;
+    box-shadow: none;
+    content: "✓";
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+  }
+  .process.done ul li.step:not(:last-child):after {
+    background-color: #33673b;
+    box-shadow: 0 0 8px #88c492;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 2px #ff9362;
+    }
+    80% {
+      box-shadow: 0 0 18px #ff9362;
+    }
+    100% {
+      box-shadow: 0 0 2px #ff9362;
+    }
+  }
+  
+  .col-container {
+      width: 100%;
+      height: 200px;
+      border: 2px solid #9F9F9F;
+      border-radius: 20px;
+      padding: 25px 65px;
+  }
+  
+  .col-container .btn-action .cancel-btn{
+      width: 339px;
+      height: 64px;
+      background: #1B1C1E 0% 0% no-repeat padding-box;
+      border-radius: 8px;
+      color: #F7F7F7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

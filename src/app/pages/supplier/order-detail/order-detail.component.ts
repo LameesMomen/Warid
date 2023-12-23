@@ -5,15 +5,14 @@ import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
 
 @Component({
-  selector: 'app-order-details',
-  templateUrl: './order-details.component.html',
-  styleUrls: ['./order-details.component.css']
+  selector: 'app-order-detail',
+  templateUrl: './order-detail.component.html',
+  styleUrls: ['./order-detail.component.css']
 })
-export class OrderDetailsComponent implements OnInit{
+export class OrderDetailComponent implements OnInit{
 
   orderData:any
   id:any
-  ratingValue:any
 
   constructor(private http:HttpHelperService,private messageService : MessageService , private  spinner:NgxSpinnerService , private route:ActivatedRoute){
     this.id = this.route.snapshot.paramMap.get('id')
@@ -25,7 +24,7 @@ export class OrderDetailsComponent implements OnInit{
 
   getOrderDetail(){
     this.spinner.show();
-    this.http.get(`/ordermanager/client/orders/${this.id}/`).subscribe(
+    this.http.get(`/ordermanager/supplier/orders/${this.id}/`).subscribe(
       (res:any)=>{
         this.orderData=res;
         this.spinner.hide();
@@ -36,6 +35,4 @@ export class OrderDetailsComponent implements OnInit{
       }
     )
   }
-
-
 }

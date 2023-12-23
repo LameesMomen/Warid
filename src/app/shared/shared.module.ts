@@ -20,6 +20,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { RatingModule } from 'primeng/rating';
 
 
 
@@ -34,6 +35,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   imports: [
     CommonModule,
     ToastModule,
+    RatingModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
       subtitle : "ثانية ، دقيقة ، ساعة",
@@ -68,6 +70,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
   exports:[
     ToastModule,
     InputTextModule,
+    RatingModule,
     NgCircleProgressModule,
     FormsModule,
     ReactiveFormsModule,
