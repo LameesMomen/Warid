@@ -208,6 +208,10 @@ th, td {
     align-items: center;
 }
 
+.col-container .img-detail .image-container{
+  cursor: pointer;
+}
+
 .col-container .img-detail .image-container img{
   width: 200px;
   height: 142px;
@@ -225,6 +229,30 @@ th, td {
   opacity: 1;
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
+}
+
+.col-container .img-detail ::ng-deep .p-dialog {
+  box-shadow: none !important;
+}
+
+
+.col-container .img-detail ::ng-deep .p-dialog-header {
+  justify-content: start !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important; 
+}
+
+.col-container .img-detail ::ng-deep .p-dialog-content {
+  padding: 0 !important;
+}
+
+.col-container .img-detail ::ng-deep .p-dialog .p-dialog-header , .col-container .img-detail ::ng-deep .p-dialog .p-dialog-content{
+  background:  transparent !important;
+}
+
+.col-container .img-detail ::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon {
+  color: white !important;
+  background: black !important;
 }
 
 .col-container .upload-img-detail .upload-image-container label{

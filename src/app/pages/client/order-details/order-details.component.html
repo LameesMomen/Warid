@@ -136,22 +136,25 @@
                     <div class="arrived-countdown position-relative text-center px-3 left-border">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
                         <circle-progress
-                        [radius]="60"
-                        [percent]="85"
+                        [radius]="80"
+                        [title]="arrivedRemainigTime"
+                        [percent]="75"
                         [maxPercent]="100"
                         [innerStrokeColor]="'#dedede'"
                         [outerStrokeColor]="'#2A2A2C'"
                         [outerStrokeWidth]="10"
                         [innerStrokeWidth]="10"
                         [space]="-10"
-                        ></circle-progress>
+                        >
+                    </circle-progress>
                     </div>
 
                     <div class="cancelled-countdown text-center px-3">
                         <p class="text-danger Tajawal-Bold fs-20 mb-1">تنتهي خاصية إلغاء الطلب بعد:</p>
                         <circle-progress
-                        [radius]="60"
-                        [percent]="50"
+                        [radius]="80"
+                        [title]="cancelledRemainigTime"
+                        [percent]="75"
                         [maxPercent]="100"
                         [innerStrokeColor]="'#dedede'"
                         [outerStrokeColor]="'#2A2A2C'"
@@ -168,7 +171,7 @@
              <!-- End Row For Cancel Order -->
 
              <!-- Row For Reciet Order -->
-             <div class="row col-container align-items-center">
+             <div class="row col-container mt-30 align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-8 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
                     <div class="d-flex align-items-center">
@@ -197,8 +200,9 @@
                     <div class="arrived-countdown position-relative text-center px-5 left-border">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
                         <circle-progress
-                        [radius]="60"
-                        [percent]="85"
+                        [radius]="80"
+                        [title]="arrivedRemainigTime"
+                        [percent]="75"
                         [maxPercent]="100"
                         [innerStrokeColor]="'#dedede'"
                         [outerStrokeColor]="'#2A2A2C'"
@@ -235,14 +239,18 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-5 img-detail d-flex align-items-center my-2 my-lg-0">
                     <p class="my-0 Tajawal-Bold fs-25 green-txt-color">تم توصيل الطلب</p>
-                    <div class="image-container position-relative mx-3">
-                        <img src="assets/dummy.png" alt="img">
-                        <div class="img-overlay d-flex justify-content-center align-items-center">
-                            <i class="pi pi-search-plus text-white fs-2"></i>
-                        </div>
+                    <div (click)="showDialog()" class="image-container position-relative mx-3">
+                            <img src="assets/dummy.png" alt="img">
+                            <div class="img-overlay d-flex justify-content-center align-items-center">
+                                <i class="pi pi-search-plus text-white fs-2"></i>
+                            </div>
                     </div>
+                    <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                       <img src="assets/dummy.png" width="100%" alt="img">
+                   </p-dialog>
                 </div>
              </div>
+
             <!-- End Row For delievery Order Details -->
 
 
@@ -253,7 +261,7 @@
                         <p class="Tajawal-Bold fs-25 blue-txt-color my-0">تأكيد الدفع</p>
                         <div class="me-5 d-flex align-items-center">
                             <p class="Tajawal-Bold fs-25 green-txt-color my-0">قام بالدفع</p>
-                            <p class="Tajawal-Bold fs-25 my-0  me-3">{{orderData.client}}</p>
+                            <p class="Tajawal-Bold fs-25 my-0  me-3">{{orderData?.client}}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center mt-2">
