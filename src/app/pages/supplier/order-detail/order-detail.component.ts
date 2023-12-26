@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
+import { ToastersService } from 'src/app/core/services/toaster/toasters.service';
 
 @Component({
   selector: 'app-order-detail',
@@ -21,7 +22,8 @@ export class OrderDetailComponent implements OnInit{
     private http: HttpHelperService,
     private messageService: MessageService,
     private spinner: NgxSpinnerService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toasters : ToastersService
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
   }
@@ -40,8 +42,7 @@ export class OrderDetailComponent implements OnInit{
       (res: any) => {
         this.orderData = res;
         this.spinner.hide();
-        this.arrivedTimer('2023-12-30T22:00:00');
-        this.cancelledTimer('2023-12-25T22:00:00');
+        this.timer(res.cancel_time);
       },
       (err) => {
         this.spinner.hide();
@@ -54,81 +55,144 @@ export class OrderDetailComponent implements OnInit{
     );
   }
 
+  handleClientPayment(){
+    this.toasters.confirmationToaster({
+
+      title: 'تأكيد أستلام الدفع',
+
+      text: `هل أنت متأكد من أستلام الدفع من العميل؟`,
+
+      icon: '',
+
+      confirmFunc: () => {
+
+        let payload: any = {
+          action: 'confirm',
+        };
+
+        this.submitClientPayment(payload)
+
+      },
+
+      onDismiss: () => {
+        
+      }
+
+    })
+}
+
+submitClientPayment(body : any){
+this.http.put(`/ordermanager/supplier/orders/${this.id}/`,body).subscribe(
+  res=>{
+    this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
+    this.spinner.hide();
+  },
+  err=>{
+    this.messageService.add({severity:'error',summary:'خطأ', detail:'حدث خطأ ما'});
+    this.spinner.hide();
+  }
+)
+}
+
   //?CountDown Timer
-  arrivedRemainigTime: any;
-  cancelledRemainigTime: any;
 
-  arrivedTimer(remaining: any) {
-    // Update the count down every 1 second
-    var x = setInterval(() => {
-      let countDownDate = new Date(remaining).getTime();
+  timerOn : boolean = true;
+  remainigTime : any
 
-      // Get today's date and time
-      var now = new Date().getTime();
+ timer(remaining:any) {
+  this.remainigTime = new Date(remaining * 1000)
+  .toISOString()
+  .slice(11, 19);
 
-      // Find the distance between now and the count down date
-      let distance = countDownDate - now;
-
-      var remainingdays = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var remaininghours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      var remainingminutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
-      var remainingseconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      this.arrivedRemainigTime =
-        remainingdays +
-        ':' +
-        remaininghours +
-        ':' +
-        remainingminutes +
-        ':' +
-        remainingseconds;
-
-      // If the count down is over, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        this.arrivedRemainigTime = 'END';
-      }
+  remaining -= 1;
+  
+  if(remaining >= 0 && this.timerOn) {
+    setTimeout(() => {
+        this.timer(remaining);
     }, 1000);
+    return;
   }
 
-  cancelledTimer(remaining: any) {
-    // Update the count down every 1 second
-    var x = setInterval(() => {
-      let countDownDate = new Date(remaining).getTime();
-
-      // Get today's date and time
-      var now = new Date().getTime();
-
-      // Find the distance between now and the count down date
-      let distance = countDownDate - now;
-
-      var remainingdays = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var remaininghours = Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      var remainingminutes = Math.floor(
-        (distance % (1000 * 60 * 60)) / (1000 * 60)
-      );
-      var remainingseconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      this.cancelledRemainigTime =
-        remainingdays +
-        ':' +
-        remaininghours +
-        ':' +
-        remainingminutes +
-        ':' +
-        remainingseconds;
-
-      // If the count down is over, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        this.cancelledRemainigTime = 'END';
-      }
-    }, 1000);
+  if(!this.timerOn) {
+    // Do validate stuff here
+    return;
   }
+}
+
+  // arrivedRemainigTime: any;
+  // cancelledRemainigTime: any;
+
+  // arrivedTimer(remaining: any) {
+  //   // Update the count down every 1 second
+  //   var x = setInterval(() => {
+  //     let countDownDate = new Date(remaining).getTime();
+
+  //     // Get today's date and time
+  //     var now = new Date().getTime();
+
+  //     // Find the distance between now and the count down date
+  //     let distance = countDownDate - now;
+
+  //     var remainingdays = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //     var remaininghours = Math.floor(
+  //       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //     );
+  //     var remainingminutes = Math.floor(
+  //       (distance % (1000 * 60 * 60)) / (1000 * 60)
+  //     );
+  //     var remainingseconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  //     this.arrivedRemainigTime =
+  //       remainingdays +
+  //       ':' +
+  //       remaininghours +
+  //       ':' +
+  //       remainingminutes +
+  //       ':' +
+  //       remainingseconds;
+
+  //     // If the count down is over, write some text
+  //     if (distance < 0) {
+  //       clearInterval(x);
+  //       this.arrivedRemainigTime = 'END';
+  //     }
+  //   }, 1000);
+  // }
+
+  // cancelledTimer(remaining: any) {
+  //   // Update the count down every 1 second
+  //   var x = setInterval(() => {
+  //     let countDownDate = new Date(remaining).getTime();
+
+  //     // Get today's date and time
+  //     var now = new Date().getTime();
+
+  //     // Find the distance between now and the count down date
+  //     let distance = countDownDate - now;
+
+  //     var remainingdays = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //     var remaininghours = Math.floor(
+  //       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+  //     );
+  //     var remainingminutes = Math.floor(
+  //       (distance % (1000 * 60 * 60)) / (1000 * 60)
+  //     );
+  //     var remainingseconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  //     this.cancelledRemainigTime =
+  //       remainingdays +
+  //       ':' +
+  //       remaininghours +
+  //       ':' +
+  //       remainingminutes +
+  //       ':' +
+  //       remainingseconds;
+
+  //     // If the count down is over, write some text
+  //     if (distance < 0) {
+  //       clearInterval(x);
+  //       this.cancelledRemainigTime = 'END';
+  //     }
+  //   }, 1000);
+  // }
 }

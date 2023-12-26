@@ -140,11 +140,11 @@
              <!-- Row For Cancel Order -->
              <div class="row col-container align-items-center">
                 <div class="countdown-container col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
-                    <div class="arrived-countdown position-relative text-center">
+                    <!-- <div class="arrived-countdown position-relative text-center">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
                         <circle-progress
                         [radius]="70"
-                        [title]="arrivedRemainigTime ? arrivedRemainigTime : '' "
+                        [title]="remainigTime ? remainigTime : '' "
                         [percent]="75"
                         [maxPercent]="100"
                         [innerStrokeColor]="'#dedede'"
@@ -154,9 +154,9 @@
                         [space]="-10"
                         >
                     </circle-progress>
-                    </div>
+                    </div> -->
 
-                    <div class="reciet-detail w-100 me-5">
+                    <div class="reciet-detail w-100">
                         <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
                         <div style="width: 75%;" class="d-flex align-items-center justify-content-between flex-wrap">
                             <div class="d-flex align-items-center">
@@ -297,7 +297,7 @@
 
                 <div class="col-sm-12 col-md-12 col-lg-3 my-2 my-lg-0 btn-action">
                     <p class="Tajawal-Bold fs-22 text-danger my-0">لا تقم بالضغط على هذا الزر إلا عند قيام العميل بتحويل المبلغ إلى حسابكم..</p>
-                    <button class="confirm-payment-btn Tajawal-Medium fs-25 mt-30 mx-auto mt-3">قام العميل بتحويل المبلغ</button>
+                    <button (click)="handleClientPayment()" class="confirm-payment-btn Tajawal-Medium fs-25 mt-30 mx-auto mt-3">قام العميل بتحويل المبلغ</button>
                 </div>
             </div>
             <!-- End Row For confirm payment -->
