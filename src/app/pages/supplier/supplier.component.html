@@ -6,15 +6,7 @@
                 <div class="search d-flex align-items-center">
                     <div class="p-inputgroup mx-auto">
                         <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
-                        <p-autoComplete (onFocus)="inputFocus()" name="search" id="search" ngModel #search="ngModel" class="w-100 d-block" [forceSelection]="true" placeholder="البحث من خلال رقم الطلب او اسم المشروع"  [suggestions]="filtered" 
-                        (completeMethod)="filterCountry($event)" [dropdown]="false">
-                            <ng-template class="clientMobile-filter" let-item pTemplate="item">
-                                <div class="d-flex align-items-center gap-2">
-                                    <img style="border-radius: 50%;" src="assets/profilePlaceholder.png" width="30px" height="30px"/>
-                                    <div>{{ item}}</div>
-                                </div>
-                            </ng-template>
-                         </p-autoComplete>
+                        <input (keyup)="inputFocus(search)" type="text" name="search" id="search" [(ngModel)]="search" class="w-100 d-block" placeholder="البحث من خلال رقم الطلب او اسم المشروع" >
                     </div>
                 </div>
             </div>
@@ -46,10 +38,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of AllclientsData | paginate:{
+                      <tr *ngFor="let item of filteredArray ? filteredArray : AllclientsData | paginate:{
                         itemsPerPage : 10,
                         currentPage : page,
-                        totalItems : AllclientsData?.length
+                        totalItems : filteredArray?.length ? filteredArray?.length :AllclientsData?.length
                     }; let i = index ">
                             <td>{{item.id}}#</td>
                             <td>{{item.created_at.split('T')[0]}}</td>
@@ -81,7 +73,7 @@
     
     
           <pagination-controls 
-            [autoHide]="AllclientsData?.length > 10 ? false : true"
+            [autoHide]="filteredArray?.length ? filteredArray?.length : AllclientsData?.length > 10 ? false : true"
             [responsive]="true"
             nextLabel = ">"
             previousLabel ="<"

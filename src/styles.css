@@ -293,13 +293,53 @@ Confirmation  Toasters
     border-radius: 20px;
 }
 .swal2-cancel {
-    background-color: #B71212 !important;
-    width: 100px;
+    width: 188px !important;
+    height: 47px !important;
+    background: #FFFFFF 0% 0% no-repeat padding-box !important;
+    border-radius: 8px !important;
+    color: #2A2A2C !important;
+    box-shadow: 0px 3px 6px #00000029 !important;
 }
 
 .swal2-confirm {
-    background-color: black !important;
-    width: 100px;
+    width: 188px !important;
+    height: 47px !important;
+    background: #1B1C1E 0% 0% no-repeat padding-box !important;
+    border-radius: 8px !important;
+    color: #F7F7F7 !important;
+}
+
+div:where(.swal2-container) h2:where(.swal2-title){
+    color: #007AFF !important;
+    font-size: 33px !important;
+    font-family: 'Tajawal-Bold';
+    font-weight: 700;
+    padding-top: 0 !important;
+}
+
+div:where(.swal2-container) .swal2-html-container {
+    font-size: 33px !important;
+    font-family: 'Tajawal-Bold';
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+div:where(.swal2-container).swal2-center>.swal2-popup{
+    width: 40% !important;
+}
+
+div:where(.swal2-container) div:where(.swal2-actions) {
+    justify-content: space-between !important;
+    width: 60% !important;
+}
+
+div:where(.swal2-container) button:where(.swal2-close) {
+    background: black !important;
+    color: white !important;
+    border-radius: 50% !important;
+    margin: 10px !important;
+    justify-self: start !important;
 }
 
 /************************************************

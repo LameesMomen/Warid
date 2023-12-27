@@ -38,10 +38,10 @@ import { RatingModule } from 'primeng/rating';
     RatingModule,
     NgCircleProgressModule.forRoot({
       // set defaults here
-      subtitle : "ثانية ، دقيقة ، ساعة , يوم",
+      subtitle : "ثانية ، دقيقة ، ساعة",
       showSubtitle : true,
       animation:false,
-      titleFontSize:"28",
+      titleFontSize:"25",
       "animateTitle": false,
       "animationDuration": 1000,
       "showUnits": false,

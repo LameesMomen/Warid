@@ -20,6 +20,8 @@ export class SupplierComponent implements OnInit {
   filtered: any; 
   filteredArray: any; 
   currentView:string=''
+  search:string = ''
+
   constructor(private http:HttpHelperService,private messageService : MessageService , private  spinner:NgxSpinnerService){}
   ngOnInit(): void {
     this.getClientsData()
@@ -40,29 +42,11 @@ export class SupplierComponent implements OnInit {
   }
 
 
-  
-  inputFocus(){
-    // if(this.route.url.includes('client')){
-    //   this.filteredArray=this.clientMobiles
-    //   this.currentView = 'client'
-    // }
-    // else{
-    //   this.filteredArray=this.supplierMobiles
-    //   this.currentView = 'supplier'
-    // }
-  }
-
-  filterCountry(event: AutoCompleteCompleteEvent) {
-    let filtered: any[] = [];
-    let query = event.query;
-
-    for (let i = 0; i < (this.filteredArray as any[]).length; i++) {
-        let item = (this.filteredArray as any[])[i];
-        if (item.mobile.toLowerCase().includes(query.toLowerCase())) {
-            filtered.push(item.mobile);
-        }
+  inputFocus(value:any){
+    this.filteredArray = this.AllclientsData.filter((item:any)=>{
+      return item.id == value || item.location.project_name.includes(value)
+    })
+    
     }
-
-    this.filtered = filtered;
-}
+  
 }

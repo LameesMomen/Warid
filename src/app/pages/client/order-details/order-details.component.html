@@ -85,12 +85,12 @@
 
     <!-- Process -->
 
-    <div class="row mt-50" style="margin-bottom: 190px;">
+    <div class="row mt-50" style="margin-bottom: 190px; height: 100%;">
         <div class="col-2">
             <div class="wizard">
                 <div class="process">
                   <ul>
-                    <li class="step current">
+                    <li [class.current] = "orderData?.step == 0" [class.completed] = "orderData?.step == 01"   class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-car"></i>
@@ -98,7 +98,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">التوصيل</span>
                         </div>
                     </li>
-                    <li class="step">
+                    <li [class.current] = "orderData?.step == 01" [class.completed] = "orderData?.step == 02"  class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-credit-card"></i>
@@ -106,7 +106,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">الدفع</span>
                       </div>
                     </li>
-                    <li class="step">
+                    <li [class.current] = "orderData?.step == 02" [class.completed] = "orderData?.step == 03"  class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-check"></i>
@@ -114,7 +114,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">بانتظار تأكيد الدفع</span>
                       </div>
                     </li>
-                    <li class="step"> 
+                    <li [class.current] = "orderData?.step == 03" [class.completed] = "orderData?.step == 04"  class="step"> 
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-circle"></i>
@@ -128,12 +128,12 @@
         </div>
 
 
-        <div class="col-10">
-             <!-- Row For Cancel Order -->
+        <div *ngIf="!processDone" class="col-10">
 
-             <div class="row col-container align-items-center">
+             <!-- Row For Cancel Order -->
+             <div *ngIf="orderData?.step == 0" class="row col-container align-items-center">
                 <div class="countdown-container col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
-                    <div class="arrived-countdown position-relative text-center px-3 left-border">
+                    <!-- <div class="arrived-countdown position-relative text-center px-3 left-border">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
                         <circle-progress
                         [radius]="80"
@@ -147,14 +147,14 @@
                         [space]="-10"
                         >
                     </circle-progress>
-                    </div>
+                    </div> -->
 
                     <div class="cancelled-countdown text-center px-3">
                         <p class="text-danger Tajawal-Bold fs-20 mb-1">تنتهي خاصية إلغاء الطلب بعد:</p>
                         <circle-progress
-                        [radius]="80"
-                        [title]="cancelledRemainigTime"
-                        [percent]="75"
+                        [radius]="70"
+                        [title]="remainigTime ? remainigTime : ''"
+                        [percent]="timePercent"
                         [maxPercent]="100"
                         [innerStrokeColor]="'#dedede'"
                         [outerStrokeColor]="'#2A2A2C'"
@@ -165,13 +165,13 @@
                     </div>
                 </div>
                 <div class="btn-action col-sm-12 col-md-12 col-lg-4 my-2 my-lg-0">
-                    <button class="cancel-btn Tajawal-Medium fs-25">إلغاء الطلب</button>
+                    <button (click)="handleCancelOrder()" class="cancel-btn Tajawal-Medium fs-25">إلغاء الطلب</button>
                 </div>
              </div>
              <!-- End Row For Cancel Order -->
 
              <!-- Row For Reciet Order -->
-             <div class="row col-container mt-30 align-items-center">
+             <div *ngIf="orderData?.step == 01 || orderData?.step == 02" class="row col-container mt-30 align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-8 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
                     <div class="d-flex align-items-center">
@@ -195,9 +195,9 @@
              <!-- End Row For Reciet Order -->
 
             <!-- Row For delievery Order -->
-            <div class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 01" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-8 countdown-container d-flex align-items-center">
-                    <div class="arrived-countdown position-relative text-center px-5 left-border">
+                    <!-- <div class="arrived-countdown position-relative text-center px-5 left-border">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
                         <circle-progress
                         [radius]="80"
@@ -210,7 +210,7 @@
                         [innerStrokeWidth]="10"
                         [space]="-10"
                         ></circle-progress>
-                    </div>
+                    </div> -->
                     <div class="px-5">
                         <p class="my-0 text-danger Tajawal-Bold fs-22">لا تقم بالضغط هنا إلا بعد التأكد من إستلام الطلب..</p>
                     </div>
@@ -222,7 +222,7 @@
             <!-- End Row For delievery Order -->
 
             <!-- Row For delievery Order Details -->
-            <div class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 02" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">معلومات التوصيل</p>
                     <div class="d-flex align-items-center">
@@ -255,7 +255,7 @@
 
 
             <!-- Row For payment Order Details -->
-            <div class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 03" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-8 reciet-detail">
                     <div class="d-flex align-items-center">
                         <p class="Tajawal-Bold fs-25 blue-txt-color my-0">تأكيد الدفع</p>
@@ -287,7 +287,7 @@
             <!-- End Row For payment Order Details -->
 
             <!-- Row For Rating Order -->
-            <div class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 03" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-2 px-2 my-2 my-lg-0 d-flex flex-column">
                     <p  class="Tajawal-Bold fs-25 green-txt-color my-0">الرجاء تقييم المورد</p>
                     <p-rating [(ngModel)]="ratingValue" [stars]="5" [cancel]="false"></p-rating>
@@ -301,6 +301,21 @@
                 </div>
             </div>
             <!-- End Row For Rating Order -->
+        </div>
+
+        <!-- Case  Done -->
+        <div *ngIf="processDone" class="col-10">
+            <div style="height: 100% !important;" class="col-container d-flex align-items-center">
+                <div class="done-container mx-auto d-flex flex-column my-auto justify-content-between">
+                    <div class="w-100 text-center">
+                        <img width="50%" src="assets/star.png" alt="star">
+                        <p style="font-size: 40px;" class="Tajawal-Bold my-0 mt-5">تم التقييم بنجاح</p>
+                    </div>
+                    <div class="btn-action w-100">
+                        <a style="width: 100%; height: 90px;" routerLink="/home/client" class="btn return-btn Tajawal-Medium fs-37">العودة لسجل الطلبات</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

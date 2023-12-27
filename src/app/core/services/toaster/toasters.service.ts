@@ -32,8 +32,9 @@ export class ToastersService {
       title: options.title,
       text: options.text,
       icon: options.icon,
-      confirmButtonText: 'نعم',
-      cancelButtonText: 'لا',
+      showCloseButton: true,
+      confirmButtonText: 'متأكد',
+      cancelButtonText: 'تراجع',
       showCancelButton: true,
       showConfirmButton: true,
     }).then((e) => {

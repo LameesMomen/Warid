@@ -185,7 +185,7 @@ th, td {
     padding: 25px 3%;
 }
 
-.col-container .btn-action .cancel-btn , .col-container .btn-action .delievery-btn , .col-container .btn-action .send-rating-btn{
+.col-container .btn-action .cancel-btn , .col-container .btn-action .delievery-btn , .col-container .btn-action .send-rating-btn , .col-container .btn-action .return-btn{
     width: 90%;
     height: 64px;
     background: #1B1C1E 0% 0% no-repeat padding-box;
@@ -270,6 +270,11 @@ th, td {
 
 .col-container .upload-img-detail .upload-image-container input{
   display: none;
+}
+
+.col-container .done-container{
+  width: 70%;
+  height: 80%;
 }
 
 ::ng-deep .p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover ,::ng-deep .p-rating .p-rating-icon.p-rating-icon-active  {
