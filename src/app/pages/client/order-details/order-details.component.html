@@ -34,7 +34,7 @@
                             <td>{{orderData?.amount}}</td>
                             <td>{{orderData?.client}}</td>
                             <td>{{orderData?.supplier}}</td>
-                            <td>{{orderData?.status}}</td>
+                            <td [class.red-color]="orderData?.status.includes('بانتظار')" [class.green-txt-color]="!orderData?.status.includes('بانتظار')">{{orderData?.status}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -69,17 +69,6 @@
                 <p class="Tajawal-Bold fs-20 green-txt-color my-0">التوصيل الى:</p>
                 <p class="Tajawal-Bold fs-20 me-2 my-0">{{orderData?.location?.project_name}}</p>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-30">
-        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
-            <p class="Tajawal-Bold fs-20 green-txt-color my-0">وقت التوصيل المحدد</p>
-            <p class="Tajawal-Bold fs-20 me-2">٩ ساعات</p>
-        </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
-            <p class="Tajawal-Bold fs-20 green-txt-color my-0">وقت الدفع المحدد</p>
-            <p class="Tajawal-Bold fs-20 me-2">01/08/2023</p>
         </div>
     </div>
 
@@ -131,7 +120,7 @@
         <div *ngIf="!processDone" class="col-10">
 
              <!-- Row For Cancel Order -->
-             <div *ngIf="orderData?.step == 0" class="row col-container align-items-center">
+             <div *ngIf="orderData?.step == 0 && timePercent>0" class="row col-container align-items-center">
                 <div class="countdown-container col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
                     <!-- <div class="arrived-countdown position-relative text-center px-3 left-border">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
@@ -194,45 +183,18 @@
              </div>
              <!-- End Row For Reciet Order -->
 
-            <!-- Row For delievery Order -->
-            <div *ngIf="orderData?.step == 01" class="row col-container align-items-center mt-30">
-                <div class="col-sm-12 col-md-12 col-lg-8 countdown-container d-flex align-items-center">
-                    <!-- <div class="arrived-countdown position-relative text-center px-5 left-border">
-                        <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
-                        <circle-progress
-                        [radius]="80"
-                        [title]="arrivedRemainigTime"
-                        [percent]="75"
-                        [maxPercent]="100"
-                        [innerStrokeColor]="'#dedede'"
-                        [outerStrokeColor]="'#2A2A2C'"
-                        [outerStrokeWidth]="10"
-                        [innerStrokeWidth]="10"
-                        [space]="-10"
-                        ></circle-progress>
-                    </div> -->
-                    <div class="px-5">
-                        <p class="my-0 text-danger Tajawal-Bold fs-22">لا تقم بالضغط هنا إلا بعد التأكد من إستلام الطلب..</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-4 btn-action my-2 my-lg-0">
-                    <button class="delievery-btn Tajawal-Medium fs-25">تم استلام الطلب</button>
-                </div>
-            </div>
-            <!-- End Row For delievery Order -->
-
             <!-- Row For delievery Order Details -->
             <div *ngIf="orderData?.step == 02" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">معلومات التوصيل</p>
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ الإصدار</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ التوصيل</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.delivered_at.split('T')[0]}}</p>
                         </div>
                         <div class="d-flex align-items-center me-5">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت الإصدار</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[1].split('.')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت التوصيل</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.delivered_at.split('T')[1].split('.')[0]}}</p>
                         </div>
 
                     </div>
@@ -250,12 +212,36 @@
                    </p-dialog>
                 </div>
              </div>
-
             <!-- End Row For delievery Order Details -->
 
 
             <!-- Row For payment Order Details -->
             <div *ngIf="orderData?.step == 03" class="row col-container align-items-center mt-30">
+                <p class="Tajawal-Bold fs-25 blue-txt-color">وسائل الدفع للمورد</p>
+                <div *ngFor="let card of orderData?.payment_info" class="col-12 col-md-12 col-lg-4 my-2 my-lg-0">
+                    <div class="card-detail">
+                        <div class="d-flex justify-content-between">
+                            <p class="Tajawal-Medium fs-22 text-white">{{card?.bank}}</p>
+                            <p class="Tajawal-Medium fs-20 text-white">{{card?.account_owner_name}}</p>
+                        </div>
+                        <div class="card-number">
+                            <p style="text-align: left;" class="Tajawal-Medium fs-22 text-white">{{card?.account_number}}</p>
+                        </div>
+                        <div class="iban">
+                            <p class="Tajawal-Medium fs-16 text-white">الايبان : {{card?.iban}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-12 col-lg-4 my-2 my-lg-0 btn-action">
+                    <p class="Tajawal-Bold fs-22 text-danger my-0">لا تقم بالضغط على هذا الزر إلا عند تحويل المبلغ إلى البيانات البنكية المدونة..</p>
+                    <button (click)="handlePayment()" class="confirm-payment-btn Tajawal-Medium fs-25 mt-30">تم التحويل</button>
+                </div>
+             </div>
+            <!-- End Row For payment Order Details -->
+
+            <!-- Row For payment Order Details -->
+            <div *ngIf="orderData?.step == 04" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-8 reciet-detail">
                     <div class="d-flex align-items-center">
                         <p class="Tajawal-Bold fs-25 blue-txt-color my-0">تأكيد الدفع</p>
@@ -266,12 +252,12 @@
                     </div>
                     <div class="d-flex align-items-center mt-2">
                         <div class="d-flex align-items-center">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ الإصدار</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ الدفع</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.paid_at.split('T')[0]}}</p>
                         </div>
                         <div class="d-flex align-items-center me-5">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت الإصدار</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[1].split('.')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت الدفع</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.paid_at.split('T')[1].split('.')[0]}}</p>
                         </div>
 
                     </div>
@@ -287,7 +273,7 @@
             <!-- End Row For payment Order Details -->
 
             <!-- Row For Rating Order -->
-            <div *ngIf="orderData?.step == 03" class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 04" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-2 px-2 my-2 my-lg-0 d-flex flex-column">
                     <p  class="Tajawal-Bold fs-25 green-txt-color my-0">الرجاء تقييم المورد</p>
                     <p-rating [(ngModel)]="ratingValue" [stars]="5" [cancel]="false"></p-rating>

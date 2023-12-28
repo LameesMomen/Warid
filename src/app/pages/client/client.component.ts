@@ -32,7 +32,7 @@ export class ClientComponent implements OnInit {
     this.spinner.show();
     this.http.get('/ordermanager/client/orders/').subscribe(
       (res:any)=>{
-        this.AllclientsData=res;
+        this.AllclientsData=[...res.active , ...res.inactive];
         this.spinner.hide();
       },
       err  =>{

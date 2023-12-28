@@ -8,10 +8,9 @@ import { ToastersService } from 'src/app/core/services/toaster/toasters.service'
 @Component({
   selector: 'app-order-detail',
   templateUrl: './order-detail.component.html',
-  styleUrls: ['./order-detail.component.css']
+  styleUrls: ['./order-detail.component.css'],
 })
-export class OrderDetailComponent implements OnInit{
-
+export class OrderDetailComponent implements OnInit {
   orderData: any;
   id: any;
   ratingValue: any;
@@ -23,7 +22,7 @@ export class OrderDetailComponent implements OnInit{
     private messageService: MessageService,
     private spinner: NgxSpinnerService,
     private route: ActivatedRoute,
-    private toasters : ToastersService
+    private toasters: ToastersService
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
   }
@@ -55,9 +54,8 @@ export class OrderDetailComponent implements OnInit{
     );
   }
 
-  handleClientPayment(){
+  handleClientPayment() {
     this.toasters.confirmationToaster({
-
       title: 'تأكيد أستلام الدفع',
 
       text: `هل أنت متأكد من أستلام الدفع من العميل؟`,
@@ -65,59 +63,101 @@ export class OrderDetailComponent implements OnInit{
       icon: '',
 
       confirmFunc: () => {
-
         let payload: any = {
           action: 'confirm',
         };
 
-        this.submitClientPayment(payload)
-
+        this.submitClientPayment(payload);
       },
 
-      onDismiss: () => {
-        
-      }
-
-    })
-}
-
-submitClientPayment(body : any){
-this.http.put(`/ordermanager/supplier/orders/${this.id}/`,body).subscribe(
-  res=>{
-    this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
-    this.spinner.hide();
-  },
-  err=>{
-    this.messageService.add({severity:'error',summary:'خطأ', detail:'حدث خطأ ما'});
-    this.spinner.hide();
+      onDismiss: () => {},
+    });
   }
-)
-}
+
+  submitClientPayment(body: any) {
+    this.http.put(`/ordermanager/supplier/orders/${this.id}/`, body).subscribe(
+      (res) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'تم',
+          detail: ' تنفيذ العملية بنجاح',
+        });
+        this.spinner.hide();
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'خطأ',
+          detail: 'حدث خطأ ما',
+        });
+        this.spinner.hide();
+      }
+    );
+  }
+
+  handleArrivedOrder() {
+    this.toasters.confirmationToaster({
+      title: 'تأكيد التوصيل',
+
+      text: `هل أنت متأكد من توصيل الطلب إلى العميل؟`,
+
+      icon: '',
+
+      confirmFunc: () => {
+        let payload: any = {
+          action: 'deliver',
+        };
+
+        this.submitArrivedOrder(payload);
+      },
+
+      onDismiss: () => {},
+    });
+  }
+
+  submitArrivedOrder(body: any) {
+    this.http.put(`/ordermanager/supplier/orders/${this.id}/`, body).subscribe(
+      (res) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'تم',
+          detail: ' تنفيذ العملية بنجاح',
+        });
+        this.spinner.hide();
+      },
+      (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'خطأ',
+          detail: 'حدث خطأ ما',
+        });
+        this.spinner.hide();
+      }
+    );
+  }
 
   //?CountDown Timer
 
-  timerOn : boolean = true;
-  remainigTime : any
+  timerOn: boolean = true;
+  remainigTime: any;
 
- timer(remaining:any) {
-  this.remainigTime = new Date(remaining * 1000)
-  .toISOString()
-  .slice(11, 19);
+  timer(remaining: any) {
+    this.remainigTime = new Date(remaining * 1000).toISOString().slice(11, 19);
 
-  remaining -= 1;
-  
-  if(remaining >= 0 && this.timerOn) {
-    setTimeout(() => {
+    remaining -= 1;
+
+    if (remaining >= 0 && this.timerOn) {
+      setTimeout(() => {
         this.timer(remaining);
-    }, 1000);
-    return;
-  }
+      }, 1000);
+      return;
+    }
 
-  if(!this.timerOn) {
-    // Do validate stuff here
-    return;
+    if (!this.timerOn) {
+      // Do validate stuff here
+      return;
+    }
   }
-}
 
   // arrivedRemainigTime: any;
   // cancelledRemainigTime: any;

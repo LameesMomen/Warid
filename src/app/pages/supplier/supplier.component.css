@@ -2,11 +2,37 @@
     margin-bottom: 200px;
 }
 
-table {
-    border-color:#9F9F9F !important
-}
+table.rounded-corners {
+    border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 20px;
+    border: 1px solid #9F9F9F;
+    border-color:#9F9F9F !important;
+    width: 100% !important;
+   }
+   
+   /* Apply a border to the right of all but the last column */
+   table.rounded-corners th:not(:first-child),
+   table.rounded-corners td:not(:first-child) {
+    border-right: 1px solid #9F9F9F;
+   }
+   
+   /* Apply a border to the bottom of all but the last row */
+   table.rounded-corners>thead>tr:not(:last-child)>th,
+   table.rounded-corners>thead>tr:not(:last-child)>td,
+   table.rounded-corners>tbody>tr:not(:last-child)>th,
+   table.rounded-corners>tbody>tr:not(:last-child)>td,
+   table.rounded-corners>tfoot>tr:not(:last-child)>th,
+   table.rounded-corners>tfoot>tr:not(:last-child)>td,
+   table.rounded-corners>tr:not(:last-child)>td,
+   table.rounded-corners>tr:not(:last-child)>th,
+   table.rounded-corners>thead:not(:last-child),
+   table.rounded-corners>tbody:not(:last-child),
+   table.rounded-corners>tfoot:not(:last-child) {
+    border-bottom: 1px solid #9F9F9F;
+   }
 
-table a.detail-btn{
+table.rounded-corners a.detail-btn{
     width: 156px;
     height: 46px;
     border: 1px solid #2A2A2C;
@@ -16,33 +42,28 @@ table a.detail-btn{
     justify-content: center;
     align-items: center;
 }
-table a.detail-btn:hover{
+table.rounded-corners a.detail-btn:hover{
     background-color: black;
     color: white;
 }
 
-/* table thead th:last-child{
-    border-top-left-radius: 20px !important;
-    border-left: none !important;
-}
-table thead th:first-child{
-    border-top-right-radius: 20px !important;
-    border-right: none !important;
-}
-    
-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
-} */
 
-table thead{
+table.rounded-corners thead{
     vertical-align: middle !important;
     text-align: center;
     height: 93px;
 }
 
-table thead tr th{
+table.rounded-corners thead tr th{
     background-color: #2A2A2C !important;
     color: #F7F7F7;
+}
+
+table.rounded-corners thead tr th:last-child{
+    border-top-left-radius: 20px !important;
+}
+table.rounded-corners thead tr th:first-child{
+    border-top-right-radius: 20px !important;
 }
 
 th, td {

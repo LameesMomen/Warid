@@ -12,8 +12,9 @@ table {
     width: 100%;
     height: 192px;
     margin: auto;
-    border-radius: 20px;
-    border-collapse: collapse;
+    border-collapse: separate !important;
+    border-radius: 20px !important;
+    border-spacing: 0 !important;
 }
 
 table thead{

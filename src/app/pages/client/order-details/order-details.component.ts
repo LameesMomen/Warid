@@ -41,8 +41,12 @@ export class OrderDetailsComponent implements OnInit {
     this.http.get(`/ordermanager/client/orders/${this.id}/`).subscribe(
       (res: any) => {
         this.orderData = res;
+        this.orderData.payment_info = res.payment_info.slice(0,2)
+        for (let item of res.payment_info) {
+          item.account_number = item.account_number.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
+        }
         this.spinner.hide();
-        this.timer(300,300);
+        this.timer(20,20);
       },
       (err) => {
         this.spinner.hide();
@@ -82,6 +86,46 @@ export class OrderDetailsComponent implements OnInit {
 }
 
 submitCancelOrder(body : any){
+this.http.put(`/ordermanager/client/orders/${this.id}/`,body).subscribe(
+  res=>{
+    this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
+    this.spinner.hide();
+  },
+  err=>{
+    this.messageService.add({severity:'error',summary:'خطأ', detail:'حدث خطأ ما'});
+    this.spinner.hide();
+  }
+)
+}
+
+
+handlePayment(){
+    this.toasters.confirmationToaster({
+
+      title: 'تأكيد الدفع',
+
+      text: `هل أنت متأكد من إتمام عملية الدفع؟`,
+
+      icon: '',
+
+      confirmFunc: () => {
+
+        let payload: any = {
+          action: 'pay',
+        };
+
+        this.submitPayment(payload)
+
+      },
+
+      onDismiss: () => {
+        
+      }
+
+    })
+}
+
+submitPayment(body : any){
 this.http.put(`/ordermanager/client/orders/${this.id}/`,body).subscribe(
   res=>{
     this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});

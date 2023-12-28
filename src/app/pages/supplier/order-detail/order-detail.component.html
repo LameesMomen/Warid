@@ -34,7 +34,7 @@
                             <td>{{orderData?.amount}}</td>
                             <td>{{orderData?.client}}</td>
                             <td>{{orderData?.supplier}}</td>
-                            <td>{{orderData?.status}}</td>
+                            <td [class.red-color]="orderData?.status.includes('بانتظار')" [class.green-txt-color]="!orderData?.status.includes('بانتظار')">{{orderData?.status}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -77,14 +77,14 @@
             <p class="Tajawal-Bold fs-20 green-txt-color my-0">حارس المشروع</p>
             <p class="Tajawal-Bold fs-20 me-2">{{orderData?.location?.guard_mobile}}</p>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+        <!-- <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
             <p class="Tajawal-Bold fs-20 green-txt-color my-0">وقت التوصيل المحدد</p>
             <p class="Tajawal-Bold fs-20 me-2">٩ ساعات</p>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
             <p class="Tajawal-Bold fs-20 green-txt-color my-0">وقت الدفع المحدد</p>
             <p class="Tajawal-Bold fs-20 me-2">01/08/2023</p>
-        </div>
+        </div> -->
         <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
             <p class="Tajawal-Bold fs-20 green-txt-color my-0">موقع المشروع</p>
             <a style="text-decoration: none;" href="{{orderData?.location?.google_maps_link}}" target="_blank" class="Tajawal-Bold fs-20 me-2">Google Map</a>
@@ -98,7 +98,7 @@
             <div class="wizard">
                 <div class="process">
                   <ul>
-                    <li class="step current">
+                    <li [class.current] = "orderData?.step == 0" [class.completed] = "orderData?.step == 01" class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-car"></i>
@@ -106,7 +106,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">التوصيل</span>
                         </div>
                     </li>
-                    <li class="step">
+                    <li [class.current] = "orderData?.step == 01" [class.completed] = "orderData?.step == 02" class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-credit-card"></i>
@@ -114,7 +114,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">الدفع</span>
                       </div>
                     </li>
-                    <li class="step">
+                    <li [class.current] = "orderData?.step == 02" [class.completed] = "orderData?.step == 03" class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-check"></i>
@@ -122,7 +122,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">بانتظار تأكيد الدفع</span>
                       </div>
                     </li>
-                    <li class="step"> 
+                    <li [class.current] = "orderData?.step == 03" [class.completed] = "orderData?.step == 04" class="step"> 
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-circle"></i>
@@ -138,7 +138,7 @@
 
         <div class="col-10">
              <!-- Row For Cancel Order -->
-             <div class="row col-container align-items-center">
+             <div *ngIf="orderData?.step == 0"  class="row col-container align-items-center">
                 <div class="countdown-container col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
                     <!-- <div class="arrived-countdown position-relative text-center">
                         <p class="green-txt-color Tajawal-Bold fs-20 mb-1">الوقت المقدر للتوصيل:</p>
@@ -175,13 +175,13 @@
                     <a style="width: 100%;" class="btn download-reciet-btn Tajawal-Bold fs-25">تحميل الفاتورة
                         <i class="pi pi-download me-5 fs-3"></i>
                     </a>
-                    <button class="arrived-btn Tajawal-Medium fs-25 mt-30 mx-auto">تم التوصيل</button>
+                    <button (click)="handleArrivedOrder()" class="arrived-btn Tajawal-Medium fs-25 mt-30 mx-auto">تم التوصيل</button>
                 </div>
              </div>
              <!-- End Row For Cancel Order -->
 
              <!-- Row For Reciet Order -->
-             <div class="row col-container mt-30 align-items-center">
+             <div *ngIf="orderData?.step == 01 || orderData?.step == 02 || orderData?.step == 03 || orderData?.step == 04"  class="row col-container mt-30 align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
                     <div class="d-flex align-items-center">
@@ -204,8 +204,8 @@
              </div>
              <!-- End Row For Reciet Order -->
 
-            <!-- Row For payment Order Details -->
-            <div class="row col-container align-items-center mt-30">
+            <!-- Row For delievery Order -->
+            <div *ngIf="orderData?.step == 01 || orderData?.step == 02 || orderData?.step == 03 || orderData?.step == 04" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <div class="d-flex align-items-center">
                         <p class="Tajawal-Bold fs-25 blue-txt-color my-0">تأكيد التوصيل</p>
@@ -213,11 +213,11 @@
                     <div class="d-flex align-items-center mt-2">
                         <div class="d-flex align-items-center">
                             <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ التوصيل</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.delivered_at.split('T')[0]}}</p>
                         </div>
                         <div class="d-flex align-items-center me-5">
                             <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت التوصيل</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[1].split('.')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.delivered_at.split('T')[1].split('.')[0]}}</p>
                         </div>
 
                     </div>
@@ -229,26 +229,8 @@
                         <input type="file" name="reciet_img" id="upload-img" accept="*">
                     </div>
                 </div>
-             </div>
-            <!-- End Row For payment Order Details -->
 
-            <!-- Row For delievery Order Details -->
-            <div class="row col-container align-items-center mt-30">
-                <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
-                    <p class="Tajawal-Bold fs-25 blue-txt-color">تأكيد التوصيل</p>
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ التوصيل</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[0]}}</p>
-                        </div>
-                        <div class="d-flex align-items-center me-5">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت التوصيل</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[1].split('.')[0]}}</p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-5 img-detail d-flex align-items-center my-2 my-lg-0">
+                <div style="display: none !important;" class="col-sm-12 col-md-12 col-lg-5 img-detail d-flex align-items-center my-2 my-lg-0">
                     <div (click)="showDialog()" class="image-container position-relative mx-3">
                             <img src="assets/dummy.png" alt="img">
                             <div class="img-overlay d-flex justify-content-center align-items-center">
@@ -259,25 +241,25 @@
                         <img src="assets/dummy.png" width="100%" alt="img">
                     </p-dialog>
                 </div>
-            </div>
-            <!-- End Row For delievery Order Details -->
+             </div>
+            <!-- End Row For delievery Order -->
 
             <!-- Row For confirm payment -->
-            <div class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 02" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-5 reciet-detail">
                     <div class="d-flex align-items-center">
                         <p class="Tajawal-Bold fs-25 green-txt-color my-0">قام بالدفع</p>
                         <p class="Tajawal-Bold fs-25 my-0 me-3">{{orderData?.client}}</p>
                     </div>
-                    <p class="Tajawal-Bold fs-25 blue-txt-color mt-30">تأكيد التوصيل</p>
+                    <p class="Tajawal-Bold fs-25 blue-txt-color mt-30">تأكيد الدفع</p>
                     <div class="d-flex align-items-center">
                         <div class="d-flex align-items-center">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ التوصيل</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ الدفع</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.paid_at.split('T')[0]}}</p>
                         </div>
                         <div class="d-flex align-items-center me-5">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت التوصيل</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[1].split('.')[0]}}</p>
+                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت الدفع</p>
+                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.paid_at.split('T')[1].split('.')[0]}}</p>
                         </div>
 
                     </div>
@@ -303,7 +285,7 @@
             <!-- End Row For confirm payment -->
 
             <!-- Row For Reciet Order -->
-            <div class="row col-container mt-30 align-items-center">
+            <div *ngIf="orderData?.step == 07" class="row col-container mt-30 align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
                     <div class="d-flex align-items-center">
