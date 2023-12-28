@@ -435,6 +435,13 @@ Media Queries
     }
 }
 
+@media (min-width: 992px){
+    .container{
+        max-width: 95% !important;
+    }
+}
+
+
 
 /************************************************
 End Media Queries

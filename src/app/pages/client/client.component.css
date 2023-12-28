@@ -82,7 +82,7 @@ th, td {
 
 
 .p-inputgroup{
-    width: 1045px;
+    width: 100%;
     background: #F7F7F7 0% 0% no-repeat padding-box;
     border: 1px solid #E0E0E0;
     height: 57px;
@@ -104,6 +104,19 @@ input{
     border: 0 !important;
 }
 
+.dropdown .dropdown-menu{
+    background-color: #FFFFFF;
+}
+.dropdown .dropdown-menu li a{
+    text-decoration: none;
+    color: #1E2F51;
+    text-align: start;
+    background-color: transparent;
+}
+
+.dropdown .dropdown-menu li:hover{
+    background-color: #EEEEEE;
+}
 ::ng-deep input::placeholder{
     color: #BCBCBC !important;
 }
@@ -142,7 +155,7 @@ input:active,
 }
 
 hr{
-    width: 1301px;
+    width: 100%;
     height: 0px;
     border: 1px solid #CECECE;
 }

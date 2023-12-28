@@ -22,6 +22,7 @@ export class ClientComponent implements OnInit {
   filteredArray: any; 
   currentView:string=''
   search:string = ''
+  show:boolean = false
 
   constructor(private http:HttpHelperService,private messageService : MessageService , private  spinner:NgxSpinnerService , private route:Router){}
   ngOnInit(): void {
@@ -42,6 +43,22 @@ export class ClientComponent implements OnInit {
     )
   }
 
+  filterTable(value:string){
+    if(value == '24H'){
+      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - 24 * 60 * 60 * 1000))
+    }else if(value == '2D'){
+      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - 48 * 60 * 60 * 1000))
+    }else if(value == 'week'){
+      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (7*24) * 60 * 60 * 1000))
+    }
+    else if(value == 'month'){
+      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (30*24) * 60 * 60 * 1000))
+    }else if(value == 'year'){
+      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (265*24) * 60 * 60 * 1000))
+    }else{
+      this.filteredArray=0
+    }
+  }
 
   
   inputFocus(value:any){
