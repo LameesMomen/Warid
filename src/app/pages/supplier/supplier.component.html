@@ -1,37 +1,38 @@
 <div class="container">
     <!-- Search Component -->
     <div class="search">
-        <div style="width: 80%;" class="row mt-130 mx-auto">
-            <div class="col-10">
-                <div class="search d-flex align-items-center">
-                    <div class="p-inputgroup mx-auto">
-                        <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
-                        <input (keyup)="inputFocus(search)" type="text" name="search" id="search" [(ngModel)]="search" class="w-100 d-block" placeholder="البحث من خلال رقم الطلب او اسم المشروع" >
-                    </div>
-                </div>
-            </div>
-            <div class="col-2">
-                <div class="dropdown text-center h-100">
-                    <button style="background-color: #2A2A2C; border-radius: 13px; width: 80px;" (click)="show=!show" class="btn h-100 " type="button">
-                        <img src="assets/settings-sliders.png" class="mx-auto">
-                    </button>
-                    <ul [style.display]="show ? 'block' : 'none'" class="dropdown-menu">
-                      <li class="border-bottom"><a (click)="filterTable('24H')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال 24 ساعة</a></li>
-                      <li class="my-2 border-bottom"><a (click)="filterTable('2D')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال يومين</a></li>
-                      <li class="my-2 border-bottom"><a (click)="filterTable('week')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال أسبوع</a></li>
-                      <li class="my-2 border-bottom"><a (click)="filterTable('month')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال شهر</a></li>
-                      <li class="my-2 border-bottom"><a (click)="filterTable('year')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال سنة</a></li>
-                      <li class=""><a (click)="filterTable('all')" class="Tajawal-Bold fs-16 my-auto dropdown-item">تحديد الكل</a></li>
-                    </ul>
+      <div style="width: 80%;" class="row mt-130 mx-auto">
+          <div class="col-10">
+              <div class="search d-flex align-items-center">
+                  <div class="p-inputgroup mx-auto">
+                      <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
+                      <input (keyup)="inputFocus(search)" type="text" name="search" id="search" [(ngModel)]="search" class="w-100 d-block" placeholder="البحث من خلال رقم الطلب او اسم المشروع" >
                   </div>
-            </div>
-        
-        <div class="row mt-50">
-            <div class="col-12">
-                <hr class="mx-auto">
-            </div>
-        </div>
-    </div>
+              </div>
+          </div>
+          <div class="col-2">
+              <div class="dropdown text-center h-100">
+                  <button style="background-color: #2A2A2C; border-radius: 13px; width: 80px;" (click)="show=!show" class="btn h-100" type="button">
+                      <img src="assets/settings-sliders.png" class="mx-auto">
+                  </button>
+                  <ul [style.display]="show ? 'block' : 'none'" class="dropdown-menu">
+                    <li class="border-bottom"><a (click)="filterTable('24H')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال 24 ساعة</a></li>
+                    <li class="my-2 border-bottom"><a (click)="filterTable('2D')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال يومين</a></li>
+                    <li class="my-2 border-bottom"><a (click)="filterTable('week')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال أسبوع</a></li>
+                    <li class="my-2 border-bottom"><a (click)="filterTable('month')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال شهر</a></li>
+                    <li class="my-2 border-bottom"><a (click)="filterTable('year')" class="Tajawal-Bold fs-16 my-auto dropdown-item">خلال سنة</a></li>
+                    <li class=""><a (click)="filterTable('all')" class="Tajawal-Bold fs-16 my-auto dropdown-item">تحديد الكل</a></li>
+                  </ul>
+                </div>
+          </div>
+      </div>
+      
+      <div style="width: 80%;" class="row mt-50 mx-auto">
+          <div class="col-12">
+              <hr class="mx-auto">
+          </div>
+      </div>
+  </div>
 
     <!-- End Search Component-->
     <div class="main-data">

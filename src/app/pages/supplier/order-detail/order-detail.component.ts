@@ -13,7 +13,7 @@ import { ToastersService } from 'src/app/core/services/toaster/toasters.service'
 export class OrderDetailComponent implements OnInit {
   orderData: any;
   id: any;
-  ratingValue: any;
+  ratingValue: any = 4;
   timePercent: any;
   visible: boolean = false;
 
@@ -82,6 +82,7 @@ export class OrderDetailComponent implements OnInit {
           summary: 'تم',
           detail: ' تنفيذ العملية بنجاح',
         });
+        this.getOrderDetail()
         this.spinner.hide();
       },
       (err) => {
@@ -123,6 +124,7 @@ export class OrderDetailComponent implements OnInit {
           summary: 'تم',
           detail: ' تنفيذ العملية بنجاح',
         });
+        this.getOrderDetail()
         this.spinner.hide();
       },
       (err) => {

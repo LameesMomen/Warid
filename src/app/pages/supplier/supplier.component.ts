@@ -57,6 +57,7 @@ export class SupplierComponent implements OnInit {
     }else{
       this.filteredArray=0
     }
+    this.show = false
   }
 
 

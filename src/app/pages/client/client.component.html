@@ -27,7 +27,7 @@
             </div>
         </div>
         
-        <div class="row mt-50">
+        <div style="width: 80%;" class="row mt-50 mx-auto">
             <div class="col-12">
                 <hr class="mx-auto">
             </div>
@@ -67,7 +67,7 @@
                             <td>{{item.supplier}}</td>
                             <td [class.red-color]="item?.status.includes('بانتظار') || item?.status.includes('ملغي')" [class.green-txt-color]="!item?.status.includes('بانتظار')">{{item.status}}</td>
                             <td class="d-flex justify-content-center align-items-center">
-                                <a routerLink="order/{{item.id}}" class="btn Tajawal-Bold fs-16 detail-btn">عرض التفاصيل</a>
+                                <a [class.disabled]="item.step == 4 || item.is_expired" routerLink="order/{{item.id}}" class="btn Tajawal-Bold fs-16 detail-btn">عرض التفاصيل</a>
                             </td>
                       </tr>
                     </tbody>

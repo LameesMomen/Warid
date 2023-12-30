@@ -46,7 +46,7 @@ export class OrderDetailsComponent implements OnInit {
           item.account_number = item.account_number.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
         }
         this.spinner.hide();
-        this.timer(20,20);
+        this.timer(res.cancel_time,res.cancel_time);
       },
       (err) => {
         this.spinner.hide();
@@ -89,6 +89,7 @@ submitCancelOrder(body : any){
 this.http.put(`/ordermanager/client/orders/${this.id}/`,body).subscribe(
   res=>{
     this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
+    this.getOrderDetail();
     this.spinner.hide();
   },
   err=>{
@@ -129,6 +130,7 @@ submitPayment(body : any){
 this.http.put(`/ordermanager/client/orders/${this.id}/`,body).subscribe(
   res=>{
     this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
+    this.getOrderDetail();
     this.spinner.hide();
   },
   err=>{

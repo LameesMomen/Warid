@@ -24,6 +24,7 @@ export class ClientComponent implements OnInit {
   search:string = ''
   show:boolean = false
 
+
   constructor(private http:HttpHelperService,private messageService : MessageService , private  spinner:NgxSpinnerService , private route:Router){}
   ngOnInit(): void {
     this.getClientsData()
@@ -58,6 +59,7 @@ export class ClientComponent implements OnInit {
     }else{
       this.filteredArray=0
     }
+    this.show = false
   }
 
   

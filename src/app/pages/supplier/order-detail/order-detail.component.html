@@ -98,7 +98,7 @@
             <div class="wizard">
                 <div class="process">
                   <ul>
-                    <li [class.current] = "orderData?.step == 0" [class.completed] = "orderData?.step == 01" class="step">
+                    <li [class.current] = "orderData?.step == 0" [class.completed] = "orderData?.step > 0" class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-car"></i>
@@ -106,7 +106,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">التوصيل</span>
                         </div>
                     </li>
-                    <li [class.current] = "orderData?.step == 01" [class.completed] = "orderData?.step == 02" class="step">
+                    <li [class.current] = "orderData?.step == 1" [class.completed] = "orderData?.step > 1" class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-credit-card"></i>
@@ -114,7 +114,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">الدفع</span>
                       </div>
                     </li>
-                    <li [class.current] = "orderData?.step == 02" [class.completed] = "orderData?.step == 03" class="step">
+                    <li [class.current] = "orderData?.step == 2" [class.completed] = "orderData?.step > 2" class="step">
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-check"></i>
@@ -122,7 +122,7 @@
                         <span class="me-3 Tajawal-Bold fs-16">بانتظار تأكيد الدفع</span>
                       </div>
                     </li>
-                    <li [class.current] = "orderData?.step == 03" [class.completed] = "orderData?.step == 04" class="step"> 
+                    <li [class.current] = "orderData?.step == 3" [class.completed] = "orderData?.step > 3" class="step"> 
                       <div class="name">
                         <span class="pic-icon">
                             <i class="pi pi-circle"></i>
@@ -181,7 +181,7 @@
              <!-- End Row For Cancel Order -->
 
              <!-- Row For Reciet Order -->
-             <div *ngIf="orderData?.step == 01 || orderData?.step == 02 || orderData?.step == 03 || orderData?.step == 04"  class="row col-container mt-30 align-items-center">
+             <div *ngIf="orderData?.step == 1 || orderData?.step > 1"  class="row col-container mt-30 align-items-center">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
                     <div class="d-flex align-items-center">
@@ -205,7 +205,7 @@
              <!-- End Row For Reciet Order -->
 
             <!-- Row For delievery Order -->
-            <div *ngIf="orderData?.step == 01 || orderData?.step == 02 || orderData?.step == 03 || orderData?.step == 04" class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 1 || orderData?.step > 1 " class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
                     <div class="d-flex align-items-center">
                         <p class="Tajawal-Bold fs-25 blue-txt-color my-0">تأكيد التوصيل</p>
@@ -245,7 +245,7 @@
             <!-- End Row For delievery Order -->
 
             <!-- Row For confirm payment -->
-            <div *ngIf="orderData?.step == 02" class="row col-container align-items-center mt-30">
+            <div *ngIf="orderData?.step == 2 || orderData?.step > 2" class="row col-container align-items-center mt-30">
                 <div class="col-sm-12 col-md-12 col-lg-5 reciet-detail">
                     <div class="d-flex align-items-center">
                         <p class="Tajawal-Bold fs-25 green-txt-color my-0">قام بالدفع</p>
@@ -277,7 +277,7 @@
                     </p-dialog>
                 </div>
 
-                <div class="col-sm-12 col-md-12 col-lg-3 my-2 my-lg-0 btn-action">
+                <div *ngIf="orderData?.step == 2" class="col-sm-12 col-md-12 col-lg-3 my-2 my-lg-0 btn-action">
                     <p class="Tajawal-Bold fs-22 text-danger my-0">لا تقم بالضغط على هذا الزر إلا عند قيام العميل بتحويل المبلغ إلى حسابكم..</p>
                     <button (click)="handleClientPayment()" class="confirm-payment-btn Tajawal-Medium fs-25 mt-30 mx-auto mt-3">قام العميل بتحويل المبلغ</button>
                 </div>
@@ -285,25 +285,13 @@
             <!-- End Row For confirm payment -->
 
             <!-- Row For Reciet Order -->
-            <div *ngIf="orderData?.step == 07" class="row col-container mt-30 align-items-center">
-                <div class="col-sm-12 col-md-12 col-lg-7 reciet-detail">
-                    <p class="Tajawal-Bold fs-25 blue-txt-color">فاتورة الطلب</p>
-                    <div class="d-flex align-items-center">
-                        <div class="d-flex align-items-center">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">تاريخ الإصدار</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[0]}}</p>
-                        </div>
-                        <div class="d-flex align-items-center mx-5">
-                            <p class="my-0 Tajawal-Bold fs-25 blue-txt-color">وقت الإصدار</p>
-                            <p class="my-0 Tajawal-Bold fs-25 me-3">{{orderData?.created_at.split('T')[1].split('.')[0]}}</p>
-                        </div>
-
+            <div *ngIf="orderData?.step == 3" class="row col-container mt-30 align-items-center">
+                <div style="background-color: #FFFFFF; padding: 14px 28px;" class="col-sm-12 col-md-12 col-lg-6 rating-detail">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="Tajawal-Medium fs-16">ب**********د</p>
+                        <p-rating [(ngModel)]="ratingValue" [stars]="5" [cancel]="false" [disabled]="true"></p-rating>
                     </div>
-                </div>
-                <div class="col-sm-12 col-md-12 col-lg-5 btn-action my-2 my-lg-0">
-                    <a class="btn download-reciet-btn Tajawal-Bold fs-25">تحميل فاتورة مرتجع
-                        <i class="pi pi-download me-5 fs-3"></i>
-                    </a>
+                    <p class="Tajawal-Medium fs-16 blue-txt-color">من أفضل الموردين الذين تعاملت معهم في السنة الماضية….. من أفضل الموردين الذين تعاملت من أفضل الموردين الذين تعاملت معهم في السنة الماضية….. من أفضل الموردين الذين تعاملت</p>
                 </div>
              </div>
              <!-- End Row For Reciet Order -->

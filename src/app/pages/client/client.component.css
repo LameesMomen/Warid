@@ -2,6 +2,12 @@
     margin-bottom: 200px;
 }
 
+a.disabled{
+    pointer-events: none;
+    cursor: not-allowed;
+    background-color: #c9c9c9 !important;
+}
+
 table.rounded-corners {
     border-spacing: 0;
     border-collapse: separate;
