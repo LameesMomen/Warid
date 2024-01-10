@@ -19,6 +19,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { CodeInputModule } from 'angular-code-input';
 import { DialogModule } from 'primeng/dialog';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { AccordionModule } from 'primeng/accordion';
 
 
 
@@ -46,6 +47,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     CodeInputModule,
     DialogModule,
     AutoCompleteModule,
+    AccordionModule,
     CodeInputModule.forRoot({
       codeLength: 6,
       isCodeHidden:false,
@@ -67,6 +69,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     CodeInputModule,
     DialogModule,
     AutoCompleteModule,
+    AccordionModule,
   ],
 })
 export class SharedModule { }

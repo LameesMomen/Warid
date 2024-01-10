@@ -78,7 +78,6 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'المعاملات',
       icon : 'pi pi-fw pi-money-bill',
-      disabled:true,
       routerLink: ['transaction'],
       routerLinkActiveOptions:{exact:false}
     },

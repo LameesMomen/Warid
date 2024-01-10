@@ -13,15 +13,15 @@ export class HandleHttpErrorsService implements ErrorHandler {
 
   handleError(error: HttpErrorResponse) {
     if(error.status == 401){
-      this.http.post('/auth/token/refresh/',{refresh : localStorage.getItem('refreshToken')}).subscribe(
+      this.http.post('/auth/token/refresh/',{refresh : sessionStorage.getItem('refreshToken')}).subscribe(
         (res:any)=>{
-          localStorage.setItem('token',res.access);
+          sessionStorage.setItem('token',res.access);
           window.location.reload()
         },
         err =>{
             this.messageService.add({severity:'error', detail:'session expired'});
             setTimeout(() => {
-            localStorage.clear();
+            sessionStorage.clear();
             this.router.navigateByUrl('/login');
             }, 1000);
         }

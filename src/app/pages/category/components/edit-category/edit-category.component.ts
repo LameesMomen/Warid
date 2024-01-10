@@ -97,9 +97,6 @@ export class EditCategoryComponent implements OnInit{
         }
 
       })
-
-
-
 }
 
 showBannerAPI(body : any){

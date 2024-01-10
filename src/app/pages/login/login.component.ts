@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
     this.http.post('/auth/admin-login/',body).subscribe(
       (res:any)=>{
       this.spinner.hide()
-      localStorage.setItem('token',res.access);
-      localStorage.setItem('refreshToken',res.refresh);
-      localStorage.setItem('isLogin','logedin');
+      sessionStorage.setItem('token',res.access);
+      sessionStorage.setItem('refreshToken',res.refresh);
+      sessionStorage.setItem('isLogin','logedin');
       this.route.navigateByUrl('/category')
       },
       err=>{

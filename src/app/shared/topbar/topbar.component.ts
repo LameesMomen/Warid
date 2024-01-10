@@ -64,9 +64,9 @@ export class TopbarComponent implements  OnInit {
   }
 
   logOut(){
-    this.http.post('/auth/logout/',{refresh:localStorage.getItem('refreshToken')}).subscribe(
+    this.http.post('/auth/logout/',{refresh:sessionStorage.getItem('refreshToken')}).subscribe(
       res =>{
-        localStorage.clear();
+        sessionStorage.clear();
         this.route.navigateByUrl('/login');
       },
       err=>{

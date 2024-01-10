@@ -40,6 +40,10 @@ const routes:Routes=[
         loadChildren:()=>import('./pages/order/order.module').then(m=>m.OrderModule),
       },
       {
+        path:'transaction',
+        loadChildren:()=>import('./pages/transaction/transaction.module').then(m=>m.TransactionModule),
+      },
+      {
         path:'',
         redirectTo : 'product',
         pathMatch : 'full',
