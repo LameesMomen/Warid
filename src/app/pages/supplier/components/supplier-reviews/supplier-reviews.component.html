@@ -1,0 +1,64 @@
+<div *ngIf="response?.length" class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">رقم الطلب</th>
+                <th scope="col"></th>
+                <th scope="col">التقييم</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of  response | paginate:{
+                itemsPerPage : 10,
+                currentPage : page,
+                totalItems :  response?.length
+            }; let i = index ">
+                <td>
+                    <p class="blue-txt-color fs-22 Tajawal-Medium m-0">#{{item.order}}</p>
+                </td>
+                <td class="fs-16 Tajawal-Medium comment">
+                    <div class="comment-detail text-end">
+                        <p class="my-0">{{w.replace(this.regex, '*')}}</p>
+                        <p class="comment-parag my-0">{{item.comment}}</p>
+                    </div>
+                </td>
+                <td class="fs-22 Tajawal-Bold">
+                    <p-rating [(ngModel)]="item.rating" name="rating" id="rating" [stars]="5" [readonly]="true" [cancel]="false"></p-rating>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="!response?.length" class="row mt-50">
+  <div class="col-12 text-center">
+      <div>
+          <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-info-circle my-4"></i>
+      </div>
+      <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك تقييمات حالياً</p>
+  </div>
+</div>
+
+<pagination-controls 
+[autoHide]=" response?.length > 10 ? false : true"
+[responsive]="true"
+ nextLabel = ">"
+previousLabel ="<"
+(pageChange)="page = $event">
+</pagination-controls>
+
+
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

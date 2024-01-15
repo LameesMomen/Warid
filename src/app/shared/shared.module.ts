@@ -20,6 +20,8 @@ import { CodeInputModule } from 'angular-code-input';
 import { DialogModule } from 'primeng/dialog';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AccordionModule } from 'primeng/accordion';
+import { RatingModule } from 'primeng/rating';
+
 
 
 
@@ -48,6 +50,7 @@ import { AccordionModule } from 'primeng/accordion';
     DialogModule,
     AutoCompleteModule,
     AccordionModule,
+    RatingModule,
     CodeInputModule.forRoot({
       codeLength: 6,
       isCodeHidden:false,
@@ -69,6 +72,7 @@ import { AccordionModule } from 'primeng/accordion';
     CodeInputModule,
     DialogModule,
     AutoCompleteModule,
+    RatingModule,
     AccordionModule,
   ],
 })

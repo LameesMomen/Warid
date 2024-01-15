@@ -302,6 +302,22 @@ End Confirmation  Toasters
 ************************************************/
 
 
+
+/************************************************
+Rating Comp
+************************************************/
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-icon:hover ,.p-rating .p-rating-icon.p-rating-icon-active  {
+    color: #F7CA36 !important ;
+  }
+  
+  .p-rating .p-rating-icon{
+    color: black  !important;
+  }
+
+/************************************************
+End Rating Comp
+************************************************/
+
 /************************************************
 Media Queries
 ************************************************/

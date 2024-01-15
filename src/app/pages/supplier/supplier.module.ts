@@ -6,6 +6,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AddSupplierComponent } from './components/add-supplier/add-supplier.component';
 import { ViewSupplierInfoComponent } from './components/view-supplier-info/view-supplier-info.component';
 import { SupplierMoneyInfoComponent } from './components/supplier-money-info/supplier-money-info.component';
+import { SupplierCommisionComponent } from './components/supplier-commision/supplier-commision.component';
+import { SupplierReviewsComponent } from './components/supplier-reviews/supplier-reviews.component';
 
 
 
@@ -35,6 +37,8 @@ const routes : Routes =[
     AddSupplierComponent,
     ViewSupplierInfoComponent,
     SupplierMoneyInfoComponent,
+    SupplierCommisionComponent,
+    SupplierReviewsComponent,
   ],
   imports: [
     CommonModule,

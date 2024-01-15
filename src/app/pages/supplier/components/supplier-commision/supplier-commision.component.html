@@ -1,0 +1,60 @@
+<div *ngIf="response?.length" class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">رقم الطلب</th>
+                <th scope="col">التاريخ</th>
+                <th scope="col"></th>
+                <th scope="col">قيمتها</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of  response | paginate:{
+                itemsPerPage : 10,
+                currentPage : page,
+                totalItems :  response?.length
+            }; let i = index ">
+                <td>
+                    <p class="blue-txt-color fs-22 Tajawal-Medium m-0">طلب #{{item.id}}</p>
+                </td>
+                <td class="fs-22 Tajawal-Medium blue-txt-color">{{item.date.split('T')[0]}}</td>
+                <td class="fs-22 Tajawal-Bold text-end">
+                  <p class="my-0 Tajawal-Bold" *ngIf="item.type == 'payment'">تم رصد حوالة بنكية بقيمة</p>
+                  <p class="my-0 Tajawal-Bold" *ngIf="item.type == 'commission'">تم رصد عمولة جديدة</p>
+                </td>
+                <td class="fs-22 Tajawal-Medium" [ngStyle]="{'color': (item.type == 'payment') ? '#6B9D3F' : '#B71212'}">{{item.amount}} ر.س / كيس </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
+
+<div *ngIf="!response?.length" class="row mt-50">
+  <div class="col-12 text-center">
+      <div>
+          <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-info-circle my-4"></i>
+      </div>
+      <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك عمولات حالياً</p>
+  </div>
+</div>
+
+<pagination-controls 
+[autoHide]=" response?.length > 10 ? false : true"
+[responsive]="true"
+ nextLabel = ">"
+previousLabel ="<"
+(pageChange)="page = $event">
+</pagination-controls>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

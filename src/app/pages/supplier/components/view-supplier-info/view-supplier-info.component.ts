@@ -17,6 +17,8 @@ export class ViewSupplierInfoComponent implements OnInit{
   supplierDetail : any
   productImage :any
   imageFile :any
+  ratingValueStars:number = 5
+  totalRatingValue:any
 
   constructor(private http : HttpHelperService,private spinner : NgxSpinnerService, private messageService : MessageService , private router : Router,private route : ActivatedRoute){
     this.id = this.route.snapshot.paramMap.get('id')
@@ -80,5 +82,9 @@ export class ViewSupplierInfoComponent implements OnInit{
         this.messageService.add({severity:'error',summary:'خطأ', detail:'حدث خطأ ما'});
       }
     )
+  }
+
+  checkTotalReviewsFromChild(value:any){
+    this.totalRatingValue = value
   }
 }

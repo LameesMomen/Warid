@@ -2,7 +2,7 @@
     <div class="col-12">
         <a routerLink="/supplier" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
     </div>
-    <div class="col-12 my-3 d-flex">
+    <div class="col-9 my-3 d-flex">
         <label class="labl mx-4">
             <input type="radio" name="radioname" [(ngModel)]="radioValue" value="personal" [checked]="radioValue == 'personal'" />
             <div class="radio-container">
@@ -13,6 +13,18 @@
             <input type="radio" name="radioname" [(ngModel)]="radioValue" value="money" />
             <div class="radio-container">
                 <p class="fs-25 Tajawal-Bold">البيانات المالية</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="commision" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">سجل العمولات</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="reviews" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">التقييمات</p>
             </div>
         </label>
         <!-- <label class="labl mx-4">
@@ -27,18 +39,17 @@
                 <p class="fs-25 Tajawal-Bold">المنتجات</p>
             </div>
         </label>
-        <label class="labl mx-4">
-            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="fees" />
-            <div class="radio-container">
-                <p class="fs-25 Tajawal-Bold">سجل العمولات</p>
+ -->
+    </div>
+
+    <div *ngIf="radioValue == 'reviews'" class="col-3">
+        <div class="total-reviews d-flex justify-content-end align-items-center">
+            <div class="text-center">
+                <p class="Tajawal-Medium fs-22 blue-txt-color my-0">مجموع التقييمات</p>
+                <p class="Tajawal-Medium fs-20 my-0">({{totalRatingValue}})</p>
+                <p-rating [(ngModel)]="ratingValueStars" name="rating" id="rating" [stars]="5" [readonly]="true"  [cancel]="false"></p-rating>
             </div>
-        </label>
-        <label class="labl mx-4">
-            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="rate" />
-            <div class="radio-container">
-                <p class="fs-25 Tajawal-Bold">التقييمات</p>
-            </div>
-        </label> -->
+        </div>
     </div>
 </div>
 
@@ -169,6 +180,8 @@
                 </div>
             </div> 
             <div *ngSwitchCase="'money'"><app-supplier-money-info [res]="supplierDetail"></app-supplier-money-info></div>
+            <div *ngSwitchCase="'commision'"><app-supplier-commision></app-supplier-commision></div>
+            <div *ngSwitchCase="'reviews'"><app-supplier-reviews (totalReviews)="checkTotalReviewsFromChild($event)"></app-supplier-reviews></div>
         </div>
     </div>
 </div>
