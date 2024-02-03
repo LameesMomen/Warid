@@ -13,7 +13,6 @@ export class SupplierReviewsComponent implements OnInit{
 @Output() totalReviews = new EventEmitter<number>();
 ratingValue:number=5
 regex = /(?<!^).(?!$)/g;
-w = 'لميس'
 
 id:any
 response:any

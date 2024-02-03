@@ -7,27 +7,27 @@
 
 <div class="row">
     <div class="col-12 d-flex align-items-center">
-        <!-- <label class="labl mx-2">
-            <input type="radio" (change)="handleRadioValue()" name="radioname" [value]="1" [checked]="1 == 1" />
+        <label class="labl mx-2">
+            <input type="radio" [(ngModel)]="radioValue" name="radioname" value="payment" [checked]="radioValue == 'payment'" />
             <div class="radio-container">
                     <i class="pi pi-money-bill fs-4"></i>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="m-0 Tajawal-Medium fs-20">أضف سداد</p>
-                    <p class="number m-0 Tajawal-Medium fs-20 me-5">55</p>
+                    <p class="number m-0 Tajawal-Medium fs-20 me-5">{{allPayments?.length ? allPayments.length : 0}}</p>
                 </div>
             </div>
-        </label> -->
-        <!-- <label class="labl mx-4">
-            <input type="radio" (change)="handleRadioValue()" name="radioname" [value]="1" />
+        </label>
+        <label class="labl mx-2">
+            <input type="radio" [(ngModel)]="radioValue" name="radioname" value="associations" [checked]="radioValue == 'associations'" />
             <div class="radio-container">
                     <i class="pi pi-user-plus fs-4"></i>
                 <div class="d-flex justify-content-between align-items-center">
                     <p class="m-0 Tajawal-Medium fs-20">أضف وكيل</p>
-                    <p class="number m-0 Tajawal-Medium fs-20 me-5">55</p>
+                    <p class="number m-0 Tajawal-Medium fs-20 me-5">{{allAssociations?.length ? allPayments.length : 0}}</p>
                 </div>
             </div>
-        </label> -->
-        <label class="labl mx-4">
+        </label>
+        <label class="labl mx-2">
             <input type="radio" [(ngModel)]="radioValue" name="radioname" value="location" [checked]="radioValue == 'location'" />
             <div class="radio-container">
                     <i class="pi pi-map-marker fs-4"></i>
@@ -37,22 +37,18 @@
                 </div>
             </div>
         </label>
-        <!-- <label class="labl mx-4">
-            <input type="radio" (change)="handleRadioValue()" name="radioname" [value]="1" />
-            <div class="radio-container">
-                    <i class="pi pi-sitemap fs-4"></i>
-                <div class="d-flex justify-content-between align-items-center">
-                    <p class="m-0 Tajawal-Medium fs-20">أضف منتج</p>
-                    <p class="number m-0 Tajawal-Medium fs-20 me-5">55</p>
-                </div>
-            </div>
-        </label> -->
     </div>
 </div>
 
 <div [ngSwitch]="radioValue">
     <div *ngSwitchCase="'location'">
         <app-location-orders [allLocationOrders]="allLocations"></app-location-orders>
+    </div>
+    <div *ngSwitchCase="'payment'">
+        <app-payment-order  [allPaymentOrders]="allPayments"></app-payment-order>
+    </div>
+    <div *ngSwitchCase="'associations'">
+        <app-association-orders  [allAssociations]="allAssociations"></app-association-orders>
     </div>
 </div>
 

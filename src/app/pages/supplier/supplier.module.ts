@@ -8,6 +8,7 @@ import { ViewSupplierInfoComponent } from './components/view-supplier-info/view-
 import { SupplierMoneyInfoComponent } from './components/supplier-money-info/supplier-money-info.component';
 import { SupplierCommisionComponent } from './components/supplier-commision/supplier-commision.component';
 import { SupplierReviewsComponent } from './components/supplier-reviews/supplier-reviews.component';
+import { SupplierProductsComponent } from './components/supplier-products/supplier-products.component';
 
 
 
@@ -39,6 +40,7 @@ const routes : Routes =[
     SupplierMoneyInfoComponent,
     SupplierCommisionComponent,
     SupplierReviewsComponent,
+    SupplierProductsComponent,
   ],
   imports: [
     CommonModule,

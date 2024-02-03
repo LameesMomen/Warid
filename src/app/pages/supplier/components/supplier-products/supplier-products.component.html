@@ -1,0 +1,37 @@
+<div class="row mt-20">
+    <div class="col-12">
+        <p class="Tajawal-Medium fs-22">منتجات يقدمها المورد..</p>
+    </div>
+</div>
+
+<div *ngIf="data?.length" style="height: max-content;" class="grid-container mt-20">
+    <div class="my-2" *ngFor="let item of data">
+        <div class="order-box d-flex flex-column justify-content-between h-100">
+            <img width="100%" height="126px" src="{{item.product.pic}}" alt="img">
+            <p class="Tajawal-Medium text-center fs-20 my-1">{{item.product.title}}</p>
+            <p class="Tajawal-Bold text-center fs-28 green-txt-color my-0">{{item.price}}</p>
+            <p class="Tajawal-Medium text-center fs-16 green-txt-color my-0">ر.س / {{item.product.description}}</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!data?.length" class="row mt-50">
+    <div class="col-12 text-center">
+        <div>
+            <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-info-circle my-4"></i>
+        </div>
+        <p class="Tajawal-Bold fs-28 my-2">لا يوجد منتجات حالياً</p>
+    </div>
+  </div>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

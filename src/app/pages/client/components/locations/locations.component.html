@@ -19,11 +19,11 @@
                 totalItems : allLocation?.length
             }; let i = index ">
                 <td>
-                    {{item.project_name}}
+                    {{item.location_name}}
                 </td>
                 <td>{{item.neighborhood}}</td>
                 <td> <a class="link fs-25 Tajawal-Medium" href="{{item.google_maps_link}}" target="_blank">www.googlemap.com</a></td>
-                <td>{{item.guard_mobile}}</td>
+                <td>{{item.guard_mobile?.replace('+966','')}}</td>
                 <td><button (click)="showDialog(item.id)" class="dialog-btn">عرض</button></td>
                 <td><a class="download-link" href="{{item.building_license}}" download><i class="pi pi-download fs-6"></i></a></td>
               </tr>

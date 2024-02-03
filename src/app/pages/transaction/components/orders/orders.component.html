@@ -55,48 +55,48 @@
                                 </tbody>
                             </table>
                         </div>
-
-                    <!-- detail row -->
-
-                    <div class="row mt-50">
-                        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex align-items-center">
-                                <div><p class="Tajawal-Bold fs-16 my-0">تفاصيل الطلب:</p></div>
-                                <div class="d-flex justify-content-between align-items-center" style="margin-right: 20px;">
-                                    <p class="Tajawal-Bold fs-16 blue-txt-color my-0"> تكلفة المنتجات:</p>
-                                    <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.price_before_vat}}</p>
-                                </div>
-                        </div>
-                        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-4 border-left d-flex justify-content-center align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="Tajawal-Bold fs-16 blue-txt-color my-0"> ضريبة القيمة المضافة 15% :</p>
-                                <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.vat}}</p>
-                            </div>
-                        </div>
-                        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex justify-content-center align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="Tajawal-Bold fs-16 blue-txt-color my-0">السعر شامل الضريبة:</p>
-                                <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.total}}</p>
-                            </div>
-                        </div>
-                        <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-2 d-flex justify-content-center align-items-center">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <p class="Tajawal-Bold fs-16 green-txt-color my-0">التوصيل الى:</p>
-                                <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.location?.project_name}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-30">
-                        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
-                            <p class="Tajawal-Bold fs-16 green-txt-color my-0">حارس المشروع</p>
-                            <p class="Tajawal-Bold fs-16 me-2">{{response?.location?.guard_mobile}}</p>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
-                            <p class="Tajawal-Bold fs-16 green-txt-color my-0">موقع المشروع</p>
-                            <a style="text-decoration: none;" href="{{response?.location?.google_maps_link}}" target="_blank" class="Tajawal-Bold fs-16 me-2">Google Map</a>
-                        </div>
-                    </div>
                     </div>
                 </div>
+            </div>
+        </div>
+                        
+        <!-- detail row -->
+        <div class="row mt-50">
+            <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex align-items-center">
+                    <div><p class="Tajawal-Bold fs-16 my-0">تفاصيل الطلب:</p></div>
+                    <div class="d-flex justify-content-between align-items-center" style="margin-right: 20px;">
+                        <p class="Tajawal-Bold fs-16 blue-txt-color my-0"> تكلفة المنتجات:</p>
+                        <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.price_before_vat}}</p>
+                    </div>
+            </div>
+            <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-4 border-left d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="Tajawal-Bold fs-16 blue-txt-color my-0"> ضريبة القيمة المضافة 15% :</p>
+                    <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.vat}}</p>
+                </div>
+            </div>
+            <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-3 border-left d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="Tajawal-Bold fs-16 blue-txt-color my-0">السعر شامل الضريبة:</p>
+                    <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.total}}</p>
+                </div>
+            </div>
+            <div style="height: 46px;" class="col-sm-12 col-md-6 col-lg-2 d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="Tajawal-Bold fs-16 green-txt-color my-0">التوصيل الى:</p>
+                    <p class="Tajawal-Bold fs-16 me-2 my-0">{{response?.location?.project_name}}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-30">
+            <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+                <p class="Tajawal-Bold fs-16 green-txt-color my-0">حارس المشروع</p>
+                <p class="Tajawal-Bold fs-16 me-2">{{response?.location?.guard_mobile}}</p>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+                <p class="Tajawal-Bold fs-16 green-txt-color my-0">موقع المشروع</p>
+                <a style="text-decoration: none;" href="{{response?.location?.google_maps_link}}" target="_blank" class="Tajawal-Bold fs-16 me-2">Google Map</a>
             </div>
         </div>
 

@@ -21,13 +21,13 @@
                 </td>
                 <td>{{item?.owner_name}}</td>
                 <td>طلب إضافة موقع</td>
-                <td style="color: #ACACAC;">{{item?.created_at}}</td>
-                <td class="d-flex justify-content-evenly align-items-center">
-                  <button (click)="delete(item)" class="delete-btn"><i class="pi pi-trash fs-5"></i></button>
-                  <a routerLink="viewOrder/{{item.id}}" class="btn vieworder-btn Tajawal-Medium fs-20">
+                <td style="color: #ACACAC;">{{item?.created_at.split('T')[0]}}</td>
+                <td class="d-flex justify-content-end align-items-center">
+                  <button (click)="delete(item)" class="delete-btn mx-3"><i class="pi pi-trash fs-5"></i></button>
+                  <a routerLink="viewLocationDetail/{{item.id}}" class="btn mx-3 vieworder-btn Tajawal-Medium fs-20">
                     الإطلاع
                   </a>
-                  <button (click)="apprroved(item)" class="submitAction-btn fs-20 Tajawal-Medium">تنفيذ</button>
+                  <button (click)="apprroved(item)" class="submitAction-btn mx-3 fs-20 Tajawal-Medium">تنفيذ</button>
                 </td>
               </tr>
             </tbody>

@@ -16,6 +16,12 @@
             </div>
         </label>
         <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="products" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">المنتجات</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
             <input type="radio" name="radioname" [(ngModel)]="radioValue" value="commision" />
             <div class="radio-container">
                 <p class="fs-25 Tajawal-Bold">سجل العمولات</p>
@@ -31,12 +37,6 @@
             <input type="radio" name="radioname" [(ngModel)]="radioValue" value="transactions" />
             <div class="radio-container">
                 <p class="fs-25 Tajawal-Bold">سجل العمليات</p>
-            </div>
-        </label>
-        <label class="labl mx-4">
-            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="products" />
-            <div class="radio-container">
-                <p class="fs-25 Tajawal-Bold">المنتجات</p>
             </div>
         </label>
  -->
@@ -180,6 +180,7 @@
                 </div>
             </div> 
             <div *ngSwitchCase="'money'"><app-supplier-money-info [res]="supplierDetail"></app-supplier-money-info></div>
+            <div *ngSwitchCase="'products'"><app-supplier-products [id]="id"></app-supplier-products></div>
             <div *ngSwitchCase="'commision'"><app-supplier-commision></app-supplier-commision></div>
             <div *ngSwitchCase="'reviews'"><app-supplier-reviews (totalReviews)="checkTotalReviewsFromChild($event)"></app-supplier-reviews></div>
         </div>
