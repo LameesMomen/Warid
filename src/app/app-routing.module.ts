@@ -44,6 +44,10 @@ const routes:Routes=[
         loadChildren:()=>import('./pages/transaction/transaction.module').then(m=>m.TransactionModule),
       },
       {
+        path:'ads',
+        loadChildren:()=>import('./pages/ads/ads.module').then(m=>m.AdsModule),
+      },
+      {
         path:'',
         redirectTo : 'product',
         pathMatch : 'full',

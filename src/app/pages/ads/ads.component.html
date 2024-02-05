@@ -1,0 +1,40 @@
+<div class="row mt-50">
+    <div class="col-sm-12 col-md-12 col-lg-8 d-flex align-items-center">
+        <p class="fs-30 Tajawal-Bold m-0">الإعلانات</p>
+    </div>
+    <div class="col-sm-12 col-md-12 col-lg-4 my-4 my-lg-0">
+        <a routerLink="add-ads" class="btn addAds-btn Tajawal-Medium fs-20 me-auto">
+            إضافة إعلان
+            <i class="pi pi-plus me-2 fs-5 my-auto"></i>
+        </a>
+    </div>
+</div>
+
+    <div class="row grid-container mt-30">
+        <div *ngFor="let item of allAds" class="ads-container">
+            <img src="{{item.image}}" width="100%" height="100%" alt="ads">
+            <div class="ads-overlay">
+                <div style="width: 65%;" class="d-flex justify-content-between mx-auto">
+                    <a class="btn Tajawal-Medium fs-22 text-white editAds-btn" routerLink="ads/{{item.id}}">
+                        <i class="pi pi-pencil ms-3 fs-6 my-auto"></i>
+                        تعديل
+                    </a>
+
+                    <button class="btn delAds-btn">
+                        <i class="pi pi-trash ms-3 fs-6 my-auto"></i>
+                        حذف
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

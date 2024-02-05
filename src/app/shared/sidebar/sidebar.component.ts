@@ -40,8 +40,7 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'الاعلانات',
       icon : 'pi pi-fw pi-video',
-      disabled:true,
-      routerLink: ['adds'],
+      routerLink: ['ads'],
       routerLinkActiveOptions:{exact:false}
     },
     {

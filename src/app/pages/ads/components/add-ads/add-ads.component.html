@@ -1,0 +1,80 @@
+<div class="row mt-50 mb-4">
+    <div class="col-12">
+        <a routerLink="/ads" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
+    </div>
+    <div class="col-12 mt-20">
+        <p class="fs-30 Tajawal-Bold m-0">.. إضافة إعلان</p>
+    </div>
+</div>
+
+<div class="row mt-20">
+    <div class="col-12">
+        <div class="addClient-container h-100">
+            <form #form="ngForm" (ngSubmit)="submit(form)">
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center">
+                        <p class="Tajawal-Bold fs-30">نوع الإعلان</p>
+                        <div class="radio-container d-flex align-items-center">
+                            <div class="mx-4">
+                                <input class="mx-3" type="radio" [(ngModel)]="radioValue" name="adsType" id="general" value="general">
+                                <label class="Tajawal-Reqular fs-30" for="general">عام</label>
+                            </div>
+                            <div class="mx-4">
+                                <input class="mx-3" type="radio" [(ngModel)]="radioValue"  name="adsType"  id="supplier" value="supplier">
+                                <label class="Tajawal-Reqular fs-30" for="supplier">للمورد</label>
+                            </div>
+                            <div class="mx-4">
+                                <input class="mx-3" type="radio"  [(ngModel)]="radioValue"  name="adsType" id="client" value="client">
+                                <label class="Tajawal-Reqular fs-30" for="client">للعميل</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-30">
+                    <div class="col-12">
+                        <div *ngIf="!adsImage"  class="adsImg-container mx-auto">
+                            <p class="Tajawal-Bold fs-22 red-color">صورة الاعلان</p>
+                            <label for="ad-img" class="selectdImg-btn Tajawal-Bold fs-16">
+                                Select Image
+                            </label>
+                            <input type="file" id="ad-img" name="image" ngModel #image="ngModel" required (dragover)="dragOverHandler($event)"  (drop)="changeImage($event)" (change)="changeImage($event)" style="width:100%;" class="form-control"   accept="image/*">
+                            <i class="pi pi-download fs-1"></i>
+                            <!-- <p class="Tajawal-Bold fs-16">Or Drop Image here</p> -->
+                        </div>
+                        <div *ngIf="adsImage"  class="adsImg-container mx-auto">
+                            <img width="100%" height="100%"  [src]="adsImage" alt="ad">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-30">
+                    <div class="col-12">
+                        <p class="Tajawal-Bold fs-30">إضافة رابط للإعلان</p>
+
+                        <input style="width: 40%; height: 50px;" class="form-control mt-20" type="text" [pattern]="patternLink" ngModel #link="ngModel" name="link" id="link" placeholder="رابط Google Map" required >
+                        <div class="mt-2" *ngIf="(link.touched && link.invalid)">
+                            <p class="text-danger m-0" *ngIf="link.errors?.['pattern']">رابط الإعلان غير صحيح</p>
+                            <p class="text-danger m-0" *ngIf="link.errors?.['required']">رابط الإعلان مطلوب</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-12">
+                        <button class="addAds-btn mx-auto fs-30 Tajawal-Medium" [disabled]="form.invalid">نشر الإعلان</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>
