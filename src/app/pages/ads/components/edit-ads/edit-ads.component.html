@@ -3,7 +3,7 @@
         <a routerLink="/ads" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
     </div>
     <div class="col-12 mt-20">
-        <p class="fs-30 Tajawal-Bold m-0">.. إضافة إعلان</p>
+        <p class="fs-30 Tajawal-Bold m-0">.. تعديل إعلان</p>
     </div>
 </div>
 
@@ -37,7 +37,7 @@
                             <label for="ad-img" class="selectdImg-btn Tajawal-Bold fs-16">
                                 Select Image
                             </label>
-                            <input type="file" id="ad-img" name="image" ngModel #image="ngModel" required (dragover)="dragOverHandler($event)"  (drop)="changeImage($event)" (change)="changeImage($event)" style="width:100%;" class="form-control"   accept="image/*">
+                            <input type="file" id="ad-img" name="image" ngModel #image="ngModel" (dragover)="dragOverHandler($event)"  (drop)="changeImage($event)" (change)="changeImage($event)" style="width:100%;" class="form-control"   accept="image/*">
                             <i class="pi pi-download fs-1"></i>
                             <!-- <p class="Tajawal-Bold fs-16">Or Drop Image here</p> -->
                         </div>
@@ -49,19 +49,12 @@
                 <div class="row mt-50">
                     <div class="col-6">
                         <p class="Tajawal-Bold fs-30">اسم الاعلان</p>
-                        <input style="width: 80%; height: 50px;" class="form-control mt-20" type="text"  ngModel #name="ngModel" name="name" id="name" placeholder="اسم الاعلان" required >
-                        <div class="mt-2" *ngIf="(name.touched && name.invalid)">
-                            <p class="text-danger m-0" *ngIf="name.errors?.['required']">اسم الاعلان مطلوب</p>
-                        </div>
+                        <input style="width: 80%; height: 50px;" class="form-control mt-20" type="text" [(ngModel)]="ad.name" name="name" id="name" placeholder="اسم الاعلان" required >
                     </div>
                     <div class="col-6">
                         <p class="Tajawal-Bold fs-30">إضافة رابط للإعلان</p>
 
-                        <input style="width: 80%; height: 50px;" class="form-control mt-20" type="text" [pattern]="patternLink" ngModel #link="ngModel" name="link" id="link" placeholder="رابط Google Map" required >
-                        <div class="mt-2" *ngIf="(link.touched && link.invalid)">
-                            <p class="text-danger m-0" *ngIf="link.errors?.['pattern']">رابط الإعلان غير صحيح</p>
-                            <p class="text-danger m-0" *ngIf="link.errors?.['required']">رابط الإعلان مطلوب</p>
-                        </div>
+                        <input style="width: 80%; height: 50px;" class="form-control mt-20" type="text" [pattern]="patternLink" [(ngModel)]="ad.link" name="link" id="link" placeholder="رابط Google Map" required >
                     </div>
                 </div>
                 <div class="row mt-5">

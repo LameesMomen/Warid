@@ -1,0 +1,51 @@
+.back-btn{
+    width: 44px;
+    height: 44px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.addAds-btn{
+    width: 80%;
+    height: 67px;
+    background: #1B1C1E 0% 0% no-repeat padding-box;
+    color:#F7F7F7;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.adsImg-container{
+    width: 60%;
+    height: 292px;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #272D3B33;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+}
+
+.adsImg-container .selectdImg-btn{
+    width: 147px;
+    height: 51px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    box-shadow: 0px 7px 12px #2A2A2C4E;
+    border-radius: 33px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.adsImg-container #ad-img{
+    display: none;
+}

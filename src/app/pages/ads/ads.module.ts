@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdsComponent } from './ads.component';
 import { AddAdsComponent } from './components/add-ads/add-ads.component';
+import { EditAdsComponent } from './components/edit-ads/edit-ads.component';
 
 
 
@@ -16,10 +17,10 @@ const routes : Routes =[
     path : 'add-ads',
     component : AddAdsComponent
   },
-//   {
-//     path : 'search/:mobile',
-//     component : ClientComponent
-//   },
+  {
+    path : 'edit-ads/:id',
+    component : EditAdsComponent
+  },
 //   {
 //     path : 'addClient',
 //     component : AddClientComponent
@@ -33,7 +34,8 @@ const routes : Routes =[
 @NgModule({
   declarations: [
     AdsComponent,
-    AddAdsComponent
+    AddAdsComponent,
+    EditAdsComponent
   ],
   imports: [
     CommonModule,

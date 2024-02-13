@@ -12,7 +12,6 @@ import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper
 export class AddAdsComponent {
   adsImage :any
   imageFile :any
-  radioValue:string='general'
   patternLink : string ='(https?:\/\/.*\.)';
 
 
@@ -34,7 +33,7 @@ export class AddAdsComponent {
     const body = new FormData();
 
     body.append('image', this.imageFile);
-    body.append('name', this.radioValue);
+    body.append('name', form.value.name);
     body.append('link', form.value.link);
 
     this.http.post('/settings/ads/',body).subscribe(

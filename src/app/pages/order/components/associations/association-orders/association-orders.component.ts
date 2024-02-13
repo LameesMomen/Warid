@@ -83,7 +83,7 @@ delete(item: any) {
 
 showBannerAPI(body: any) {
   this.http
-    .put(`/locationmanager/admin/associations/approve/`, {
+    .put(`/locationmanager/admin/associations/approve/${body.id}`, {
       id: body.id,
     })
     .subscribe(

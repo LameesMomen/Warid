@@ -15,12 +15,12 @@
             <img src="{{item.image}}" width="100%" height="100%" alt="ads">
             <div class="ads-overlay">
                 <div style="width: 65%;" class="d-flex justify-content-between mx-auto">
-                    <a class="btn Tajawal-Medium fs-22 text-white editAds-btn" routerLink="ads/{{item.id}}">
+                    <a class="btn Tajawal-Medium fs-22 text-white editAds-btn" routerLink="edit-ads/{{item.id}}">
                         <i class="pi pi-pencil ms-3 fs-6 my-auto"></i>
                         تعديل
                     </a>
 
-                    <button class="btn delAds-btn">
+                    <button class="btn delAds-btn" (click)="deleteAd(item)">
                         <i class="pi pi-trash ms-3 fs-6 my-auto"></i>
                         حذف
                     </button>
