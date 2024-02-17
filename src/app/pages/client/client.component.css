@@ -72,6 +72,9 @@ table.rounded-corners thead tr th:first-child{
     border-top-right-radius: 20px !important;
 }
 
+th {
+    width: 100px !important;
+  }
 th, td {
     vertical-align: middle;
     text-align: center;

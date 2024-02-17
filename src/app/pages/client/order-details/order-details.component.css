@@ -294,6 +294,6 @@ th, td {
 }
 
 ::ng-deep .p-rating .p-rating-icon.p-icon {
-  width: 25px;
+  width: 100%;
   height: 25px;
 }

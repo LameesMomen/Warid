@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MessageService } from 'primeng/api';
 import { HttpHelperService } from 'src/app/core/services/http-helper/http-helper.service';
@@ -22,6 +22,7 @@ export class OrderDetailsComponent implements OnInit {
     private http: HttpHelperService,
     private messageService: MessageService,
     private spinner: NgxSpinnerService,
+    private router: Router,
     private route: ActivatedRoute,
     private toasters : ToastersService
   ) {
@@ -41,12 +42,45 @@ export class OrderDetailsComponent implements OnInit {
     this.http.get(`/ordermanager/client/orders/${this.id}/`).subscribe(
       (res: any) => {
         this.orderData = res;
+        if(this.orderData.is_expired || this.orderData.step == 4){
+          this.messageService.add({
+            severity: 'error',
+            summary: 'خطأ',
+            detail: `هذا الطلب ${this.orderData.status}`,
+          });
+          setTimeout(() => {
+            this.router.navigateByUrl('/home/client')
+          }, 5000);
+        }
         this.orderData.payment_info = res.payment_info.slice(0,2)
         for (let item of res.payment_info) {
           item.account_number = item.account_number.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')
         }
         this.spinner.hide();
         this.timer(res.cancel_time,res.cancel_time);
+      },
+      (err) => {
+        this.spinner.hide();
+        this.messageService.add({
+          severity: 'error',
+          summary: 'خطأ',
+          detail: 'حدث خطأ ما',
+        });
+      }
+    );
+  }
+
+  submitReview(form:any){
+    this.spinner.show();
+    let body :{"order_id":number,"rating":number,"comment":string}={
+      order_id: parseInt(this.id),
+      rating: form.value.rating,
+      comment: form.value.comment
+    }
+    this.http.post(`/ordermanager/reviews/`,body).subscribe(
+      (res: any) => {
+      this.processDone = true
+        this.spinner.hide();
       },
       (err) => {
         this.spinner.hide();
