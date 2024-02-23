@@ -1,0 +1,35 @@
+.labl {
+    display : block;
+    width: max-content;
+}
+.labl > input{ /* HIDE RADIO */
+    display: none; /* Makes input not-clickable */
+}
+.labl > input + div.radio-container  p{ /* DIV STYLES */
+    cursor:pointer;
+    color: #ACACAC;
+}
+
+
+.labl > input:checked + div.radio-container { /* (RADIO CHECKED) DIV STYLES */
+    position: relative;
+    width: max-content;
+    height: 50px;
+    color: #2A2A2C;
+}
+
+.labl > input:checked + div.radio-container::after { /* (RADIO CHECKED) DIV STYLES */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 70%;
+    height: 3px;
+    margin: 0 auto;
+    background-color: #2A2A2C;
+}
+
+.labl > input:checked + div.radio-container p{ 
+    color: #2A2A2C;
+}

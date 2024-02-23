@@ -95,8 +95,7 @@ export class SidebarComponent implements AfterViewInit {
     {
       label : 'الإعدادات',
       icon : 'pi pi-fw pi-cog',
-      disabled:true,
-      routerLink: ['setting'],
+      routerLink: ['settings'],
       routerLinkActiveOptions:{exact:false}
     },
     {

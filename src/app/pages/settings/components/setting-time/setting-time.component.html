@@ -1,0 +1,45 @@
+<div class="row mt-30">
+    <div class="d-flex flex-wrap">
+        <div class="accept-order-container mx-auto mx-lg-0">
+            <p class="Tajawal-Medium fs-22 blue-txt-color"><span></span> مدة قبول المورد للطلب </p>
+            <div class="time-container d-flex flex-column justify-content-between">
+                <div class="progress-bar mx-auto">
+                    <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;">75%</progress>
+                    <p *ngIf="!editAcceptTime" class="m-0 Tajawal-Bold fs-30">{{acceptTime}}</p>
+                    <input style="width: 50%;" class="form-control mx-auto mb-2" autofocus *ngIf="editAcceptTime"  type="text" name="acceptTime" id="acceptTime" [(ngModel)]="editAcceptTimeValue">
+                    <p class="m-0 Tajawal-Bold fs-22">دقائق</p>
+                </div>
+                <div class="button d-flex justify-content-center align-items-center">
+                    <button *ngIf="!editAcceptTime" (click)="editAcceptTime=true">تعديل</button>
+                    <button *ngIf="editAcceptTime" (click)="updateAcceptTime()">حفظ</button>
+                </div>
+            </div>
+        </div>
+        <div class="cancel-order-container mx-auto  mx-lg-4 my-4 my-lg-0">
+            <p class="Tajawal-Medium fs-22 red-color"><span></span> مدة خاصية إلغاء الطلب </p>
+            <div class="time-container d-flex flex-column justify-content-between">
+                <div class="progress-bar mx-auto">
+                    <progress value="75" min="0" max="100" style="visibility:hidden;height:0;width:0;">75%</progress>
+                    <p *ngIf="!editCancelTime" class="m-0 Tajawal-Bold fs-30">{{cancelTime}}</p>
+                    <input style="width: 50%;" class="form-control mx-auto mb-2" autofocus *ngIf="editCancelTime"  type="text" name="acceptTime" id="acceptTime" [(ngModel)]="editCancelTimeValue">
+                    <p class="m-0 Tajawal-Bold fs-22">دقائق</p>
+                </div>
+                <div class="button d-flex justify-content-center align-items-center">
+                    <button *ngIf="!editCancelTime" (click)="editCancelTime=true">تعديل</button>
+                    <button *ngIf="editCancelTime" (click)="updateCancelTime()">حفظ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple"
+
+>
+  <p style="font-size: 20px; color: white">جاري التحميل...</p>
+</ngx-spinner>
+<p-toast position="top-center"></p-toast>

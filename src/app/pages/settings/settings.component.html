@@ -1,0 +1,46 @@
+<div class="row mt-50">
+    <div class="col-12">
+        <p class="Tajawal-Bold fs-28  m-0">الإعدادات</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 my-2 d-flex">
+        <!-- <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="support" [checked]="radioValue == 'support'" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">الدعم الفني</p>
+            </div>
+        </label> -->
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="time" [checked]="radioValue == 'time'" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">ضبط الوقت</p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="vat" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">نسبة العمولة </p>
+            </div>
+        </label>
+        <label class="labl mx-4">
+            <input type="radio" name="radioname" [(ngModel)]="radioValue" value="money-info" />
+            <div class="radio-container">
+                <p class="fs-25 Tajawal-Bold">البيانات المالية</p>
+            </div>
+        </label>
+    </div>
+</div>
+
+<div [ngSwitch]="radioValue">
+    <div *ngSwitchCase="'time'">
+        <app-setting-time ></app-setting-time>
+    </div>
+    <div *ngSwitchCase="'vat'">
+        <app-vat  ></app-vat>
+    </div>
+    <div *ngSwitchCase="'money-info'">
+        <app-association-orders></app-association-orders>
+    </div>
+</div>
