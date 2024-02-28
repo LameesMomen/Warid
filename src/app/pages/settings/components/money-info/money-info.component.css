@@ -1,0 +1,93 @@
+input{
+    width: 100%;
+    height: 55px;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    border: 0.5px solid #2A2A2C;
+    border-radius: 12px;
+    padding: 20px;
+    margin-right: 20px;
+    position: relative;
+}
+
+input:valid{
+    border-color: #94D859;
+}
+
+/* input:invalid{
+    border-color: #B71212;
+} */
+
+input:focus{
+    border-color: #007AFF !important;
+}
+
+.required_sympol{
+    position: absolute;
+    top: -25px;
+    right: 50px;
+}
+
+.submit-btn{
+    width: 100%;
+    height: 67px;
+    background: #1B1C1E 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    color: white;
+}
+
+.credit_card{
+    width: 430px;
+    height: 227px;
+    padding: 25px;
+    background: #2A2A2C 0% 0% no-repeat padding-box;
+    border-radius: 26px;
+}
+
+
+.card_container{
+    width: 100%;
+    height: 300px !important;
+}
+.carousel{
+    width: max-content;
+    height: 100% !important;
+    margin: auto 7% auto auto;
+}
+
+.credit_card:nth-child(n+4){
+    display: none;
+}
+
+.credit_card:nth-child(1){
+    position: relative;
+    z-index: 3;
+}
+
+.credit_card:nth-child(2){
+    position: absolute;
+    top: 30px;
+    right: 45px;
+    z-index: 2;
+}
+
+.credit_card:nth-child(3){
+    position: absolute;
+    top: 60px;
+    right: 80px;
+    z-index: 1;
+}
+
+.carousel-btn{
+    position: absolute;
+    bottom: -40px;
+}
+
+.next,.prev{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 0;
+    background: #2A2A2C;
+    color: white;
+}
+

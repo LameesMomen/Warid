@@ -5,6 +5,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SettingsComponent } from './settings.component';
 import { SettingTimeComponent } from './components/setting-time/setting-time.component';
 import { VatComponent } from './components/vat/vat.component';
+import { MoneyInfoComponent } from './components/money-info/money-info.component';
 
 
 
@@ -39,6 +40,7 @@ const routes : Routes =[
     SettingsComponent,
     SettingTimeComponent,
     VatComponent,
+    MoneyInfoComponent,
 
   ],
   imports: [

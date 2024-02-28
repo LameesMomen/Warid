@@ -58,7 +58,7 @@ export class OrderComponent implements OnInit{
     this.http.get('/locationmanager/admin/associations/requests/').subscribe(
       (res:any)=>{
         this.spinner.hide();
-        this.allLocations=res;
+        this.allAssociations=res;
       },
       err =>{
         this.spinner.hide()

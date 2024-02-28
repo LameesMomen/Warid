@@ -19,9 +19,9 @@
                 <td  class="position-relative">
                     #{{item?.id}}
                 </td>
-                <td>{{item?.supplier}}</td>
-                <td>طلب إضافة سداد</td>
-                <td style="color: #ACACAC;">{{item?.date.split('T')[0]}}</td>
+                <td>{{item?.client?.first_name}} {{item?.client?.last_name}}</td>
+                <td>طلب إضافة وكيل</td>
+                <td style="color: #ACACAC;">{{item?.date?.split('T')[0]}}</td>
                 <td class="d-flex justify-content-end align-items-center">
                   <button (click)="delete(item)" class="delete-btn mx-3"><i class="pi pi-trash fs-5"></i></button>
                   <a routerLink="viewAssociationsDetail/{{item.id}}" class="btn mx-3 vieworder-btn Tajawal-Medium fs-20">

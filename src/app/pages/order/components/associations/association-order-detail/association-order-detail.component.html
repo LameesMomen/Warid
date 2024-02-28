@@ -1,1 +1,41 @@
-<p>association-order-detail works!</p>
+<div class="row mt-50">
+    <div class="col-12 d-flex">
+        <a routerLink="/orders" class="back-btn ms-4"><i class="pi pi-chevron-right text-white"></i></a>
+        <p class="fs-30 Tajawal-Bold my-0">الإطلاع على الطلب</p>
+    </div>
+    <div class="col-12">
+        <p class="fs-25 Tajawal-Medium my-2 greytxt-color">طلب وكيل رقم #{{data?.id}}</p>
+    </div>
+</div>
+
+<div class="row mt-50">
+    <div class="col-12">
+        <div class="oder_association_container">
+            <div class="image_association">
+                <i class="pi pi-user-plus fs-3 text-white"></i>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-10 d-flex justify-content-evenly align-items-center">
+                    <div class="owner_name">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">{{data?.owner_name}}</p>
+                    </div>
+                    <div class="association_name mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">اسم المشروع</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.association_name}}</p>
+                    </div>
+                    <div class="neighborhood mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">اسم الوكيل</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.neighborhood}}</p>
+                    </div>
+                    <div class="neighborhood mt-2">
+                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">رقم جوال الوكيل</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.neighborhood}}</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-lg-2 mt-3 mt-lg-0 text-center">
+                    <button (click)="apprroved(data)" class="approve-btn fs-16 Tajawal-Medium">تنفيذ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

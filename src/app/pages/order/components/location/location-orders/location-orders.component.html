@@ -21,7 +21,7 @@
                 </td>
                 <td>{{item?.owner_name}}</td>
                 <td>طلب إضافة موقع</td>
-                <td style="color: #ACACAC;">{{item?.created_at.split('T')[0]}}</td>
+                <td style="color: #ACACAC;">{{item?.created_at?.split('T')[0]}}</td>
                 <td class="d-flex justify-content-end align-items-center">
                   <button (click)="delete(item)" class="delete-btn mx-3"><i class="pi pi-trash fs-5"></i></button>
                   <a routerLink="viewLocationDetail/{{item.id}}" class="btn mx-3 vieworder-btn Tajawal-Medium fs-20">
