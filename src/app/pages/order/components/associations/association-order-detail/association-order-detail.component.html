@@ -17,22 +17,22 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-10 d-flex justify-content-evenly align-items-center">
                     <div class="owner_name">
-                        <p class="fs-16 Tajawal-Medium blue-txt-color m-0">{{data?.owner_name}}</p>
+                        <p class="fs-20 Tajawal-Medium blue-txt-color m-0">{{data?.location_owner}} يطلب إضافة وكيل</p>
                     </div>
                     <div class="association_name mt-2">
                         <p class="fs-16 Tajawal-Medium blue-txt-color m-0">اسم المشروع</p>
-                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.association_name}}</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.client?.selected_location?.project_name}}</p>
                     </div>
                     <div class="neighborhood mt-2">
                         <p class="fs-16 Tajawal-Medium blue-txt-color m-0">اسم الوكيل</p>
-                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.neighborhood}}</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.client?.first_name}} {{data?.client?.last_name}}</p>
                     </div>
                     <div class="neighborhood mt-2">
                         <p class="fs-16 Tajawal-Medium blue-txt-color m-0">رقم جوال الوكيل</p>
-                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.neighborhood}}</p>
+                        <p class="fs-16 Tajawal-Medium greytxt-color m-0">{{data?.client?.mobile}}</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-2 mt-3 mt-lg-0 text-center">
+                <div class="col-sm-12 col-md-12 col-lg-2 mt-3 mt-lg-0 d-flex justify-content-center align-items-center">
                     <button (click)="apprroved(data)" class="approve-btn fs-16 Tajawal-Medium">تنفيذ</button>
                 </div>
             </div>

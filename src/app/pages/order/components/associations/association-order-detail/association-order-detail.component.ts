@@ -66,7 +66,7 @@ export class AssociationOrderDetailComponent implements OnInit {
 
   showBannerAPI(body: any) {
     this.http
-      .put(`/locationmanager/admin/associations/approve/`, {
+      .put(`/locationmanager/admin/associations/approve/?id=${body.id}`, {
         id: body.id,
       })
       .subscribe(

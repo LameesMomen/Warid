@@ -50,8 +50,6 @@ delete(item: any) {
     icon: 'question',
 
     confirmFunc: () => {
-      let payload: any = { ...item };
-      payload.client_mobile=payload.owner.mobile;
       this.http
         .deleteLocation(`/locationmanager/admin/associations/${item.id}`)
         .subscribe(
@@ -83,7 +81,7 @@ delete(item: any) {
 
 showBannerAPI(body: any) {
   this.http
-    .put(`/locationmanager/admin/associations/approve/${body.id}`, {
+    .put(`/locationmanager/admin/associations/approve/?id=${body.id}`, {
       id: body.id,
     })
     .subscribe(
