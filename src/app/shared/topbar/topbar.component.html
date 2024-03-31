@@ -3,7 +3,7 @@
     <div class="search d-flex align-items-center">
         <div class="p-inputgroup">
             <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span>
-            <p-autoComplete (onFocus)="inputFocus()" name="search" id="search" ngModel #search="ngModel" class="w-100 d-block" [forceSelection]="true" placeholder="ابحث برقم الطلب، رقم جوال اعميل/ المورد"  [suggestions]="filtered" 
+            <p-autoComplete (onFocus)="inputFocus()" name="search" id="search" ngModel #search="ngModel" class="w-100 d-block" [forceSelection]="true" placeholder="ابحث برقم الطلب، رقم جوال العميل/ المورد"  [suggestions]="filtered" 
             (completeMethod)="filterCountry($event)" [dropdown]="false">
                 <ng-template class="clientMobile-filter" let-item pTemplate="item">
                     <div class="d-flex align-items-center gap-2">

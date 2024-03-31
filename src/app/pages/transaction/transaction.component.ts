@@ -28,7 +28,7 @@ export class TransactionComponent implements OnInit {
     this.http.get('/ordermanager/admin/orders/').subscribe(
       (res:any)=>{
         this.spinner.hide();
-        this.allData=[res.active,...res.inactive];
+        this.allData=[...res.active,...res.inactive];
         this.autoHidePaginationFun();
       },
       err =>{

@@ -12,9 +12,9 @@
 
     <div class="row grid-container mt-30">
         <div *ngFor="let item of allAds" class="ads-container">
-            <img src="{{item.image}}" width="100%" height="100%" alt="ads">
+            <img src="{{item.image}}" width="100%" height="290px" alt="ads">
             <div class="ads-overlay">
-                <div style="width: 65%;" class="d-flex justify-content-between mx-auto">
+                <div  class="d-flex justify-content-evenly">
                     <a class="btn Tajawal-Medium fs-22 text-white editAds-btn" routerLink="edit-ads/{{item.id}}">
                         <i class="pi pi-pencil ms-3 fs-6 my-auto"></i>
                         تعديل

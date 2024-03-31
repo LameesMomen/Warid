@@ -31,19 +31,19 @@ export default class CategoryComponent implements OnInit {
   constructor(private http : HttpHelperService , private spinner :  NgxSpinnerService , private messageService:MessageService , private router : Router){}
 
   swiperOption : SwiperOptions  ={
-    slidesPerView : 4,
+    slidesPerView: "auto",
 
-    breakpoints :{
-      320:{
-        slidesPerView : 2
-      },
-      560:{
-        slidesPerView : 3
-      },
-      860:{
-        slidesPerView : 3
-      },
-    }
+    // breakpoints :{
+    //   320:{
+    //     slidesPerView : 2
+    //   },
+    //   560:{
+    //     slidesPerView : 3
+    //   },
+    //   860:{
+    //     slidesPerView : 3
+    //   },
+    // }
   }
 
   ngOnInit(): void {

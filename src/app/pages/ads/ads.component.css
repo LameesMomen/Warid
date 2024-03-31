@@ -39,8 +39,8 @@
 
 .ads-container:hover .ads-overlay {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 .ads-container .ads-overlay .editAds-btn{
     width: max-content;

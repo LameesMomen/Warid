@@ -36,7 +36,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of filterClients ? filterClients : AllclientsData | paginate:{
-                itemsPerPage : 10,
+                itemsPerPage : 8,
                 currentPage : page,
                 totalItems : filterClients ? filterClients : AllclientsData?.length
             }; let i = index ">
@@ -72,7 +72,7 @@
 </div>
 
 <pagination-controls 
-[autoHide]="filterClients ? filterClients : AllclientsData?.length > 10 ? false : true"
+[autoHide]="filterClients ? filterClients : AllclientsData?.length > 8 ? false : true"
 [responsive]="true"
  nextLabel = ">"
 previousLabel ="<"

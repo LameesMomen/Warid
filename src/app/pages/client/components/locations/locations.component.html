@@ -14,7 +14,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of allLocation  | paginate:{
-                itemsPerPage : 10,
+                itemsPerPage : 8,
                 currentPage : page,
                 totalItems : allLocation?.length
             }; let i = index ">
@@ -30,6 +30,14 @@
             </tbody>
           </table>
     </div>
+
+    <pagination-controls 
+    [autoHide]="allLocation?.length > 8 ? false : true"
+    [responsive]="true"
+    nextLabel = ">"
+    previousLabel ="<"
+    (pageChange)="page = $event">
+    </pagination-controls>
 </div>
 
 <div *ngIf="!allLocation?.length" class="row mt-50">
@@ -111,14 +119,6 @@
     </div>
   </div>
 </p-dialog>
-
-<pagination-controls 
-[autoHide]="allLocation?.length > 10 ? false : true"
-[responsive]="true"
- nextLabel = ">"
-previousLabel ="<"
-(pageChange)="page = $event">
-</pagination-controls>
 
 <ngx-spinner
   bdColor="rgba(51,51,51,0.8)"

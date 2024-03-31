@@ -24,19 +24,19 @@ export class ProductComponent {
 
 
   swiperOption : SwiperOptions  ={
-    slidesPerView : 5,
+    slidesPerView : "auto",
 
-    breakpoints :{
-      430:{
-        slidesPerView : 2
-      },
-      560:{
-        slidesPerView : 3.5
-      },
-      860:{
-        slidesPerView : 3.5
-      },
-    }
+    // breakpoints :{
+    //   430:{
+    //     slidesPerView : 2
+    //   },
+    //   560:{
+    //     slidesPerView : 3.5
+    //   },
+    //   860:{
+    //     slidesPerView : 3.5
+    //   },
+    // }
   }
   
   ngOnInit(): void {
