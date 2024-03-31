@@ -52,7 +52,7 @@
                   <button (click)="change_is_approved(item)" *ngIf="active" [ngStyle]="{'background-color': (item.is_approved)?'#B71212' : '#6B9D3F'}" style="width: 90px; height: 40px; border-radius: 5px;border: 0;" class="fs-16 text-white Tajawal-Medium is_approved-btn">{{item.is_approved?'تعليق':'تفعيل'}}</button>
                 </td>
                 <td>
-                    <a routerLink="viewSupplier/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
+                    <a routerLink="/supplier/viewSupplier/{{item.id}}" class="btn viewProfile-btn Tajawal-Medium fs-16 me-auto">
                         الصفحة الشخصية
                      </a>
                 </td>

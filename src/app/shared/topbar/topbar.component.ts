@@ -76,6 +76,7 @@ export class TopbarComponent implements  OnInit {
   }
 
   inputFocus(){
+    console.log('focus')
     if(this.route.url.includes('client')){
       this.getClient()
       this.filteredArray=this.clientMobiles

@@ -29,7 +29,7 @@ getData(){
   this.spinner.show();
   this.http.get(`/ordermanager/supplier-reviews/?supplier_id=${this.id}`).subscribe(
     (res:any)=>{
-      this.response=res.reviews;
+      this.response=res;
       this.totalReviews.emit(res.rating)
       this.spinner.hide();
     },

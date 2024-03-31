@@ -28,6 +28,14 @@
             </tbody>
           </table>
     </div>
+
+    <pagination-controls 
+    [autoHide]=" response?.length ? false : true"
+    [responsive]="true"
+    nextLabel = ">"
+    previousLabel ="<"
+    (pageChange)="page = $event">
+    </pagination-controls>
 </div>
 
 <div *ngIf="!response?.length" class="row mt-50">
@@ -38,14 +46,6 @@
       <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك عمولات حالياً</p>
   </div>
 </div>
-
-<pagination-controls 
-[autoHide]=" response?.length > 10 ? false : true"
-[responsive]="true"
- nextLabel = ">"
-previousLabel ="<"
-(pageChange)="page = $event">
-</pagination-controls>
 
 
 <ngx-spinner
