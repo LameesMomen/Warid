@@ -1,0 +1,59 @@
+.date p {
+    color: #888888;
+}
+
+.chat-container {
+    background: #EDEDED 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+    display: grid;
+    width: 70%;
+    grid-gap: 1rem;
+    margin: auto;
+    padding: 30px;
+    max-height: 580px;
+    overflow-y: scroll;
+    direction: ltr;
+  }
+
+  ::-webkit-scrollbar {
+    width: 13px;
+    height: 45px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #E0E0E0; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #007AFF 0% 0% no-repeat padding-box !important;
+    border-radius: 10px !important;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #007bff9c !important; 
+  }
+  
+  .sent,
+  .received {
+    padding: 1%;
+    min-width: 30%;
+    max-width: 50%;
+    overflow-wrap: break-word;
+    text-align: center;
+  }
+  
+  .received {
+    justify-self: left;
+    background-color: #FFFFFF;
+    color: black;
+    border-radius: 12px 12px 12px 0;
+  }
+  
+  .sent {
+    justify-self: right;
+    align-content: right;
+    background-color: #2A2A2C;
+    color: white;
+    border-radius: 12px 12px 0 12px;
+  }

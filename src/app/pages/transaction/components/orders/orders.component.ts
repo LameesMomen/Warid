@@ -14,7 +14,6 @@ export class OrdersComponent implements OnInit {
   setView:string= 'orders';
   id:any
   response:any
-  visible: boolean = false;
 
 
   constructor(private http : HttpHelperService , private spinner : NgxSpinnerService , private  messageService : MessageService,private route : ActivatedRoute){
@@ -44,9 +43,5 @@ export class OrdersComponent implements OnInit {
 
   changeView(value:string){
     this.setView = value
-  }
-
-  showDialog() {
-    this.visible = true;
   }
 }

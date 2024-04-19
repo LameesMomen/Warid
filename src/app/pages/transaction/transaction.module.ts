@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TransactionComponent } from './transaction.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { ChatDetailsComponent } from './components/chat-details/chat-details.component';
 
 
 
@@ -29,7 +31,9 @@ const routes : Routes =[
 @NgModule({
   declarations: [
     TransactionComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrderDetailsComponent,
+    ChatDetailsComponent
   ],
   imports: [
     CommonModule,

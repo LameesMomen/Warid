@@ -1,0 +1,30 @@
+<ng-container *ngIf="response?.messages.length">
+    <div class="row">
+        <div class="col-12 mt-30">
+            <div class="date">
+                <p class="text-center Tajawal-Medium fs-22">{{response?.created_at | date: 'MMMM d, y'}}</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row h-100">
+        <div class="col-12">
+            <div class="chat-container mb-4">
+                <!-- <div *ngFor="let item of response?.messages" [class]="{sent:response?.sender_type == 'client',received:response?.sender_type == 'supplier'}">{{item?.message}}</div> -->
+                <div *ngFor="let item of response?.messages" class="sent">{{item?.message}}</div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+<div *ngIf="!response?.messages.length" style="height: 60vh;" class="row">
+    <div class="col-12 text-center my-auto">
+        <div>
+            <img class="my-4" src="assets/boxes.png" alt="boxs">
+        </div>
+        <p class="Tajawal-Bold fs-28 my-2">لا يوجد لديك رسايل حالياً</p>
+    </div>
+</div>
+
+
