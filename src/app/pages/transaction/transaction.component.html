@@ -33,7 +33,7 @@
             <p class="Tajawal-Bold fs-16 my-1"> <span class="blue-txt-color">العميل : </span>{{item.client}}</p>
             <p class="Tajawal-Bold fs-16 my-1"><span class="blue-txt-color">المورد :</span> {{item.supplier}}</p>
 
-            <a routerLink="orders/{{item.id}}" class="btn Tajawal-Medium fs-16 mx-auto">التفاصيل</a>
+            <a [class.disabled]="item.step == 4 || item.is_expired" routerLink="orders/{{item.id}}" class="btn Tajawal-Medium fs-16 mx-auto">التفاصيل</a>
         </div>
     </div>
 </div>

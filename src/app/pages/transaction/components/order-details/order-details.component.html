@@ -196,3 +196,22 @@
         </p-accordion>
    </div>
 </div>
+
+
+<div *ngIf="response?.step == 3 && response?.review" class="row mt-30 mb-2">
+    <div class="col-10">
+        <p class="Tajawal-Bold fs-30">التقييم</p>
+    </div>
+
+    <div class="row mt-20">
+        <div class="col-10">
+            <div class="review-container">
+                <div class="d-flex justify-content-between">
+                    <p>{{response?.review?.client.replace(this.regex, '*')}}</p>
+                    <p-rating [(ngModel)]="rating" name="rating" id="rating" [stars]="5" [readonly]="true" [cancel]="false"></p-rating>
+                </div>
+                <p class="Tajawal-Medium fs-22 reviewComment text-center">{{response?.review?.comment}}</p>
+            </div>
+        </div>
+    </div>
+</div>

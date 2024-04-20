@@ -256,3 +256,14 @@
   ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled) .p-accordion-header-link:focus {
     box-shadow: none !important;
   }
+
+  .review-container{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #D6D6D6;
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .reviewComment{
+    color: #4D8EDB;
+  }

@@ -10,7 +10,7 @@
 
 <div class="mt-30 h-100" [ngSwitch]="setView"> 
     <div class="orders-info" *ngSwitchCase="'orders'">
-        <app-order-details [response]="response"></app-order-details>
+        <app-order-details [rating]="response?.review?.rating" [response]="response"></app-order-details>
     </div>
     <div class="chat-info" *ngSwitchCase="'chats'">
     <app-chat-details  [id]="response?.chat_id"></app-chat-details>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-order-details',
@@ -7,9 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class OrderDetailsComponent {
   @Input() response :any;
+  @Input() rating : any;
   visible: boolean = false;
+  regex = /(?<!^).(?!$)/g;
 
-
+  constructor(){}
   showDialog() {
     this.visible = true;
   }
