@@ -13,9 +13,10 @@ import { ToastersService } from 'src/app/core/services/toaster/toasters.service'
 export class OrderDetailComponent implements OnInit {
   orderData: any;
   id: any;
-  ratingValue: any = 4;
+  ratingValue: any ;
   timePercent: any;
   visible: boolean = false;
+  regex = /(?<!^).(?!$)/g;
 
   constructor(
     private http: HttpHelperService,
@@ -40,6 +41,7 @@ export class OrderDetailComponent implements OnInit {
     this.http.get(`/ordermanager/supplier/orders/${this.id}/`).subscribe(
       (res: any) => {
         this.orderData = res;
+        this.ratingValue = this.orderData?.review?.rating
         this.spinner.hide();
         this.timer(res.cancel_time);
       },

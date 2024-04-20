@@ -12,6 +12,7 @@ import { ToastersService } from 'src/app/core/services/toaster/toasters.service'
 })
 export class OrderDetailsComponent implements OnInit {
   orderData: any;
+  rating: any;
   id: any;
   ratingValue: any;
   timePercent: any;
@@ -42,6 +43,7 @@ export class OrderDetailsComponent implements OnInit {
     this.http.get(`/ordermanager/client/orders/${this.id}/`).subscribe(
       (res: any) => {
         this.orderData = res;
+        this.rating = this.orderData?.review?.rating
         if(this.orderData.is_expired || this.orderData.step == 4){
           this.messageService.add({
             severity: 'error',

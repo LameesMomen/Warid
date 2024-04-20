@@ -36,7 +36,7 @@
 
     <!-- End Search Component-->
     <div class="main-data">
-        <div  *ngIf="AllclientsData?.length" class="row mt-50">
+        <div  *ngIf="AllSupplierData?.length" class="row mt-50">
             <div class="col-12">
                 <table class="rounded-corners">
                     <thead>
@@ -53,10 +53,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let item of filteredArray ? filteredArray : AllclientsData | paginate:{
+                      <tr *ngFor="let item of filteredArray ? filteredArray : AllSupplierData | paginate:{
                         itemsPerPage : 10,
                         currentPage : page,
-                        totalItems : filteredArray?.length ? filteredArray?.length :AllclientsData?.length
+                        totalItems : filteredArray?.length ? filteredArray?.length :AllSupplierData?.length
                     }; let i = index ">
                             <td>{{item.id}}#</td>
                             <td>{{item.created_at.split('T')[0]}}</td>
@@ -77,7 +77,7 @@
     
     
     
-        <div *ngIf="!AllclientsData?.length" class="row mt-50">
+        <div *ngIf="!AllSupplierData?.length" class="row mt-50">
             <div class="col-12 text-center">
                 <div>
                     <i style="font-size: 100px; color: #E0E0E0;" class="pi pi-info-circle my-4"></i>
@@ -88,7 +88,7 @@
     
     
           <pagination-controls 
-            [autoHide]="filteredArray?.length ? filteredArray?.length : AllclientsData?.length > 10 ? false : true"
+            [autoHide]="filteredArray?.length ? filteredArray?.length : AllSupplierData?.length > 10 ? false : true"
             [responsive]="true"
             nextLabel = ">"
             previousLabel ="<"

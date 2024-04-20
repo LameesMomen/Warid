@@ -285,13 +285,13 @@
             <!-- End Row For confirm payment -->
 
             <!-- Row For Reciet Order -->
-            <div *ngIf="orderData?.step == 3" class="row col-container mt-30 align-items-center">
+            <div *ngIf="orderData?.step == 3 && orderData?.review" class="row col-container mt-30 align-items-center">
                 <div style="background-color: #FFFFFF; padding: 14px 28px;" class="col-sm-12 col-md-12 col-lg-6 rating-detail">
                     <div class="d-flex justify-content-between align-items-center">
-                        <p class="Tajawal-Medium fs-16">ب**********د</p>
+                        <p class="Tajawal-Medium fs-16">{{orderData?.review?.client.replace(this.regex, '*')}}</p>
                         <p-rating [(ngModel)]="ratingValue" [stars]="5" [cancel]="false" [disabled]="true"></p-rating>
                     </div>
-                    <p class="Tajawal-Medium fs-16 blue-txt-color">من أفضل الموردين الذين تعاملت معهم في السنة الماضية….. من أفضل الموردين الذين تعاملت من أفضل الموردين الذين تعاملت معهم في السنة الماضية….. من أفضل الموردين الذين تعاملت</p>
+                    <p class="Tajawal-Medium fs-16 blue-txt-color">{{orderData?.review?.comment}}</p>
                 </div>
              </div>
              <!-- End Row For Reciet Order -->

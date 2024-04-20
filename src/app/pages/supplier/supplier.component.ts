@@ -16,7 +16,7 @@ interface AutoCompleteCompleteEvent {
 export class SupplierComponent implements OnInit {
 
   page:number = 1
-  AllclientsData:any
+  AllSupplierData:any
   filtered: any; 
   filteredArray: any; 
   currentView:string=''
@@ -32,7 +32,7 @@ export class SupplierComponent implements OnInit {
     this.spinner.show();
     this.http.get('/ordermanager/supplier/orders/').subscribe(
       (res:any)=>{
-        this.AllclientsData=res.active;
+        this.AllSupplierData=res.active;
         this.spinner.hide();
       },
       err  =>{
@@ -44,16 +44,16 @@ export class SupplierComponent implements OnInit {
 
   filterTable(value:string){
     if(value == '24H'){
-      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - 24 * 60 * 60 * 1000))
+      this.filteredArray = this.AllSupplierData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - 24 * 60 * 60 * 1000))
     }else if(value == '2D'){
-      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - 48 * 60 * 60 * 1000))
+      this.filteredArray = this.AllSupplierData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - 48 * 60 * 60 * 1000))
     }else if(value == 'week'){
-      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (7*24) * 60 * 60 * 1000))
+      this.filteredArray = this.AllSupplierData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (7*24) * 60 * 60 * 1000))
     }
     else if(value == 'month'){
-      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (30*24) * 60 * 60 * 1000))
+      this.filteredArray = this.AllSupplierData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (30*24) * 60 * 60 * 1000))
     }else if(value == 'year'){
-      this.filteredArray = this.AllclientsData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (265*24) * 60 * 60 * 1000))
+      this.filteredArray = this.AllSupplierData.filter((item:any) => (new Date(item.created_at).getTime() > Date.now() - (265*24) * 60 * 60 * 1000))
     }else{
       this.filteredArray=0
     }
@@ -63,7 +63,7 @@ export class SupplierComponent implements OnInit {
 
 
   inputFocus(value:any){
-    this.filteredArray = this.AllclientsData.filter((item:any)=>{
+    this.filteredArray = this.AllSupplierData.filter((item:any)=>{
       return item.id == value || item.location.project_name.includes(value)
     })
     

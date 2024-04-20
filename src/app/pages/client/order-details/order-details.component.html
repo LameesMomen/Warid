@@ -273,7 +273,7 @@
             <!-- End Row For payment Order Details -->
 
             <!-- Row For Rating Order -->
-            <form #form="ngForm" (ngSubmit)="submitReview(form)">
+            <form *ngIf="!orderData?.review" #form="ngForm" (ngSubmit)="submitReview(form)">
                 <div *ngIf="orderData?.step == 3" class="row col-container align-items-center mt-30">
                         <div class="col-sm-12 col-md-12 col-lg-2 px-2 my-2 my-lg-0 d-flex flex-column">
                             <p  class="Tajawal-Bold fs-25 green-txt-color my-0">الرجاء تقييم المورد</p>
@@ -289,6 +289,19 @@
                 </div>
             </form>
             <!-- End Row For Rating Order -->
+
+            <ng-container *ngIf="orderData?.review && orderData?.step == 3">
+                <div class="row col-container align-items-center mt-30">
+                    <div class="col-sm-12 col-md-12 col-lg-2 px-2 my-2 my-lg-0 d-flex flex-column">
+                        <p  class="Tajawal-Bold fs-25 green-txt-color my-0">التقييم</p>
+                        <p-rating [(ngModel)]="rating" name="rating" id="rating" [stars]="5" [readonly]="true" [disabled]="true" [cancel]="false"></p-rating>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-10 px-2 my-2 my-lg-auto">
+                        <p class="Tajawal-Bold fs-28 text-center">{{orderData?.review?.comment}}</p>
+                    </div>
+                </div>
+            </ng-container>
+            
         </div>
 
         <!-- Case  Done -->
