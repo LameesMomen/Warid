@@ -10,8 +10,7 @@
     <div class="row h-100">
         <div class="col-12">
             <div class="chat-container mb-4">
-                <!-- <div *ngFor="let item of response?.messages" [class]="{sent:response?.sender_type == 'client',received:response?.sender_type == 'supplier'}">{{item?.message}}</div> -->
-                <div *ngFor="let item of response?.messages" class="sent">{{item?.message}}</div>
+                <div *ngFor="let item of response?.messages"  [ngClass]="{'sent':item?.sender_type == 'CLIENT','received':item?.sender_type == 'SUPPLIER'}">{{item?.message}}</div>
             </div>
         </div>
     </div>
