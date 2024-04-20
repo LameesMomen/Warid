@@ -208,9 +208,9 @@
             <div class="review-container">
                 <div class="d-flex justify-content-between">
                     <p>{{response?.review?.client.replace(this.regex, '*')}}</p>
-                    <p-rating [(ngModel)]="rating" name="rating" id="rating" [stars]="5" [readonly]="true" [cancel]="false"></p-rating>
+                    <p-rating [(ngModel)]="rating" name="rating" id="rating" [stars]="5" [readonly]="true" [disabled]="true" [cancel]="false"></p-rating>
                 </div>
-                <p class="Tajawal-Medium fs-22 reviewComment text-center">{{response?.review?.comment}}</p>
+                <p class="Tajawal-Medium fs-22 reviewComment">{{response?.review?.comment}}</p>
             </div>
         </div>
     </div>
