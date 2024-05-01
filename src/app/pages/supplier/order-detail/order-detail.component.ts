@@ -15,8 +15,10 @@ export class OrderDetailComponent implements OnInit {
   id: any;
   ratingValue: any ;
   timePercent: any;
-  visible: boolean = false;
+  visibleDelieveryImage: boolean = false;
+  visiblePaymentImage: boolean = false;
   regex = /(?<!^).(?!$)/g;
+  imageFile :any
 
   constructor(
     private http: HttpHelperService,
@@ -28,8 +30,11 @@ export class OrderDetailComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
   }
 
-  showDialog() {
-    this.visible = true;
+  showDialogDelievery() {
+    this.visibleDelieveryImage = true;
+  }
+  showDialogPayment() {
+    this.visiblePaymentImage = true;
   }
 
   ngOnInit(): void {
@@ -161,6 +166,31 @@ export class OrderDetailComponent implements OnInit {
       // Do validate stuff here
       return;
     }
+  }
+
+  changeImage(event: any) {
+    this.spinner.show()
+    event.preventDefault();
+    this.imageFile = event.target.files[0];
+
+    const body = new FormData();
+
+    body.append('action', 'proof');
+    body.append('proof_image', this.imageFile);
+
+    this.http.put(`/ordermanager/supplier/orders/${this.id}/`,body).subscribe(
+      res=>{
+        this.spinner.hide();
+        this.messageService.add({severity:'success',summary:'تم', detail:' تنفيذ العملية بنجاح'});
+        setTimeout(() => {
+          this.getOrderDetail();
+        }, 500);
+      },
+      err=>{
+        this.messageService.add({severity:'error',summary:'خطأ', detail:'حدث خطأ ما'});
+        this.spinner.hide();
+      }
+    )
   }
 
   // arrivedRemainigTime: any;

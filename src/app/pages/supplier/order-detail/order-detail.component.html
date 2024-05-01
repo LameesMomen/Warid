@@ -222,23 +222,23 @@
 
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-5 upload-img-detail d-flex flex-column justify-content-center align-items-center my-2 my-lg-0">
+                <div *ngIf="!orderData?.proof_image" class="col-sm-12 col-md-12 col-lg-5 upload-img-detail d-flex flex-column justify-content-center align-items-center my-2 my-lg-0">
                     <p class="my-0 Tajawal-Bold fs-25 text-danger">الرجاء ارفاق صورة توصيل الطلب</p>
                     <div class="upload-image-container mt-3">
                         <label class="Tajawal-Bold fs-16" for="upload-img">Select Image</label>
-                        <input type="file" name="reciet_img" id="upload-img" accept="*">
+                        <input type="file" name="reciet_img" id="upload-img" accept="image/*" (change)="changeImage($event)">
                     </div>
                 </div>
 
-                <div style="display: none !important;" class="col-sm-12 col-md-12 col-lg-5 img-detail d-flex align-items-center my-2 my-lg-0">
-                    <div (click)="showDialog()" class="image-container position-relative mx-3">
-                            <img src="assets/dummy.png" alt="img">
+                <div *ngIf="orderData?.proof_image" class="col-sm-12 col-md-12 col-lg-5 img-detail d-flex align-items-center my-2 my-lg-0">
+                    <div (click)="showDialogDelievery()" class="image-container position-relative mx-3">
+                            <img src="{{orderData?.proof_image}}" alt="img">
                             <div class="img-overlay d-flex justify-content-center align-items-center">
                                 <i class="pi pi-search-plus text-white fs-2"></i>
                             </div>
                     </div>
-                    <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
-                        <img src="assets/dummy.png" width="100%" alt="img">
+                    <p-dialog [(visible)]="visibleDelieveryImage" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                        <img src="{{orderData?.proof_image}}" width="100%" alt="img">
                     </p-dialog>
                 </div>
              </div>
@@ -264,16 +264,16 @@
 
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-4 img-detail  text-center px-3 my-2 my-lg-0">
+                <div *ngIf="orderData?.payment_image" class="col-sm-12 col-md-12 col-lg-4 img-detail  text-center px-3 my-2 my-lg-0">
                     <p class="Tajawal-Bold fs-22 green-txt-color">إيصال الطلب</p>
-                    <div (click)="showDialog()" class="image-container position-relative mx-auto" style="width: fit-content;">
-                            <img src="assets/dummy.png" alt="img">
+                    <div (click)="showDialogPayment()" class="image-container position-relative mx-auto" style="width: fit-content;">
+                            <img src="{{orderData?.payment_image}}" alt="img">
                             <div class="img-overlay d-flex justify-content-center align-items-center">
                                 <i class="pi pi-search-plus text-white fs-2"></i>
                             </div>
                     </div>
-                    <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
-                        <img src="assets/dummy.png" width="100%" alt="img">
+                    <p-dialog [(visible)]="visiblePaymentImage" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                        <img src="{{orderData?.payment_image}}" width="100%" alt="img">
                     </p-dialog>
                 </div>
 
