@@ -8,11 +8,15 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 export class OrderDetailsComponent {
   @Input() response :any;
   @Input() rating : any;
-  visible: boolean = false;
+  visibleDelieveryImage: boolean = false;
+  visiblePaymentImage: boolean = false;
   regex = /(?<!^).(?!$)/g;
 
   constructor(){}
-  showDialog() {
-    this.visible = true;
+  showDialogDelievery() {
+    this.visibleDelieveryImage = true;
+  }
+  showDialogPayment() {
+    this.visiblePaymentImage = true;
   }
 }

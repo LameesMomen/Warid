@@ -108,8 +108,8 @@
 
                 </div>
             </div>
-            <div *ngIf="response?.payment_image" class="col-sm-12 col-md-12 col-lg-4 btn-action my-2 my-lg-0">
-                <a href="{{response?.payment_image}}" target="_blank" class="btn download-reciet-btn Tajawal-Bold fs-25">تحميل الفاتورة
+            <div  class="col-sm-12 col-md-12 col-lg-4 btn-action my-2 my-lg-0">
+                <a href="#" target="_blank" class="btn download-reciet-btn Tajawal-Bold fs-25">تحميل الفاتورة
                     <i class="pi pi-download me-5 fs-3"></i>
                 </a>
             </div>
@@ -134,13 +134,13 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-5 img-detail d-flex justify-content-evenly align-items-center my-2 my-lg-0">
                 <p class="my-0 Tajawal-Bold fs-25 green-txt-color">تم توصيل الطلب</p>
-                <div *ngIf="response?.proof_image" (click)="showDialog()" class="image-container position-relative ">
+                <div *ngIf="response?.proof_image" (click)="showDialogDelievery()" class="image-container position-relative ">
                         <img src="{{response?.proof_image}}" alt="img">
                         <div class="img-overlay d-flex justify-content-center align-items-center">
                             <i class="pi pi-search-plus text-white fs-2"></i>
                         </div>
                 </div>
-                <p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                <p-dialog [(visible)]="visibleDelieveryImage" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
                    <img src="{{response?.proof_image}}" width="100%" alt="img">
                </p-dialog>
             </div>
@@ -189,6 +189,18 @@
                     </div>
 
                 </div>
+            </div>
+            <div *ngIf="response?.payment_image" class="col-sm-12 col-md-12 col-lg-4 img-detail  text-center px-3 my-2 my-lg-0">
+                <p class="Tajawal-Bold fs-22 green-txt-color">إيصال الطلب</p>
+                <div (click)="showDialogPayment()" class="image-container position-relative mx-auto" style="width: fit-content;">
+                        <img src="{{response?.payment_image}}" alt="img">
+                        <div class="img-overlay d-flex justify-content-center align-items-center">
+                            <i class="pi pi-search-plus text-white fs-2"></i>
+                        </div>
+                </div>
+                <p-dialog [(visible)]="visiblePaymentImage" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+                   <img src="{{response?.payment_image}}" width="100%" alt="img">
+               </p-dialog>
             </div>
          </div>
         <!-- End Row For payment Order Details -->
