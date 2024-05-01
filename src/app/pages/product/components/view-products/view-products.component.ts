@@ -35,6 +35,10 @@ export class ViewProductsComponent {
     }
   }
 
+  reloadProduct(value:any){
+    value ? this.handleProductItems(this.id) : ''
+  }
+
   handleProductItems(id:any){
     this.spinner.show();
     this.http.get(`/productmanager/admin/products/?category_id=${id}`).subscribe(
@@ -50,55 +54,5 @@ export class ViewProductsComponent {
     )
   }
 
-  handleShowCard(event: any, item: any) {
-      this.toasters.confirmationToaster({
-        title: 'هل انت متأكد !',
-
-        text: `هل تريد مسح ${item.title} ؟`,
-
-        icon: 'question',
-
-        confirmFunc: () => {
-          let payload: any = { ...item };
-
-          payload.is_active = false;
-
-          this.showBannerAPI(payload);
-        },
-
-        onDismiss: () => {
-
-        },
-      });
-
-  }
-
-  showBannerAPI(body: any) {
-    this.http
-      .put(`/productmanager/admin/products/${body.id}/`, {
-        is_active: body.is_active,
-      })
-      .subscribe(
-        (res) => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'تم',
-            detail: ' تنفيذ العملية بنجاح',
-          });
-          setTimeout(() => {
-            this.handleProductItems(this.id)
-          }, 500);
-          this.spinner.hide();
-        },
-        (err) => {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'خطأ',
-            detail: 'حدث خطأ ما',
-          });
-          this.spinner.hide();
-        }
-      );
-  }
 
 }

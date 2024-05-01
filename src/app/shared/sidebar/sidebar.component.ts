@@ -41,13 +41,13 @@ export class SidebarComponent implements AfterViewInit {
       label : 'الاعلانات',
       icon : 'pi pi-fw pi-video',
       routerLink: ['ads'],
-      routerLinkActiveOptions:{exact:false}
+      routerLinkActiveOptions:{exact:true}
     },
     {
       label : 'التصنيفات',
       icon : 'pi pi-fw pi-list',
       routerLink: ['category'],
-      routerLinkActiveOptions:{exact:true}
+      routerLinkActiveOptions:{exact:false}
     },
     {
       label : 'المنتجات',

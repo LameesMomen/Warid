@@ -42,6 +42,7 @@
     <pagination-controls 
         [autoHide]="allFilterData?.length ? allFilterData?.length : allData?.length > 8 ? false : true"
         [responsive]="true"
+        [maxSize]="5"
          nextLabel = ">"
         previousLabel ="<"
         (pageChange)="page = $event">

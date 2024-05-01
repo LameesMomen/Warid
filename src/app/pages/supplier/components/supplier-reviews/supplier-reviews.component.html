@@ -33,6 +33,7 @@
     <pagination-controls 
     [autoHide]=" response?.reviews_count ? false : true"
     [responsive]="true"
+    [maxSize]="5"
     nextLabel = ">"
     previousLabel ="<"
     (pageChange)="page = $event">

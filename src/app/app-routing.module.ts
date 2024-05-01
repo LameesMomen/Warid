@@ -16,6 +16,10 @@ const routes:Routes=[
     canActivate :[AuthdGuard],
     children  : [
       {
+        path:'ads',
+        loadChildren:()=>import('./pages/ads/ads.module').then(m=>m.AdsModule),
+      },
+      {
         path:'category',
         loadChildren:()=>import('./pages/category/category.module').then(m=>m.CategoryModule),
       },
@@ -44,26 +48,22 @@ const routes:Routes=[
         loadChildren:()=>import('./pages/transaction/transaction.module').then(m=>m.TransactionModule),
       },
       {
-        path:'ads',
-        loadChildren:()=>import('./pages/ads/ads.module').then(m=>m.AdsModule),
-      },
-      {
         path:'settings',
         loadChildren:()=>import('./pages/settings/settings.module').then(m=>m.SettingsModule),
       },
       {
         path:'',
-        redirectTo : 'product',
+        redirectTo : 'ads',
         pathMatch : 'full',
       },
       {
         path:'*',
-        redirectTo : 'product',
+        redirectTo : 'ads',
         pathMatch : 'full'
       },
       {
         path:'**',
-        redirectTo : 'product',
+        redirectTo : 'ads',
         pathMatch : 'full'
       },
     ]

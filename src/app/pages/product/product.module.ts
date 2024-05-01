@@ -6,6 +6,8 @@ import { ProductComponent } from './product.component';
 
 import { ViewProductsComponent } from './components/view-products/view-products.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { BoxesViewComponent } from './components/view-products/boxes-view/boxes-view.component';
+import { RowsViewComponent } from './components/view-products/rows-view/rows-view.component';
 
 
 const routes : Routes =[
@@ -19,7 +21,9 @@ const routes : Routes =[
   declarations: [
     ProductComponent,
     ViewProductsComponent,
-    AddProductComponent
+    AddProductComponent,
+    BoxesViewComponent,
+    RowsViewComponent
   ],
   imports: [
     CommonModule,

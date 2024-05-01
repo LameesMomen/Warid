@@ -74,6 +74,7 @@
 <pagination-controls 
 [autoHide]="filtersuppliers ? filtersuppliers : AllsuppliersData?.length > 8 ? false : true"
 [responsive]="true"
+[maxSize]="5"
  nextLabel = ">"
 previousLabel ="<"
 (pageChange)="page = $event">

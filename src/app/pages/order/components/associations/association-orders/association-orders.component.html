@@ -47,6 +47,7 @@
 <pagination-controls 
 [autoHide]="allAssociations?.length > 6 ? false : true"
 [responsive]="true"
+[maxSize]="5"
  nextLabel = ">"
 previousLabel ="<"
 (pageChange)="page = $event">
