@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('token',res.access);
       sessionStorage.setItem('refreshToken',res.refresh);
       sessionStorage.setItem('isLogin','logedin');
-      this.route.navigateByUrl('/category')
+      this.route.navigateByUrl('/ads')
       },
       err=>{
       this.spinner.hide()

@@ -17,11 +17,11 @@ export class ViewSupplierInfoComponent implements OnInit{
   supplierDetail : any
   productImage :any
   imageFile :any
-  ratingValueStars:number = 5
+  ratingValueStars:any
   totalRatingValue:any
 
   constructor(private http : HttpHelperService,private spinner : NgxSpinnerService, private messageService : MessageService , private router : Router,private route : ActivatedRoute){
-    this.id = this.route.snapshot.paramMap.get('id')
+    this.id = this.route.snapshot.paramMap.get('id');
   }
 
   ngOnInit(): void {
@@ -86,5 +86,6 @@ export class ViewSupplierInfoComponent implements OnInit{
 
   checkTotalReviewsFromChild(value:any){
     this.totalRatingValue = value
+    this.ratingValueStars = parseInt(this.totalRatingValue)
   }
 }

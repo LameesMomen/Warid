@@ -47,7 +47,7 @@
             <div class="text-center">
                 <p class="Tajawal-Medium fs-22 blue-txt-color my-0">مجموع التقييمات</p>
                 <p class="Tajawal-Medium fs-20 my-0">({{totalRatingValue}})</p>
-                <p-rating [(ngModel)]="ratingValueStars" name="rating" id="rating" [stars]="5" [readonly]="true"  [cancel]="false"></p-rating>
+                <p-rating [(ngModel)]="ratingValueStars" [mode]="'decimal'" name="rating" id="rating" [stars]="5" [readonly]="true"  [cancel]="false"></p-rating>
             </div>
         </div>
     </div>
