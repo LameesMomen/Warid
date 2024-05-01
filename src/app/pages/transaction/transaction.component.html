@@ -27,7 +27,7 @@
             <img width="100%" height="126px" src="{{item.supplier_product_image}}" alt="img">
             <div class="d-flex justify-content-between">
                 <p class="Tajawal-Bold fs-20 blue-txt-color my-1">{{item.id}}#</p>
-                <p class="Tajawal-Bold fs-20 green-txt-color my-1">{{item.status}}</p>
+                <p class="Tajawal-Bold fs-20 my-1" [class.red-color]="item?.status.includes('بانتظار')" [class.green-txt-color]="!item?.status.includes('بانتظار')">{{item.status}}</p>
             </div>
             <p class="Tajawal-Medium fs-20 my-1">{{item.supplier_product}}</p>
             <p class="Tajawal-Bold fs-16 my-1"> <span class="blue-txt-color">العميل : </span>{{item.client}}</p>

@@ -117,7 +117,7 @@
                                 <div class="col-sm-12 col-md-4 col-lg-4 my-2 my-lg-0 px-0 px-lg-3">
                                     <label class="form-label fs-22 Tajawal-Medium blue-txt-color" for="mobile">رقم الجوال</label> <br>
                                     <div class="p-inputgroup">
-                                         <input class="form-control" minlength="9" maxlength="9" readonly type="text" name="mobile" id="mobile" [(ngModel)]="clientDetail.mobile" required placeholder="رقم الجوال">
+                                         <input class="form-control" minlength="9" maxlength="9" onkeypress="return event.charCode >= 48 && event.charCode <= 57" readonly type="text" name="mobile" id="mobile" [(ngModel)]="clientDetail.mobile" required placeholder="رقم الجوال">
                                         <span class="p-inputgroup-addon fs-22 Tajawal-Medium">966+</span>
                                     </div>
                                 </div>

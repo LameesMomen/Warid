@@ -51,7 +51,7 @@ export class EditLocationComponent implements OnInit{
         this.project_name = res.project_name
         this.building_license = res.building_license
         this.google_maps_link = res.google_maps_link
-        this.guard_mobile = res.guard_mobile
+        this.guard_mobile = res.guard_mobile.replace('+966','')
         this.neighborhood = res.neighborhood
         this.city = res.city
         this.spinner.hide()

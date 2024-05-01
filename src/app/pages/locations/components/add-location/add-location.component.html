@@ -76,7 +76,10 @@
                 <div class="row my-2">
                     <div class="col-12">
                         <label class="guard-number fs-16 Tajawal-Bold blue-txt-color">رقم جوال الحارس</label> <br>
-                        <input class="form-control" type="text" name="guardNumber" id="guardNumber" ngModel #guardNumber="ngModel" required placeholder="اكتب رقم الحارس">
+                        <div class="d-flex align-items-center">
+                            <input style="width: 90%;" class="form-control" type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="9" name="guardNumber" id="guardNumber" ngModel #guardNumber="ngModel" required placeholder="اكتب رقم الحارس">
+                            <p class="fs-16 Tajawal-Bold my-auto mx-auto">+ 966</p>
+                        </div>
                     </div>
                 </div>
     
