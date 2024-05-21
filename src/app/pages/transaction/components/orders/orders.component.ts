@@ -33,6 +33,9 @@ export class OrdersComponent implements OnInit {
       (res:any)=>{
         this.spinner.hide();
         this.response=res;
+        this.response.payment_info.forEach((item:any) => {
+          item.account_number = item.account_number.replace(/(\d{4})/g, '$1 ').replace(/(^\s+|\s+$)/,'')  
+        });
       },
       err =>{
         this.spinner.hide()

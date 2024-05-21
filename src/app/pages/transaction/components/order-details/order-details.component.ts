@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { AfterContentInit, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-order-details',
@@ -13,10 +13,15 @@ export class OrderDetailsComponent {
   regex = /(?<!^).(?!$)/g;
 
   constructor(){}
+
   showDialogDelievery() {
     this.visibleDelieveryImage = true;
   }
   showDialogPayment() {
     this.visiblePaymentImage = true;
+  }
+
+  downloadReciet(id:any){
+
   }
 }
