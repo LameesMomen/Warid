@@ -21,6 +21,10 @@ export class HttpHelperService {
     return this.http.get('http://34.39.7.165' + url)
   }
 
+  getPDF(url:string){
+    return this.http.get('http://34.39.7.165' + url,{responseType:'blob'})
+  }
+
   post(url:string , payload : any){
     return this.http.post('http://34.39.7.165' + url , payload)
   }

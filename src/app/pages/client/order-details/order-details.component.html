@@ -176,9 +176,9 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4 btn-action my-2 my-lg-0">
-                    <a class="btn download-reciet-btn Tajawal-Bold fs-25" href="{{orderData?.payment_image}}">تحميل الفاتورة
+                    <button (click)="downloadReciet(orderData?.id)" target="_blank" class="btn download-reciet-btn Tajawal-Bold fs-25">تحميل الفاتورة
                         <i class="pi pi-download me-5 fs-3"></i>
-                    </a>
+                    </button>
                 </div>
              </div>
              <!-- End Row For Reciet Order -->

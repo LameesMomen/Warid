@@ -41,6 +41,25 @@ export class OrderDetailComponent implements OnInit {
     this.getOrderDetail();
   }
 
+  downloadReciet(id:any){
+    this.http.getPDF(`/ordermanager/receipt/${id}`).subscribe(
+      (res:any)=>{
+        let blob = new Blob([res], {type: 'application/pdf'});
+
+        var downloadURL = window.URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = downloadURL;
+        link.download = "receipt.pdf";
+        link.click();
+      },
+      err=>{
+        this.messageService.add({severity:'error', summary:'خطأ', detail:'حدث خطأ ما'});
+      }
+    )
+
+  }
+  
+
   getOrderDetail() {
     this.spinner.show();
     this.http.get(`/ordermanager/supplier/orders/${this.id}/`).subscribe(
